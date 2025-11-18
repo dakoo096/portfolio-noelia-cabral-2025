@@ -24,11 +24,11 @@ const proyectos = [
     descripcion:
       'Aplicación web completa desarrollada con Spring Boot, MySQL y Thymeleaf. Permite gestionar dueños, mascotas y atenciones veterinarias, incluyendo historial, edición, eliminación, sesión de usuarios y seguridad con Spring Security. Integración de usuario logueado en el registro de atención y arquitectura escalable.',
     imagenes: [
-      '/img/proyecto1/veterinaria1.png',
-      '/img/proyecto1/veterinaria2.png',
-      '/img/proyecto1/veterinaria3.png',
-      '/img/proyecto1/veterinaria4.png',
-      '/img/proyecto1/veterinaria5.png',
+      './img/proyecto1/veterinaria1.png',
+      './img/proyecto1/veterinaria2.png',
+      './img/proyecto1/veterinaria3.png',
+      './img/proyecto1/veterinaria4.png',
+      './img/proyecto1/veterinaria5.png',
     ],
     link: 'https://github.com/dakoo096/clinicaVeterinaria'
   },
@@ -37,11 +37,11 @@ const proyectos = [
     descripcion:
       'Plataforma donde los usuarios pueden crear, editar, borrar y comentar publicaciones. Incluye autenticación, control de privacidad, permisos por usuario, carga dinámica de posts, y una interfaz cuidada y completamente responsive.',
     imagenes: [
-      '/img/proyecto2/blog1.jpeg',
-      '/img/proyecto2/blog2.jpeg',
-      '/img/proyecto2/blog3.jpeg',
-      '/img/proyecto2/blog4.jpeg',
-      '/img/proyecto2/blog5.jpeg',
+      './img/proyecto2/blog1.jpeg',
+      './img/proyecto2/blog2.jpeg',
+      './img/proyecto2/blog3.jpeg',
+      './img/proyecto2/blog4.jpeg',
+      './img/proyecto2/blog5.jpeg',
     ],
     link: 'https://github.com/dakoo096/mi-blog-personal.git'
   },
@@ -50,9 +50,9 @@ const proyectos = [
     descripcion:
       'Sistema CRUD para registrar libros por título, autor e ISBN. Desarrollado con Java, Spring Boot y MySQL. Posee vistas con Thymeleaf, validaciones, listados ordenados y edición directa desde el panel.',
     imagenes: [
-      '/img/proyecto3/biblioteca1.png',
-      '/img/proyecto3/biblioteca2.png',
-      '/img/proyecto3/biblioteca3.png',
+      './img/proyecto3/biblioteca1.png',
+      './img/proyecto3/biblioteca2.png',
+      './img/proyecto3/biblioteca3.png',
     ],
     link: 'https://github.com/dakoo096/Biblioteca.git'
   },
@@ -61,10 +61,10 @@ const proyectos = [
     descripcion:
       'Aplicación de escritorio creada con Java y Swing, utilizando arquitectura por capas. Incluye validación de usuario, roles dinámicos y vistas específicas. Permite CRUD de usuarios con refresco automático.',
     imagenes: [
-      '/img/proyecto4/roles1.jpeg',
-      '/img/proyecto4/roles2.jpeg',
-      '/img/proyecto4/roles3.jpeg',
-      '/img/proyecto4/roles4.jpeg',
+      './img/proyecto4/roles1.jpeg',
+      './img/proyecto4/roles2.jpeg',
+      './img/proyecto4/roles3.jpeg',
+      './img/proyecto4/roles4.jpeg',
     ],
     link: 'https://github.com/dakoo096/Login-Usuarios'
   },
@@ -73,11 +73,11 @@ const proyectos = [
     descripcion:
       'App de escritorio con Java y Swing para gestión de mascotas y dueños. Relación 1:1, modelo por capas, tabla editable y persistencia completa.',
     imagenes: [
-      '/img/proyecto5/peluqueria1.jpeg',
-      '/img/proyecto5/peluqueria2.jpeg',
-      '/img/proyecto5/peluqueria3.jpeg',
-      '/img/proyecto5/peluqueria4.jpeg',
-      '/img/proyecto5/peluqueria5.jpeg',
+      './img/proyecto5/peluqueria1.jpeg',
+      './img/proyecto5/peluqueria2.jpeg',
+      './img/proyecto5/peluqueria3.jpeg',
+      './img/proyecto5/peluqueria4.jpeg',
+      './img/proyecto5/peluqueria5.jpeg',
     ],
     link: 'https://github.com/dakoo096/peluqueria-canina'
   },
@@ -86,11 +86,11 @@ const proyectos = [
     descripcion:
       'Sistema en Java y Swing que permite carga, edición, lectura y eliminación de vehículos utilizando arquitectura IGU – Lógica – Persistencia.',
     imagenes: [
-      '/img/proyecto6/conse1.jpeg',
-      '/img/proyecto6/conse2.jpeg',
-      '/img/proyecto6/conse3.jpeg',
-      '/img/proyecto6/conse4.jpeg',
-      '/img/proyecto6/conse5.jpeg',
+      './img/proyecto6/conse1.jpeg',
+      './img/proyecto6/conse2.jpeg',
+      './img/proyecto6/conse3.jpeg',
+      './img/proyecto6/conse4.jpeg',
+      './img/proyecto6/conse5.jpeg',
     ],
     link: 'https://github.com/dakoo096/Concesionaria-Automovil'
   },
@@ -99,9 +99,9 @@ const proyectos = [
     descripcion:
       'Sitio web responsive construido en HTML, CSS y JavaScript basado en un diseño de Codo a Codo. Totalmente adaptable y estéticamente moderno.',
     imagenes: [
-      '/img/proyecto7/cac1.png',
-      '/img/proyecto7/cac2.png',
-      '/img/proyecto7/cac3.png',
+      './img/proyecto7/cac1.png',
+      './img/proyecto7/cac2.png',
+      './img/proyecto7/cac3.png',
     ],
     link: 'https://dakoo096.github.io/tpIntegradorCaC/'
   }

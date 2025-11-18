@@ -6,7 +6,6 @@ body {
   min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
   background-color: #f0ebe3;
-  overflow-x: hidden;
 }
 * {
   scroll-behavior: smooth;

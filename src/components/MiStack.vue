@@ -29,45 +29,45 @@ const categorias = [
   {
     titulo: "Frontend",
     skills: [
-      { icono: "/img/logos/html.png", nombre: "HTML5" },
-      { icono: "/img/logos/css.png", nombre: "CSS3" },
-      { icono: "/img/logos/javascript.png", nombre: "JavaScript" },
-      { icono: "/img/logos/bootstrap.png", nombre: "Bootstrap" },
-      { icono: "/img/logos/vue.png", nombre: "Vue" },
-      { icono: "/img/logos/quasar.png", nombre: "Quasar" },
+      { icono: "./img/logos/html.png", nombre: "HTML5" },
+      { icono: "./img/logos/css.png", nombre: "CSS3" },
+      { icono: "./img/logos/javascript.png", nombre: "JavaScript" },
+      { icono: "./img/logos/bootstrap.png", nombre: "Bootstrap" },
+      { icono: "./img/logos/vue.png", nombre: "Vue" },
+      { icono: "./img/logos/quasar.png", nombre: "Quasar" },
     ]
   },
   {
     titulo: "Backend",
     skills: [
-      { icono: "/img/logos/java.png", nombre: "Java" },
-      { icono: "/img/logos/springboot.png", nombre: "SpringBoot" },
-      { icono: "/img/logos/php.png", nombre: "PHP" },
+      { icono: "./img/logos/java.png", nombre: "Java" },
+      { icono: "./img/logos/springboot.png", nombre: "SpringBoot" },
+      { icono: "./img/logos/php.png", nombre: "PHP" },
     ],
   },
   {
     titulo: "Desarrollo, herramientas y bases de datos",
     skills: [
-      { icono: "/img/logos/git.png", nombre: "Git" },
-      { icono: "/img/logos/github.png", nombre: "Github" },
-      { icono: "/img/logos/gitlab.png", nombre: "GitLab" },
-      { icono: "/img/logos/trello.png", nombre: "Trello" },
-      { icono: "/img/logos/mysql.png", nombre: "MySQL" },
-      { icono: "/img/logos/postgresql.png", nombre: "PostgreSQL" },
-      { icono: "/img/logos/postman.png", nombre: "Postman" },
+      { icono: "./img/logos/git.png", nombre: "Git" },
+      { icono: "./img/logos/github.png", nombre: "Github" },
+      { icono: "./img/logos/gitlab.png", nombre: "GitLab" },
+      { icono: "./img/logos/trello.png", nombre: "Trello" },
+      { icono: "./img/logos/mysql.png", nombre: "MySQL" },
+      { icono: "./img/logos/postgresql.png", nombre: "PostgreSQL" },
+      { icono: "./img/logos/postman.png", nombre: "Postman" },
     ],
   },
   {
     titulo: "Testing / QA",
     skills: [
-      { icono: "/img/logos/cypress.png", nombre: "Cypress" },
+      { icono: "./img/logos/cypress.png", nombre: "Cypress" },
     ],
   },
   {
     titulo: "Desarrollo de videojuegos / Diseño 3D",
     skills: [
-      { icono: "/img/logos/godot.png", nombre: "Godot" },
-      { icono: "/img/logos/zbrush.png", nombre: "ZBrush" },
+      { icono: "./img/logos/godot.png", nombre: "Godot" },
+      { icono: "./img/logos/zbrush.png", nombre: "ZBrush" },
     ],
   },
 ]
