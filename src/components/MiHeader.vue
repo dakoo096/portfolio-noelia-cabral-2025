@@ -19,7 +19,7 @@
       <p><a href="https://github.com/dakoo096" target="_blank"><img src="/img/githubfooter.png" alt="GitHub" /></a></p>
       <p><a href="https://www.linkedin.com/in/noelia-cabral-381723140" target="_blank"><img
             src="/img/linkedinfooter.png" alt="LinkedIn" /></a></p>
-      <p><a href="/img/cv/CvCabralNoelia2025.pdf" target="_blank"><img src="/img/cv.png" alt="CV" /></a></p>
+      <p><a href="./img/cv/CvCabralNoelia2025.pdf" download><img src="/img/cv.png" alt="CV" /></a></p>
     </div>
   </div>
   <Redes />
@@ -33,11 +33,21 @@ import NavbarComponent from './MiNavbar.vue'
 .portada {
   position: relative;
   background-image: url(/img/fondoportada.png);
+  border-bottom: 2px solid #7a7a7a6b;
   background-repeat: no-repeat;
   background-size: cover;
   height: 40rem;
 }
-
+.portada::before{
+    content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.26);
+  z-index: -1;
+}
 /* Texto Portada */
 .container-portada {
   position: absolute;
@@ -217,5 +227,19 @@ import NavbarComponent from './MiNavbar.vue'
   .redes p:hover {
     transform: scale(1.2);
   }
+}
+@media (max-width: 400px) {
+  .container-portada {
+    left: 1rem;
+  }
+    .container-portada h1 {
+    font-size: 1.2rem;
+  }
+
+    .container-portada h2 {
+    font-size: 0.8rem;
+  }
+
+
 }
 </style>

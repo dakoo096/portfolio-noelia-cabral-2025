@@ -329,7 +329,6 @@ onMounted(() => {
 }
 
 
-/* ======= MOBILE (max-width: 576px) ======= */
 @media (max-width: 576px) {
 
   .formulario h2 {
@@ -357,6 +356,30 @@ onMounted(() => {
     width: 100%;
     padding: 0.8rem;
     font-size: 1rem;
+  }
+}
+@media (max-width: 400px) {
+
+  .formulario h2 {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+
+  .info-formulario h3 {
+    font-size: 0.8rem;
+    padding: 0.2rem;
+  }
+
+  .formulario-container{
+    font-size: 0.8rem;
+  }
+  .info-formulario p {
+    font-size: 0.8rem;
+    padding: 0.2rem;
+  }
+  .formulario-boton button {
+  font-size: 0.8rem;
+  padding: 0.5rem;
   }
 }
 </style>

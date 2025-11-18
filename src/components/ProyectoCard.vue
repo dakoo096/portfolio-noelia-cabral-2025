@@ -363,6 +363,7 @@ const modalAnterior = () => {
   .proyecto-descripcion {
     font-size: 1rem;
   }
+}
 
   @media (max-width: 768px) {
     .proyectos-grid {
@@ -389,7 +390,7 @@ const modalAnterior = () => {
     }
 
     .proyecto-descripcion {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       line-height: 1.45rem;
     }
 
@@ -398,6 +399,20 @@ const modalAnterior = () => {
       font-size: 0.92rem;
     }
   }
+  @media (max-width: 400px) {
 
-}
+    .proyecto-titulo {
+      font-size: 1rem;
+    }
+
+    .proyecto-descripcion {
+      font-size: 0.8rem;
+      line-height: 1.35rem;
+    }
+
+    .proyecto-link {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
 </style>

@@ -154,7 +154,6 @@ onMounted(() => {
   }
 }
 
-/* Subtítulo */
 .subtitulo {
   text-align: center;
   color: #555;
@@ -229,6 +228,27 @@ onMounted(() => {
   .mi-stack-container-card img {
     width: 50px;
     height: 50px;
+  }
+}
+@media (max-width: 400px) {
+  .mi-stack h2{
+    font-size: 1.2rem;
+  }
+  .subtitulo {
+    font-size: 0.8rem;
+    max-width: 95%;
+  }
+
+  .categoria-stack h3 {
+  font-size: 1rem;
+  }
+  .mi-stack-container-card {
+    width: 60px;
+    height: 80px;
+  }
+    .mi-stack-container-card img {
+    width: 40px;
+    height: 40px;
   }
 }
 </style>

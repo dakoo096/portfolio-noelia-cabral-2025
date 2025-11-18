@@ -50,4 +50,37 @@ defineProps({
 .mi-stack-container-card:hover .texto {
   color: #fff;
 }
+
+@media (max-width: 600px) {
+  .mi-stack-container-card {
+    width: 80px;
+    height: 100px;
+    padding: 0.8rem;
+  }
+
+  .mi-stack-container-card img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .mi-stack-container-card .texto {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 400px) {
+  .mi-stack-container-card {
+    width: 70px;
+    height: 90px;
+    padding: 0.6rem;
+  }
+
+  .mi-stack-container-card img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mi-stack-container-card .texto {
+    font-size: 0.7rem;
+  }
+}
 </style>

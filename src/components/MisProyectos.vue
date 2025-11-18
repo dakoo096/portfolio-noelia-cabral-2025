@@ -248,4 +248,20 @@ onMounted(() => {
     font-size: 0.95rem;
   }
 }
+@media (max-width: 400px) {
+  .mis-proyectos h2 {
+    font-size: 1.2rem;
+  }
+
+  .subtitulo {
+    font-size: 0.8rem;
+    max-width: 95%;
+  }
+    .mis-proyectos {
+    padding: 0.5rem;
+  }
+  .mis-proyectos-container {
+  padding: 0.5rem;
+}
+}
 </style>
