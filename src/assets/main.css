@@ -5,7 +5,7 @@ body {
   width: 100%;
   min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
-  background-image: url("img/fondo.png");
+  background-image: url("/img/fondo.png");
   background-size: cover;
   background-position: center;
   overflow-x: hidden;
@@ -20,7 +20,8 @@ body::before {
   background-color: rgba(255, 255, 255, 0.692);
   z-index: -1;
 }
-* {
+
+html {
   scroll-behavior: smooth;
 }
 
@@ -70,11 +71,16 @@ section,
   }
 }
 
-
-/* Fix mobile */
 @media (max-width: 768px) {
   section,
   .container {
     padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section,
+  .container {
+    padding: 0.2rem;
   }
 }

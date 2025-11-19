@@ -1,5 +1,5 @@
 <template>
-  <section class="mi-stack" id="mi-stack" data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-offset="100"
+  <section class="mi-stack" id="mi-stack" data-aos="fade-in" data-aos-easing="ease-in-sine" data-aos-offset="100"
     data-aos-duration="500">
     <h2>Mis Habilidades</h2>
     <p class="subtitulo">

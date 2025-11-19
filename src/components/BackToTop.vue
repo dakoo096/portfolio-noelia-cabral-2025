@@ -32,9 +32,8 @@ onUnmounted(() => window.removeEventListener('scroll', toggleVisibility))
   z-index: 9;
   display: flex;
   justify-content: flex-end;
-  /* <-- clave */
-}
 
+}
 
 .boton-back-to-top button {
   font-size: 1.5rem;
@@ -43,5 +42,12 @@ onUnmounted(() => window.removeEventListener('scroll', toggleVisibility))
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+@media (max-width: 400px) {
+  .boton-back-to-top {
+    right: 1rem;
+    bottom: 1rem;
+  }
 }
 </style>

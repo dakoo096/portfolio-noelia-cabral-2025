@@ -35,8 +35,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100% !important;
+  overflow-x: hidden;
   z-index: 9999;
+  width: 100%;
 }
 
 
@@ -47,7 +49,10 @@
   border-bottom: 2px solid #DEA8D7;
   transition: all 0.3s;
 }
-
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 .navbar a:hover {
   color: #ffffff;
   background-color: #DAA0D2;
@@ -67,6 +72,26 @@
     padding: 1vw;
   }
 }
+@media (max-width: 768px) {
+  .navbar {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .navbar .container,
+  .navbar .container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .navbar-toggler {
+    margin-left: 0 !important;
+  }
+}
+
 
 @media (max-width: 600px) {
   .navbar a {

@@ -1,5 +1,5 @@
 <template>
-  <section class="acerca-de-mi" id="acerca-de-mi" data-aos="fade-right" data-aos-easing="ease-in-sine"
+  <section class="acerca-de-mi" id="acerca-de-mi" data-aos="fade-in" data-aos-easing="ease-in-sine"
     data-aos-offset="100" data-aos-duration="500">
     <h2>Acerca de mí</h2>
     <div class="acerca-de-mi-container">

@@ -1,5 +1,5 @@
 <template>
-  <section class="formulario my-5" id="contacto" data-aos="fade-left" data-aos-easing="ease-in-sine"
+  <section class="formulario my-5" id="contacto" data-aos="fade-in" data-aos-easing="ease-in-sine"
     data-aos-offset="100" data-aos-duration="500">
     <div id="alerta" ref="alertaRef" class="alert toast-alert" style="display: none;"></div>
 

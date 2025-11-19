@@ -10,7 +10,7 @@
     </div>
 
     <!-- Imagen Portada -->
-    <div class="container-portada-img" data-aos="flip-left" data-aos-delay="1800">
+    <div class="container-portada-img" data-aos="fade-in" data-aos-delay="1800">
       <img src="/img/caricatura.png" alt="Caricatura de Noelia Cabral" />
     </div>
 
@@ -37,17 +37,22 @@ import NavbarComponent from './MiNavbar.vue'
   background-repeat: no-repeat;
   background-size: cover;
   height: 40rem;
+  overflow: hidden;
 }
-.portada::before{
-    content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+
+.portada::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-color: rgba(255, 255, 255, 0.26);
-  z-index: -1;
+  z-index: 1;
 }
+
+.portada > * {
+  position: relative;
+  z-index: 2;
+}
+
 /* Texto Portada */
 .container-portada {
   position: absolute;

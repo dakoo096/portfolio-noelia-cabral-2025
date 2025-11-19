@@ -1,5 +1,5 @@
 <template>
-  <section class="mis-proyectos" id="mis-proyectos" data-aos="fade-right" data-aos-easing="ease-in-sine"
+  <section class="mis-proyectos" id="mis-proyectos" data-aos="fade-in" data-aos-easing="ease-in-sine"
     data-aos-offset="100" data-aos-duration="500">
     <h2>Mis Proyectos</h2>
     <p class="subtitulo">
