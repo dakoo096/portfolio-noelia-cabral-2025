@@ -41,9 +41,14 @@ onUnmounted(() => window.removeEventListener('scroll', toggleVisibility))
   background-color: #DAA0D2;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
+.boton-back-to-top button:active {
+
+  background-color: #da7ecd;
+
+}
 @media (max-width: 400px) {
   .boton-back-to-top {
     right: 1rem;

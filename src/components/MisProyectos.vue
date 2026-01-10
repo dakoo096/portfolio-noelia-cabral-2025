@@ -3,7 +3,7 @@
     data-aos-offset="100" data-aos-duration="500">
     <h2>Mis Proyectos</h2>
     <p class="subtitulo">
-      Selección de algunos de mis proyectos de practica y personales, desarrollados con diversas tecnologías y enfoques.
+      Selección de algunos de mis proyectos de práctica y personales, desarrollados con diversas tecnologías y enfoques.
     </p>
 
     <div class="mis-proyectos-container">
@@ -160,6 +160,7 @@ onMounted(() => {
   backdrop-filter: blur(6px);
   text-align: center;
   overflow: hidden;
+  cursor: default;
 
 }
 

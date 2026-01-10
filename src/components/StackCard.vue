@@ -26,6 +26,7 @@ defineProps({
   cursor: pointer;
   width: 100px;
   height: 120px;
+  cursor: default;
 }
 
 .mi-stack-container-card:hover {

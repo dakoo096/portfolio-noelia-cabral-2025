@@ -44,6 +44,7 @@
   border: 1px solid rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
   text-align: center;
+  cursor: default;
 
 
 

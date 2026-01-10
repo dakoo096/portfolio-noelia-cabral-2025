@@ -5,7 +5,7 @@
     <div class="container-portada">
       <h1>¡Hola! Soy Noelia Cabral</h1>
       <h2 class="" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="1800">
-        Desarrolladora FullStack
+        Desarrolladora Full Stack
       </h2>
     </div>
 
@@ -38,6 +38,7 @@ import NavbarComponent from './MiNavbar.vue'
   background-size: cover;
   height: 40rem;
   overflow: hidden;
+  cursor: default;
 }
 
 .portada::before {
@@ -141,6 +142,7 @@ import NavbarComponent from './MiNavbar.vue'
     border-color: transparent;
   }
 }
+
 
 /* MEDIA QUERIES */
 @media (max-width: 1200px) {

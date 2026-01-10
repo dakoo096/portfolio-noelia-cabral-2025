@@ -169,6 +169,7 @@ onMounted(() => {
   box-shadow: 0px 1px 4px rgba(44, 26, 44, 0.2);
   border-radius: 20px;
   text-align: center;
+  cursor: default;
 
 }
 
@@ -224,12 +225,18 @@ onMounted(() => {
   margin-left: 0 !important;
   display: flex;
   justify-content: flex-start;
+    position: relative;
+  overflow: hidden;
+  z-index: 2;
 }
 
+
 .container-imagen img {
-  margin-left: 0 !important;
-  padding-left: 0 !important;
+  position: relative;
+  z-index: 0;
+  filter: none;
 }
+
 
 .formulario-derecha {
   padding: 1rem;
@@ -372,7 +379,12 @@ onMounted(() => {
 
   .formulario-container{
     font-size: 0.8rem;
+    position: relative;
   }
+  .formulario-container > * {
+  position: relative;
+  z-index: 2;
+}
   .info-formulario p {
     font-size: 0.8rem;
     padding: 0.2rem;

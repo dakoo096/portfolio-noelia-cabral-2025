@@ -122,6 +122,7 @@ onMounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(6px);
   text-align: center;
+  cursor: default;
 }
 
 .mi-stack h2 {
@@ -176,11 +177,13 @@ onMounted(() => {
   padding: 0.8rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+
 }
 
 .categoria-stack:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
 }
 
 .categoria-stack h3 {
