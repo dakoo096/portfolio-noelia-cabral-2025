@@ -60,9 +60,6 @@ onMounted(() => {
   transition: transform 0.2s;
 }
 
-.dark-mode-btn:hover {
-  transform: scale(1.1);
-}
 
 /* Navbar base */
 .navbar {
@@ -79,7 +76,7 @@ onMounted(() => {
 }
 
 
-.navbar a {
+.navbar a, .navbar button {
   padding: 1rem 1.5rem;
   color: rgb(0, 0, 0);
   font-size: 1.5rem;
@@ -92,25 +89,18 @@ onMounted(() => {
   padding-right: 0 !important;
 }
 
-.navbar a:hover {
+.navbar a:hover, .navbar button:hover {
   color: #ffffff;
   background-color: #DAA0D2;
   border-bottom: 2px solid #4b4b4b;
 }
 
-.navbar a:active {
+.navbar a:active, .navbar button:active {
   color: #ffffff;
   background-color: #da91daaf;
 }
 
 
-/* Responsive navbar font-size */
-@media (max-width: 1200px) {
-  .navbar a {
-    text-align: center;
-    padding: 1vw;
-  }
-}
 
 @media (max-width: 768px) {
   .navbar {

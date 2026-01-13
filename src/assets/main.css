@@ -65,6 +65,7 @@ section,
   animation: shine-move 2s ease;
 }
 
+
 @keyframes shine-move {
   to {
     left: 120%;
@@ -100,14 +101,29 @@ body.dark-mode .navbar {
   border-bottom: 2px solid #333;
 }
 
-body.dark-mode .navbar a {
+body.dark-mode .navbar a, .navbar button {
   color: #eaeaea;
   border-bottom: 2px solid #1e1e1e;
 }
 
-body.dark-mode .navbar a:hover {
+body.dark-mode .navbar a:hover, .navbar button:hover {
   background-color: #333;
   color: #fff;
+}
+
+body.dark-mode .dark-mode-btn {
+  color: #eaeaea;
+  border-bottom: 2px solid #1e1e1e;
+
+}
+
+body.dark-mode .dark-mode-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .dark-mode-btn:active {
+  background-color: #444;
 }
 
 body.dark-mode .portada::before {
