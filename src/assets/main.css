@@ -95,6 +95,9 @@ body.dark-mode::before {
   background-color: rgba(0, 0, 0, 0.808);
 }
 
+body.dark-mode .navbar-toggler-icon{
+  filter: invert(1);
+}
 /* Navbar dark */
 body.dark-mode .navbar {
   background-color: #1e1e1e;
@@ -109,6 +112,8 @@ body.dark-mode .navbar a, .navbar button {
 body.dark-mode .navbar a:hover, .navbar button:hover {
   background-color: #333;
   color: #fff;
+  overflow-x: hidden;
+
 }
 
 body.dark-mode .dark-mode-btn {
