@@ -46,7 +46,7 @@ const categorias = [
     ],
   },
   {
-    titulo: "Desarrollo, herramientas y bases de datos",
+    titulo: "Herramientas y Bases de Datos",
     skills: [
       { icono: "./img/logos/git.png", nombre: "Git" },
       { icono: "./img/logos/github.png", nombre: "Github" },
