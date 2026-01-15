@@ -48,11 +48,14 @@ const proyectos = [
   {
     titulo: 'Biblioteca Virtual',
     descripcion:
-      'Sistema CRUD para registrar libros por título, autor e ISBN. Desarrollado con Java, Spring Boot y MySQL. Posee vistas con Thymeleaf, validaciones, listados ordenados y edición directa desde el panel.',
+      'Aplicación web CRUD para gestión de libros con Spring Boot, Thymeleaf y MySQL. Implementa paginación, buscador, validaciones, vistas responsivas y operaciones completas de administración.',
     imagenes: [
       './img/proyecto3/biblioteca1.png',
       './img/proyecto3/biblioteca2.png',
       './img/proyecto3/biblioteca3.png',
+      './img/proyecto3/biblioteca4.png',
+      './img/proyecto3/biblioteca5.png',
+      './img/proyecto3/biblioteca6.png',
     ],
     link: 'https://github.com/dakoo096/Biblioteca.git'
   },
