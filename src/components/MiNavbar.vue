@@ -13,7 +13,7 @@
         <ul class="navbar-nav align-items-center">
           <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#acerca-de-mi">Acerca de mí</a></li>
-          <li class="nav-item"><a class="nav-link" href="#mi-stack">Mi Stack</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mi-stack">Mis Habilidades</a></li>
           <li class="nav-item"><a class="nav-link" href="#mis-proyectos">Mis Proyectos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
 

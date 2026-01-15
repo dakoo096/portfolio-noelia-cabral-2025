@@ -312,7 +312,6 @@ onMounted(() => {
 
   .formulario-container {
     flex-direction: column;
-    padding: 1rem;
   }
 
 
@@ -322,7 +321,6 @@ onMounted(() => {
 
   .formulario-derecha {
     width: 100%;
-    border-radius: 20px;
     background-color: rgba(245, 245, 245, 0.8);
   }
 
@@ -344,8 +342,6 @@ onMounted(() => {
   }
 
   .formulario-container {
-    padding: 0.5rem;
-    border-radius: 0;
     background-size: cover;
   }
 
