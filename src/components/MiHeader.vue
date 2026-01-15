@@ -19,7 +19,7 @@
       <p><a href="https://github.com/dakoo096" target="_blank"><img src="/img/githubfooter.png" alt="GitHub" /></a></p>
       <p><a href="https://www.linkedin.com/in/noelia-cabral-381723140" target="_blank"><img
             src="/img/linkedinfooter.png" alt="LinkedIn" /></a></p>
-      <p><a href="./img/cv/CvCabralNoelia2025.pdf" download><img src="/img/cv.png" alt="CV" /></a></p>
+      <p><a href="./img/cv/CvCabralNoelia2026.pdf" download><img src="/img/cv.png" alt="CV" /></a></p>
     </div>
   </div>
   <Redes />
