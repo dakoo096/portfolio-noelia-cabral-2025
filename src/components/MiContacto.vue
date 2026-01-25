@@ -7,7 +7,7 @@
     <div class="formulario-container d-flex">
       <!-- Imagen -->
       <div class="col-lg-5 col img-fluid container-imagen">
-        <img src="/img/caricaturacontacto.png" alt="caricatura señalando a la derecha del formulario" />
+        <img src="/img/caricaturacontacto-2.png" alt="caricatura señalando a la derecha del formulario"/>
       </div>
 
       <!-- Formulario -->
@@ -211,7 +211,7 @@ onMounted(() => {
   transition: all 0.5s;
   box-shadow: 0px 1px 4px 1px rgba(44, 26, 44, 0.3);
   justify-content: center;
-  background-image: url(/img/fondoportada.png);
+  background-image: url(/img/fondo-lofi-dia-inverse.png);
   border-radius: 0 0 20px 20px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -228,14 +228,20 @@ onMounted(() => {
     position: relative;
   overflow: hidden;
   z-index: 2;
+
 }
 
 
 .container-imagen img {
-  position: relative;
-  z-index: 0;
-  filter: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 35rem;
+  max-width: 100%;
+  object-fit: contain;
+  z-index: 1;
 }
+
 
 
 .formulario-derecha {

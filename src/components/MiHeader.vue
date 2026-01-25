@@ -11,7 +11,7 @@
 
     <!-- Imagen Portada -->
     <div class="container-portada-img" data-aos="fade-in" data-aos-delay="1800">
-      <img src="/img/caricatura.png" alt="Caricatura de Noelia Cabral" />
+      <img src="/img/caricatura-2.png" alt="Caricatura de Noelia Cabral" />
     </div>
 
     <!-- Redes -->
@@ -32,11 +32,11 @@ import NavbarComponent from './MiNavbar.vue'
 <style scoped>
 .portada {
   position: relative;
-  background-image: url(/img/fondoportada.png);
+  background-image: url(/img/fondo-lofi-dia.png);
   border-bottom: 2px solid #7a7a7a6b;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 40rem;
+  height: 45rem;
   overflow: hidden;
   cursor: default;
 }
@@ -86,7 +86,7 @@ import NavbarComponent from './MiNavbar.vue'
 }
 
 .container-portada-img img {
-  height: 28rem;
+  height: 32rem;
 }
 
 /* Redes sociales */
