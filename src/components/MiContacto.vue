@@ -1,13 +1,13 @@
 <template>
-  <section class="formulario my-5" id="contacto" data-aos="fade-in" data-aos-easing="ease-in-sine"
-    data-aos-offset="100" data-aos-duration="500">
+  <section class="formulario my-5" id="contacto" data-aos="fade-in" data-aos-easing="ease-in-sine" data-aos-offset="100"
+    data-aos-duration="500">
     <div id="alerta" ref="alertaRef" class="alert toast-alert" style="display: none;"></div>
 
     <h2 class="text-center">Contacto</h2>
     <div class="formulario-container d-flex">
       <!-- Imagen -->
       <div class="col-lg-5 col img-fluid container-imagen">
-        <img src="/img/caricaturacontacto-2.png" alt="caricatura señalando a la derecha del formulario"/>
+        <img src="/img/caricaturacontacto-2.png" alt="caricatura señalando a la derecha del formulario" />
       </div>
 
       <!-- Formulario -->
@@ -193,7 +193,7 @@ onMounted(() => {
   transform: translateX(-50%);
   width: 0%;
   height: 4px;
-  background: linear-gradient(90deg, #D295C6, #D295C6);
+  background: linear-gradient(90deg, #e8b7cf, #e3c3e8);
   border-radius: 2px;
   animation: underline 1s ease forwards;
 }
@@ -225,7 +225,7 @@ onMounted(() => {
   margin-left: 0 !important;
   display: flex;
   justify-content: flex-start;
-    position: relative;
+  position: relative;
   overflow: hidden;
   z-index: 2;
 
@@ -274,8 +274,7 @@ onMounted(() => {
 }
 
 .formulario-boton button {
-  background-color: #DEA8D7;
-
+  background-color: #f7f6f6;
   font-weight: 600;
   padding: 0.5rem 2rem;
   border-radius: 20px;
@@ -284,9 +283,16 @@ onMounted(() => {
 }
 
 .formulario-boton button:hover {
-  background-color: #D295C6;
+  background: linear-gradient(90deg, #f2d6e5, #e3c3e8);
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+  background-color: #e3c3e8;
 }
+.formulario-boton button:active{
+    transform: translateY(0);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.753);
 
+}
 .toast-alert {
   position: fixed;
   top: 20px;
@@ -367,6 +373,7 @@ onMounted(() => {
     font-size: 1rem;
   }
 }
+
 @media (max-width: 400px) {
 
   .formulario h2 {
@@ -379,21 +386,24 @@ onMounted(() => {
     padding: 0.2rem;
   }
 
-  .formulario-container{
+  .formulario-container {
     font-size: 0.8rem;
     position: relative;
   }
-  .formulario-container > * {
-  position: relative;
-  z-index: 2;
-}
+
+  .formulario-container>* {
+    position: relative;
+    z-index: 2;
+  }
+
   .info-formulario p {
     font-size: 0.8rem;
     padding: 0.2rem;
   }
+
   .formulario-boton button {
-  font-size: 0.8rem;
-  padding: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
   }
 }
 </style>

@@ -11,7 +11,7 @@
 
 <style scoped>
 .footer {
-  background-color: #DAA0D2;
+  background-color: #e3c3e8;
   padding: 2rem 0;
   /* más elegante que height fija */
   display: flex;

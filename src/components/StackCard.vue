@@ -32,7 +32,7 @@ defineProps({
 .mi-stack-container-card:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  background: #DEA8D7;
+  background: #e3c3e8;
 }
 
 .mi-stack-container-card img {

@@ -117,6 +117,7 @@ const modalAnterior = () => {
 .proyecto-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+
 }
 
 .carousel-container {
@@ -127,7 +128,7 @@ const modalAnterior = () => {
 
 .proyecto-imagen {
   width: 100%;
-  height: 190px;
+  height: 250px;
   object-fit: cover;
   transition: opacity 0.3s ease;
   border-bottom: 1px solid #eaeaea;
@@ -224,21 +225,27 @@ const modalAnterior = () => {
   display: inline-block;
   width: auto;
   padding: 0.65rem 1.4rem;
-  background: linear-gradient(135deg, #343a40, #1f1f1f);
-  color: white;
+  background-color: #f7f6f6;
+  color: #212325;
+  border: 1.5px solid #e3c3e8;
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
   letter-spacing: 0.4px;
+
 }
 
 .proyecto-link:hover {
-  background: linear-gradient(135deg, #000, #2b2b2b);
+  background: linear-gradient(90deg, #f2d6e5, #e3c3e8);
   transform: translateY(-2px);
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+  background-color: #e3c3e8;
 }
-
+.proyecto-link:active{
+  transform: translateY(0);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.753);
+}
 /* ======================= */
 /*   MODAL                 */
 /* ======================= */

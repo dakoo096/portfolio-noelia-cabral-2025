@@ -136,6 +136,12 @@ onMounted(() => {
   padding-bottom: 0.4rem;
 }
 
+p {
+  line-height: 1.7;
+  color: #6f6f6f;
+}
+
+
 .mi-stack h2::after {
   content: "";
   position: absolute;
@@ -144,7 +150,7 @@ onMounted(() => {
   transform: translateX(-50%);
   width: 0%;
   height: 4px;
-  background: linear-gradient(90deg, #D295C6, #D295C6);
+  background: linear-gradient(90deg, #e8b7cf, #e3c3e8);
   border-radius: 2px;
   animation: underline 1s ease forwards;
 }

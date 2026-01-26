@@ -19,9 +19,14 @@ const toggleVisibility = () => {
 const scrollTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+onMounted(() => {
+  window.addEventListener('scroll', toggleVisibility, { passive: true })
+})
 
-onMounted(() => window.addEventListener('scroll', toggleVisibility))
-onUnmounted(() => window.removeEventListener('scroll', toggleVisibility))
+onUnmounted(() => {
+  window.removeEventListener('scroll', toggleVisibility)
+})
+
 </script>
 
 <style scoped>
@@ -30,24 +35,23 @@ onUnmounted(() => window.removeEventListener('scroll', toggleVisibility))
   bottom: 2rem;
   right: 2rem;
   z-index: 9;
-  display: flex;
-  justify-content: flex-end;
 
+  width: auto;
+  display: inline-flex;
 }
+
 
 .boton-back-to-top button {
   font-size: 1.5rem;
   color: #fff;
-  background-color: #DAA0D2;
+  background-color: #e3c3e8;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .boton-back-to-top button:active {
-
-  background-color: #da7ecd;
-
+  background-color: #e8b7cf;
 }
 @media (max-width: 400px) {
   .boton-back-to-top {

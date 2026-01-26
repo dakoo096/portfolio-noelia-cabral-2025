@@ -63,9 +63,10 @@ onMounted(() => {
 
 /* Navbar base */
 .navbar {
-  background-color: #DEA8D7;
+  background-color: #e3c3e8;
   padding: 0;
-  border-bottom: 2px solid #DAA0D2;
+  border-bottom: 2px solid #e3c3e8
+;
   position: fixed;
   top: 0;
   left: 0;
@@ -80,7 +81,8 @@ onMounted(() => {
   padding: 1rem 1.5rem;
   color: rgb(0, 0, 0);
   font-size: 1.5rem;
-  border-bottom: 2px solid #DEA8D7;
+  border-bottom: 2px solid #e3c3e8
+;
   transition: all 0.3s;
 }
 

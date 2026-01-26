@@ -25,6 +25,21 @@ html {
   scroll-behavior: smooth;
 }
 
+h1, h2{
+  font-family: 'DM Serif Display', serif;
+
+}
+
+
+p, label, span , h3 {
+  font-family: 'Nunito', sans-serif;
+}
+
+.navbar {
+  font-family: 'Space Mono', monospace;
+}
+
+
 /* App principal */
 #app {
   width: 100%;
@@ -310,12 +325,19 @@ body.dark-mode .proyecto-link {
   background: linear-gradient(135deg, #4a1d43, #1d0f1b);
   color: #eaeaea;
   box-shadow: 0 6px 18px rgba(180, 100, 170, 0.35);
+  border: 1.5px solid #292929;
+
 }
 
 body.dark-mode .proyecto-link:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 26px rgba(180, 100, 170, 0.55);
   background: linear-gradient(135deg, #3e1738, #161516);
+}
+
+body.dark-mode .proyecto-link:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(255, 177, 245, 0.815);
 }
 
 /* ======================= */
@@ -405,8 +427,13 @@ body.dark-mode .formulario-boton button:hover {
   transform: translateY(-3px);
   color: #fff;
   box-shadow: 0 10px 26px rgba(210, 149, 198, 0.55);
-}
+  background: linear-gradient(135deg, #1d0f1b, #4a1d43);
 
+}
+body.dark-mode .formulario-boton button:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(255, 177, 245, 0.815);
+}
 body.dark-mode .toast-alert {
   background-color: #1f1f1f;
   color: #f1f1f1;
