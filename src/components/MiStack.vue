@@ -41,8 +41,11 @@ const categorias = [
     titulo: "Backend",
     skills: [
       { icono: "./img/logos/java.png", nombre: "Java" },
-      { icono: "./img/logos/springboot.png", nombre: "SpringBoot" },
+      { icono: "./img/logos/springboot.png", nombre: "Spring Boot" },
+      { icono: "./img/logos/springcloud.png", nombre: "Spring Cloud" },
       { icono: "./img/logos/php.png", nombre: "PHP" },
+      { icono: "./img/logos/logopython.png", nombre: "Python" },
+      { icono: "./img/logos/logofastapi.svg", nombre: "FastAPI" },
     ],
   },
   {
@@ -239,23 +242,27 @@ p {
     height: 50px;
   }
 }
+
 @media (max-width: 400px) {
-  .mi-stack h2{
+  .mi-stack h2 {
     font-size: 1.2rem;
   }
+
   .subtitulo {
     font-size: 0.8rem;
     max-width: 95%;
   }
 
   .categoria-stack h3 {
-  font-size: 1rem;
+    font-size: 1rem;
   }
+
   .mi-stack-container-card {
     width: 60px;
     height: 80px;
   }
-    .mi-stack-container-card img {
+
+  .mi-stack-container-card img {
     width: 40px;
     height: 40px;
   }

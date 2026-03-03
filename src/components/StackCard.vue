@@ -68,6 +68,7 @@ defineProps({
     font-size: 0.8rem;
   }
 }
+
 @media (max-width: 400px) {
   .mi-stack-container-card {
     width: 70px;

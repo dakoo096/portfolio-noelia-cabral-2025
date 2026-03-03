@@ -20,6 +20,21 @@ import ProyectoCard from './ProyectoCard.vue'
 import { onMounted } from 'vue'
 const proyectos = [
   {
+    titulo: 'E-Commerce – Arquitectura de Microservicios',
+    descripcion:
+      'Aplicación web de comercio electrónico desarrollada con arquitectura de microservicios utilizando Spring Boot, Spring Cloud, Api Gateway y MySQL. El sistema se encuentra desacoplado en servicios independientes (usuarios, productos, carrito y ventas), comunicados a través de API REST y gestionados mediante un gateway centralizado. Incluye autenticación con JWT, control de roles (ADMIN/CLIENTE), carrito persistente, confirmación de compras, descuento automático de stock y manejo de sesión desde el frontend con Vue 3, Pinia y TypeScript.',
+    imagenes: [
+      './img/proyecto8/ecommerce5.jpeg',
+      './img/proyecto8/ecommerce6.jpeg',
+      './img/proyecto8/ecommerce1.jpeg',
+      './img/proyecto8/ecommerce2.jpeg',
+      './img/proyecto8/ecommerce3.jpeg',
+      './img/proyecto8/ecommerce4.jpeg',
+
+    ],
+    link: 'Proximamente en Github'
+  },
+  {
     titulo: 'Clínica Veterinaria – Web App',
     descripcion:
       'Aplicación web completa desarrollada con Spring Boot, MySQL y Thymeleaf. Permite gestionar dueños, mascotas y atenciones veterinarias, incluyendo historial, edición, eliminación, sesión de usuarios y seguridad con Spring Security. Integración de usuario logueado en el registro de atención y arquitectura escalable.',
@@ -209,20 +224,26 @@ onMounted(() => {
 
 /* Contenedor */
 .mis-proyectos-container {
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  padding: 0.5rem 1rem;
 }
 
 /* GRID */
 .proyectos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.6rem;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 items per row exactly */
+  gap: 2rem;
 }
 
 /* RESPONSIVE */
+@media (max-width: 1200px) {
+  .proyectos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 988px) {
   .mis-proyectos h2 {
     font-size: 2rem;
@@ -252,6 +273,7 @@ onMounted(() => {
     font-size: 0.95rem;
   }
 }
+
 @media (max-width: 400px) {
   .mis-proyectos h2 {
     font-size: 1.2rem;
@@ -261,11 +283,13 @@ onMounted(() => {
     font-size: 0.8rem;
     max-width: 95%;
   }
-    .mis-proyectos {
+
+  .mis-proyectos {
     padding: 0.5rem;
   }
+
   .mis-proyectos-container {
-  padding: 0.5rem;
-}
+    padding: 0.5rem;
+  }
 }
 </style>

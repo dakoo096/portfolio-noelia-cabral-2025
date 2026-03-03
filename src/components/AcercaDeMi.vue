@@ -107,9 +107,10 @@
 }
 
 @media (max-width: 600px) {
-  .acerca-de-mi{
+  .acerca-de-mi {
     padding: 1rem;
   }
+
   .acerca-de-mi h2 {
     font-size: 1.7rem;
   }
@@ -119,6 +120,7 @@
   }
 
 }
+
 @media (max-width: 400px) {
   .acerca-de-mi h2 {
     font-size: 1.2rem;
@@ -128,5 +130,4 @@
     font-size: 0.8rem;
   }
 }
-
 </style>

@@ -25,20 +25,21 @@ html {
   scroll-behavior: smooth;
 }
 
-h1, h2{
+h1,
+h2 {
   font-family: 'DM Serif Display', serif;
-
 }
 
-
-p, label, span , h3 {
+p,
+label,
+span,
+h3 {
   font-family: 'Nunito', sans-serif;
 }
 
 .navbar {
   font-family: 'Space Mono', monospace;
 }
-
 
 /* App principal */
 #app {
@@ -80,7 +81,6 @@ section,
   animation: shine-move 2s ease;
 }
 
-
 @keyframes shine-move {
   to {
     left: 120%;
@@ -110,7 +110,7 @@ body.dark-mode::before {
   background-color: rgba(0, 0, 0, 0.808);
 }
 
-body.dark-mode .navbar-toggler-icon{
+body.dark-mode .navbar-toggler-icon {
   filter: invert(1);
 }
 /* Navbar dark */
@@ -119,22 +119,22 @@ body.dark-mode .navbar {
   border-bottom: 2px solid #333;
 }
 
-body.dark-mode .navbar a, .navbar button {
+body.dark-mode .navbar a,
+.navbar button {
   color: #eaeaea;
   border-bottom: 2px solid #1e1e1e;
 }
 
-body.dark-mode .navbar a:hover, .navbar button:hover {
+body.dark-mode .navbar a:hover,
+.navbar button:hover {
   background-color: #333;
   color: #fff;
   overflow-x: hidden;
-
 }
 
 body.dark-mode .dark-mode-btn {
   color: #eaeaea;
   border-bottom: 2px solid #1e1e1e;
-
 }
 
 body.dark-mode .dark-mode-btn:hover {
@@ -326,7 +326,6 @@ body.dark-mode .proyecto-link {
   color: #eaeaea;
   box-shadow: 0 6px 18px rgba(180, 100, 170, 0.35);
   border: 1.5px solid #292929;
-
 }
 
 body.dark-mode .proyecto-link:hover {
@@ -428,9 +427,8 @@ body.dark-mode .formulario-boton button:hover {
   color: #fff;
   box-shadow: 0 10px 26px rgba(210, 149, 198, 0.55);
   background: linear-gradient(135deg, #1d0f1b, #4a1d43);
-
 }
-body.dark-mode .formulario-boton button:active{
+body.dark-mode .formulario-boton button:active {
   transform: translateY(0);
   box-shadow: 0 4px 14px rgba(255, 177, 245, 0.815);
 }

@@ -16,9 +16,36 @@ const toggleVisibility = () => {
   visible.value = window.scrollY > 300 // aparece después de 300px
 }
 
-const scrollTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+// Custom smooth scroll for slower speed
+const smoothScrollToTop = () => {
+  const startPosition = window.scrollY
+  const distance = -startPosition
+  const duration = 1000 // 1000ms = 1 second for a slow scroll
+  let startTime = null
+
+  const animation = (currentTime) => {
+    if (startTime === null) startTime = currentTime
+    const timeElapsed = currentTime - startTime
+    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration)
+    window.scrollTo(0, run)
+    if (timeElapsed < duration) requestAnimationFrame(animation)
+  }
+
+  // Easing function for smooth acceleration and deceleration
+  const easeInOutQuad = (t, b, c, d) => {
+    t /= d / 2
+    if (t < 1) return c / 2 * t * t + b
+    t--
+    return -c / 2 * (t * (t - 2) - 1) + b
+  }
+
+  requestAnimationFrame(animation)
 }
+
+const scrollTop = () => {
+  smoothScrollToTop()
+}
+
 onMounted(() => {
   window.addEventListener('scroll', toggleVisibility, { passive: true })
 })
@@ -53,6 +80,7 @@ onUnmounted(() => {
 .boton-back-to-top button:active {
   background-color: #e8b7cf;
 }
+
 @media (max-width: 400px) {
   .boton-back-to-top {
     right: 1rem;

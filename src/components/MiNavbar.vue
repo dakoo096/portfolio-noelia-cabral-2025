@@ -11,11 +11,15 @@
       <!-- Links -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#acerca-de-mi">Acerca de mí</a></li>
-          <li class="nav-item"><a class="nav-link" href="#mi-stack">Mis Habilidades</a></li>
-          <li class="nav-item"><a class="nav-link" href="#mis-proyectos">Mis Proyectos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" @click.prevent="scrollToSection('body')">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#acerca-de-mi"
+              @click.prevent="scrollToSection('#acerca-de-mi')">Acerca de mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mi-stack" @click.prevent="scrollToSection('#mi-stack')">Mis
+              Habilidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mis-proyectos"
+              @click.prevent="scrollToSection('#mis-proyectos')">Mis Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto"
+              @click.prevent="scrollToSection('#contacto')">Contacto</a></li>
 
           <!-- Botón modo oscuro -->
           <li class="nav-item">
@@ -41,6 +45,38 @@ const toggleDarkMode = () => {
   localStorage.setItem('darkMode', isDark.value)
 }
 
+// Custom smooth scroll for slower speed
+const scrollToSection = (targetSelector) => {
+  const target = document.querySelector(targetSelector)
+  if (!target) return
+
+  // Offset para tener en cuenta el navbar fijo
+  const navbarHeight = document.querySelector('.navbar').offsetHeight
+  const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight
+  const startPosition = window.scrollY
+  const distance = targetPosition - startPosition
+  const duration = 1000 // 1000ms = 1 second for a slow scroll
+  let startTime = null
+
+  const animation = (currentTime) => {
+    if (startTime === null) startTime = currentTime
+    const timeElapsed = currentTime - startTime
+    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration)
+    window.scrollTo(0, run)
+    if (timeElapsed < duration) requestAnimationFrame(animation)
+  }
+
+  // Easing function for smooth acceleration and deceleration
+  const easeInOutQuad = (t, b, c, d) => {
+    t /= d / 2
+    if (t < 1) return c / 2 * t * t + b
+    t--
+    return -c / 2 * (t * (t - 2) - 1) + b
+  }
+
+  requestAnimationFrame(animation)
+}
+
 onMounted(() => {
   const saved = localStorage.getItem('darkMode') === 'true'
   isDark.value = saved
@@ -50,8 +86,7 @@ onMounted(() => {
 
 
 <style scoped>
-
-  .dark-mode-btn {
+.dark-mode-btn {
   background: none;
   border: none;
   font-size: 1.4rem;
@@ -65,8 +100,7 @@ onMounted(() => {
 .navbar {
   background-color: #e3c3e8;
   padding: 0;
-  border-bottom: 2px solid #e3c3e8
-;
+  border-bottom: 2px solid #e3c3e8;
   position: fixed;
   top: 0;
   left: 0;
@@ -77,12 +111,12 @@ onMounted(() => {
 }
 
 
-.navbar a, .navbar button {
+.navbar a,
+.navbar button {
   padding: 1rem 1.5rem;
   color: rgb(0, 0, 0);
   font-size: 1.5rem;
-  border-bottom: 2px solid #e3c3e8
-;
+  border-bottom: 2px solid #e3c3e8;
   transition: all 0.3s;
 }
 
@@ -91,13 +125,15 @@ onMounted(() => {
   padding-right: 0 !important;
 }
 
-.navbar a:hover, .navbar button:hover {
+.navbar a:hover,
+.navbar button:hover {
   color: #ffffff;
   background-color: #DAA0D2;
   border-bottom: 2px solid #4b4b4b;
 }
 
-.navbar a:active, .navbar button:active {
+.navbar a:active,
+.navbar button:active {
   color: #ffffff;
   background-color: #da91daaf;
 }

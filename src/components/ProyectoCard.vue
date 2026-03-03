@@ -17,7 +17,15 @@
       <p class="proyecto-descripcion">{{ descripcion }}</p>
 
       <div class="proyecto-buttons">
-        <a class="proyecto-link" :href="link" target="_blank">Ver Proyecto</a>
+        <div class="proyecto-buttons">
+          <a v-if="esLinkValido" class="proyecto-link" :href="link" target="_blank">
+            Ver Proyecto
+          </a>
+
+          <button v-else class="proyecto-link disabled" disabled>
+            Próximamente en GitHub
+          </button>
+        </div>
       </div>
     </div>
 
@@ -44,13 +52,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 
 const props = defineProps({
   titulo: String,
   descripcion: String,
   imagenes: Array,
   link: String,
+});
+
+const esLinkValido = computed(() => {
+  return props.link && props.link.startsWith("http");
 });
 
 /* CARRUSEL PEQUEÑO */
@@ -106,51 +118,66 @@ const modalAnterior = () => {
 <style scoped>
 .proyecto-card {
   background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 24px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .proyecto-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
-
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(135, 87, 133, 0.15);
+  z-index: 2;
 }
 
 .carousel-container {
   position: relative;
   width: 100%;
   cursor: zoom-in;
+  overflow: hidden;
 }
 
 .proyecto-imagen {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  transition: opacity 0.3s ease;
-  border-bottom: 1px solid #eaeaea;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  border-bottom: 1px solid #f0f0f0;
+  filter: brightness(0.95);
+}
+
+.proyecto-card:hover .proyecto-imagen {
+  transform: scale(1.05);
+  filter: brightness(1.05);
 }
 
 .flecha {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(97, 96, 96, 0.65);
-  color: white;
+  background: rgba(255, 255, 255, 0.65);
+  color: #333;
   border: none;
   font-size: 1.8rem;
   padding: 4px 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.3s ease;
   backdrop-filter: blur(4px);
+  opacity: 0;
+  /* hidden by default, shown on hover */
+}
+
+.carousel-container:hover .flecha {
+  opacity: 1;
 }
 
 .flecha:hover {
-  background: rgba(63, 63, 63, 0.9);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .flecha-izq {
@@ -216,7 +243,7 @@ const modalAnterior = () => {
 /* ======================= */
 .proyecto-buttons {
   margin-top: auto;
-  padding-bottom: 1rem;
+  padding-bottom: 1.2rem;
   display: flex;
   justify-content: center;
 }
@@ -224,28 +251,31 @@ const modalAnterior = () => {
 .proyecto-link {
   display: inline-block;
   width: auto;
-  padding: 0.65rem 1.4rem;
-  background-color: #f7f6f6;
-  color: #212325;
-  border: 1.5px solid #e3c3e8;
-  border-radius: 10px;
-  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+  background: linear-gradient(135deg, #fdfdfd, #f5f5f5);
+  color: #2c3034;
+  border: 1px solid #e3c3e8;
+  border-radius: 14px;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.25s ease;
-  letter-spacing: 0.4px;
-
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
 .proyecto-link:hover {
-  background: linear-gradient(90deg, #f2d6e5, #e3c3e8);
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
-  background-color: #e3c3e8;
+  background: linear-gradient(135deg, #e8b7cf, #e3c3e8);
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 20px rgba(227, 195, 232, 0.4);
+  color: #fff;
+  border-color: transparent;
 }
-.proyecto-link:active{
-  transform: translateY(0);
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.753);
+
+.proyecto-link:active {
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 10px rgba(227, 195, 232, 0.3);
 }
+
 /* ======================= */
 /*   MODAL                 */
 /* ======================= */
@@ -357,6 +387,19 @@ const modalAnterior = () => {
   right: 10px;
 }
 
+.proyecto-link.disabled {
+  background: #e0e0e0;
+  color: #777;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.proyecto-link.disabled:hover {
+  transform: none;
+  background: #e0e0e0;
+  color: #777;
+}
 
 @media (max-width: 1024px) {
   .proyecto-imagen {
@@ -372,54 +415,55 @@ const modalAnterior = () => {
   }
 }
 
-  @media (max-width: 768px) {
-    .proyectos-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .proyecto-imagen {
-      height: 160px;
-    }
-
-    .proyecto-card {
-      max-width: 480px;
-      margin: 0 auto;
-    }
+@media (max-width: 768px) {
+  .proyectos-grid {
+    grid-template-columns: 1fr;
   }
 
-  @media (max-width: 480px) {
-    .proyecto-imagen {
-      height: 140px;
-    }
-
-    .proyecto-titulo {
-      font-size: 1.18rem;
-    }
-
-    .proyecto-descripcion {
-      font-size: 0.9rem;
-      line-height: 1.45rem;
-    }
-
-    .proyecto-link {
-      padding: 0.55rem 1.2rem;
-      font-size: 0.92rem;
-    }
+  .proyecto-imagen {
+    height: 160px;
   }
-  @media (max-width: 400px) {
 
-    .proyecto-titulo {
-      font-size: 1rem;
-    }
-
-    .proyecto-descripcion {
-      font-size: 0.8rem;
-      line-height: 1.35rem;
-    }
-
-    .proyecto-link {
-      padding: 0.5rem;
-      font-size: 0.8rem;
-    }
+  .proyecto-card {
+    max-width: 480px;
+    margin: 0 auto;
   }
+}
+
+@media (max-width: 480px) {
+  .proyecto-imagen {
+    height: 140px;
+  }
+
+  .proyecto-titulo {
+    font-size: 1.18rem;
+  }
+
+  .proyecto-descripcion {
+    font-size: 0.9rem;
+    line-height: 1.45rem;
+  }
+
+  .proyecto-link {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .proyecto-titulo {
+    font-size: 1rem;
+  }
+
+  .proyecto-descripcion {
+    font-size: 0.8rem;
+    line-height: 1.35rem;
+  }
+
+  .proyecto-link {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
 </style>
