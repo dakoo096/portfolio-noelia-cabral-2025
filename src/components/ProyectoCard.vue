@@ -251,29 +251,32 @@ const modalAnterior = () => {
 .proyecto-link {
   display: inline-block;
   width: auto;
-  padding: 0.7rem 1.6rem;
-  background: linear-gradient(135deg, #fdfdfd, #f5f5f5);
-  color: #2c3034;
-  border: 1px solid #e3c3e8;
-  border-radius: 14px;
+  padding: 0.8rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  color: #343a40;
+  border: 1px solid rgba(227, 195, 232, 0.5);
+  border-radius: 16px;
   font-weight: 700;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
 }
 
 .proyecto-link:hover {
   background: linear-gradient(135deg, #e8b7cf, #e3c3e8);
-  transform: translateY(-4px);
-  box-shadow: 0px 8px 20px rgba(227, 195, 232, 0.4);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0px 12px 24px rgba(232, 183, 207, 0.5);
   color: #fff;
   border-color: transparent;
 }
 
 .proyecto-link:active {
-  transform: translateY(-1px);
-  box-shadow: 0px 4px 10px rgba(227, 195, 232, 0.3);
+  transform: translateY(-2px) scale(1);
+  box-shadow: 0px 6px 12px rgba(232, 183, 207, 0.4);
 }
 
 /* ======================= */

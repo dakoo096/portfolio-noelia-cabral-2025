@@ -1,6 +1,7 @@
 <template>
   <section class="mis-proyectos" id="mis-proyectos" data-aos="fade-in" data-aos-easing="ease-in-sine"
     data-aos-offset="100" data-aos-duration="500">
+    <ParticleBackground />
     <h2>Mis Proyectos</h2>
     <p class="subtitulo">
       Selección de algunos de mis proyectos de práctica y personales, desarrollados con diversas tecnologías y enfoques.
@@ -17,6 +18,7 @@
 
 <script setup>
 import ProyectoCard from './ProyectoCard.vue'
+import ParticleBackground from './ParticleBackground.vue'
 import { onMounted } from 'vue'
 const proyectos = [
   {
@@ -168,9 +170,10 @@ onMounted(() => {
 <style scoped>
 /* Contenedor general */
 .mis-proyectos {
+  position: relative;
   width: 90%;
   margin: 3rem auto;
-  background: linear-gradient(135deg, #f8f8f8, #eaeaea);
+  background: linear-gradient(135deg, #f8f8f87c, #eaeaea71);
   box-shadow: 0px 1px 4px rgba(44, 26, 44, 0.2);
   padding: 2rem 1.4rem;
   border-radius: 20px;
@@ -179,41 +182,46 @@ onMounted(() => {
   text-align: center;
   overflow: hidden;
   cursor: default;
-
 }
 
 /* Título */
 .mis-proyectos h2 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #343a40;
   position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #343a40 20%, #f38cbe 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
   display: inline-block;
-  padding-bottom: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.mis-proyectos h2:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 /* Subrayado animado */
 .mis-proyectos h2::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 0%;
-  height: 4px;
+  width: 60px;
+  height: 6px;
   background: linear-gradient(90deg, #e8b7cf, #e3c3e8);
-  border-radius: 2px;
-  animation: underline 1s ease forwards;
-}
-
-@keyframes underline {
-  to {
-    width: 80%;
-  }
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(232, 183, 207, 0.4);
 }
 
 /* Subtítulo */
 .subtitulo {
+  position: relative;
+  z-index: 1;
   text-align: center;
   color: #555;
   font-size: 1.15rem;
@@ -224,6 +232,8 @@ onMounted(() => {
 
 /* Contenedor */
 .mis-proyectos-container {
+  position: relative;
+  z-index: 1;
   background-color: transparent;
   border-radius: 16px;
   padding: 0.5rem 1rem;

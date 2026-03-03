@@ -98,26 +98,44 @@ onMounted(() => {
 
 /* Navbar base */
 .navbar {
-  background-color: #e3c3e8;
+  background-color: rgba(227, 195, 232, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 0;
-  border-bottom: 2px solid #e3c3e8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   position: fixed;
   top: 0;
   left: 0;
   width: 100% !important;
   overflow-x: hidden;
   z-index: 9999;
-  width: 100%;
 }
 
 
 .navbar a,
 .navbar button {
+  position: relative;
   padding: 1rem 1.5rem;
   color: rgb(0, 0, 0);
   font-size: 1.5rem;
-  border-bottom: 2px solid #e3c3e8;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar a:hover::after {
+  width: 60%;
 }
 
 .container-fluid {
@@ -128,14 +146,13 @@ onMounted(() => {
 .navbar a:hover,
 .navbar button:hover {
   color: #ffffff;
-  background-color: #DAA0D2;
-  border-bottom: 2px solid #4b4b4b;
+  transform: translateY(-2px);
 }
 
 .navbar a:active,
 .navbar button:active {
   color: #ffffff;
-  background-color: #da91daaf;
+  transform: translateY(0);
 }
 
 

@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
 /* Base global */
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-image: url('/img/fondo.png');
   background-size: cover;
   background-position: center;
@@ -27,18 +29,20 @@ html {
 
 h1,
 h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
 }
 
 p,
 label,
 span,
 h3 {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .navbar {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
 }
 
 /* App principal */
@@ -115,21 +119,21 @@ body.dark-mode .navbar-toggler-icon {
 }
 /* Navbar dark */
 body.dark-mode .navbar {
-  background-color: #1e1e1e;
-  border-bottom: 2px solid #333;
+  background-color: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .navbar a,
 .navbar button {
   color: #eaeaea;
-  border-bottom: 2px solid #1e1e1e;
 }
 
 body.dark-mode .navbar a:hover,
 .navbar button:hover {
-  background-color: #333;
+  background-color: transparent;
   color: #fff;
-  overflow-x: hidden;
 }
 
 body.dark-mode .dark-mode-btn {
@@ -379,16 +383,15 @@ body.dark-mode .formulario h2 {
   color: #f1f1f1;
 }
 
-body.dark-mode .container-imagen::before {
-  content: '';
-  background-color: rgba(0, 0, 0, 0.55);
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.849), rgba(0, 0, 0, 0.74));
+body.dark-mode .formulario-container::before {
+  background-color: rgba(30, 30, 30, 0.85);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(20, 20, 20, 0.8));
+  backdrop-filter: blur(12px);
 }
 
 body.dark-mode .formulario-derecha {
-  background-color: rgba(30, 30, 30, 0.85);
+  background-color: transparent;
+  backdrop-filter: none;
 }
 
 body.dark-mode .info-formulario h3 {
@@ -431,10 +434,6 @@ body.dark-mode .formulario-boton button:hover {
 body.dark-mode .formulario-boton button:active {
   transform: translateY(0);
   box-shadow: 0 4px 14px rgba(255, 177, 245, 0.815);
-}
-body.dark-mode .toast-alert {
-  background-color: #1f1f1f;
-  color: #f1f1f1;
 }
 
 body.dark-mode .footer {

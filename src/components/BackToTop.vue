@@ -70,21 +70,61 @@ onUnmounted(() => {
 
 .boton-back-to-top button {
   font-size: 1.5rem;
-  color: #fff;
-  background-color: #e3c3e8;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  color: #555;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% !important;
+  width: 55px;
+  height: 55px;
+}
+
+.boton-back-to-top button:hover {
+  transform: translateY(-5px) scale(1.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  color: #000;
 }
 
 .boton-back-to-top button:active {
-  background-color: #e8b7cf;
+  transform: scale(0.95);
+}
+
+.bx-tada {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 400px) {
   .boton-back-to-top {
-    right: 1rem;
-    bottom: 1rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+
+  .boton-back-to-top button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
   }
 }
 </style>

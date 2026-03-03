@@ -9,9 +9,9 @@
       </h2>
     </div>
 
-    <!-- Imagen Portada -->
+    <!-- Imagen Portada con animación de flote -->
     <div class="container-portada-img" data-aos="fade-in" data-aos-delay="1800">
-      <img src="/img/caricatura-2.png" alt="Caricatura de Noelia Cabral" />
+      <img src="/img/caricatura-2.png" alt="Caricatura de Noelia Cabral" class="floating-img" />
     </div>
 
     <!-- Redes -->
@@ -49,7 +49,7 @@ import NavbarComponent from './MiNavbar.vue'
   z-index: 1;
 }
 
-.portada > * {
+.portada>* {
   position: relative;
   z-index: 2;
 }
@@ -63,7 +63,8 @@ import NavbarComponent from './MiNavbar.vue'
 
 .container-portada h1 {
   font-size: 4rem;
-  font-family: monospace;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
   white-space: nowrap;
   border-right: 4px solid;
   width: 25ch;
@@ -72,7 +73,7 @@ import NavbarComponent from './MiNavbar.vue'
 }
 
 .container-portada h2 {
-  font-family: monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 2rem;
   margin-top: 1rem;
   padding-left: 3rem;
@@ -102,14 +103,23 @@ import NavbarComponent from './MiNavbar.vue'
 
 .redes p a {
   padding: 0.8rem;
-  background-color: #7a7a7a6b;
-  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-
+.redes p a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
 /* Íconos más grandes */
@@ -124,9 +134,26 @@ import NavbarComponent from './MiNavbar.vue'
 
 /* Hover más potente */
 .redes p:hover {
-  transform: scale(1.35);
-  transition: all 0.3s;
+  transform: scale(1.1);
+}
 
+/* Animación de flote para la caricatura */
+.floating-img {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 
@@ -235,15 +262,17 @@ import NavbarComponent from './MiNavbar.vue'
     transform: scale(1.2);
   }
 }
+
 @media (max-width: 400px) {
   .container-portada {
     left: 1rem;
   }
-    .container-portada h1 {
+
+  .container-portada h1 {
     font-size: 1.2rem;
   }
 
-    .container-portada h2 {
+  .container-portada h2 {
     font-size: 0.8rem;
   }
 

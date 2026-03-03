@@ -1,6 +1,7 @@
 <template>
   <section class="acerca-de-mi" id="acerca-de-mi" data-aos="fade-in" data-aos-easing="ease-in-sine"
     data-aos-offset="100" data-aos-duration="500">
+    <ParticleBackground />
     <h2>Acerca de mí</h2>
     <div class="acerca-de-mi-container">
 
@@ -29,13 +30,53 @@
 </template>
 
 <script setup>
+import ParticleBackground from './ParticleBackground.vue';
+import { onMounted } from 'vue';
+
+let observer = null;
+let lastScrollY = 0;
+
+const hacerShine = () => {
+  const section = document.querySelector('.acerca-de-mi');
+  if (!section) return;
+
+  section.classList.remove('shine');
+  void section.offsetWidth;
+  section.classList.add('shine');
+};
+
+onMounted(() => {
+  const section = document.querySelector('#acerca-de-mi');
+  if (!section) return;
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      const currentScrollY = window.scrollY;
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const scrollingDown = currentScrollY > lastScrollY;
+          if (scrollingDown) {
+            hacerShine();
+          }
+        }
+      });
+      lastScrollY = currentScrollY;
+    },
+    { threshold: 0.25 }
+  );
+
+  observer.observe(section);
+});
 </script>
+
 
 <style scoped>
 .acerca-de-mi {
+  position: relative;
   width: 90%;
   margin: 3rem auto;
-  background: linear-gradient(135deg, #f8f8f8, #eaeaea);
+  background: linear-gradient(135deg, #f8f8f87c, #eaeaea71);
   transition: all 0.5s;
   box-shadow: 0px 1px 4px rgba(44, 26, 44, 0.2);
   padding: 2rem 1.4rem;
@@ -45,46 +86,28 @@
   backdrop-filter: blur(6px);
   text-align: center;
   cursor: default;
-
-
-
+  overflow: hidden;
 }
 
-/* TÍTULO*/
-.acerca-de-mi h2 {
-  text-align: center;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #343a40;
-  padding-bottom: 0.4rem;
-  position: relative;
-  display: inline-block;
-}
-
-.acerca-de-mi h2::after {
-  content: "";
+.particle-canvas {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0%;
-  height: 4px;
-  background: linear-gradient(90deg, #e8b7cf, #e3c3e8);
-  border-radius: 2px;
-  animation: underline 1s ease forwards;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
-@keyframes underline {
-  to {
-    width: 80%;
-  }
+.acerca-de-mi:hover .particle-canvas {
+  pointer-events: auto;
 }
 
-
-/* CONTENEDOR PRINCIPAL*/
 .acerca-de-mi-container {
+  position: relative;
+  z-index: 1;
   display: grid;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 14px;
   padding: 0.8rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -92,8 +115,42 @@
   font-size: 1.1rem;
   font-weight: 500;
   color: #343a40;
+  backdrop-filter: blur(4px);
 }
 
+/* TÍTULO*/
+.acerca-de-mi h2 {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #343a40 20%, #f38cbe 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+  margin-bottom: 2.5rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.acerca-de-mi h2:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.acerca-de-mi h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 6px;
+  background: linear-gradient(90deg, #e8b7cf, #e3c3e8);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(232, 183, 207, 0.4);
+}
 
 /* RESPONSIVE */
 @media (max-width: 988px) {
