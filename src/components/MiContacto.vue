@@ -336,6 +336,7 @@ onMounted(() => {
   border-color: #e8b7cf;
   box-shadow: 0 0 0 4px rgba(232, 183, 207, 0.2);
   outline: none;
+  color: #343a40;
 }
 
 .form-label {
