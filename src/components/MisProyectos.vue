@@ -34,7 +34,7 @@ const proyectos = [
       './img/proyecto8/ecommerce4.jpeg',
 
     ],
-    link: 'Proximamente en Github'
+    link: 'https://github.com/dakoo096/repo-microservicios-tienda'
   },
   {
     titulo: 'Clínica Veterinaria – Web App',
