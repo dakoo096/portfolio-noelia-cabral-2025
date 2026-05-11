@@ -10,7 +10,7 @@
     <div class="mis-proyectos-container">
       <div class="proyectos-grid">
         <ProyectoCard v-for="(proyecto, index) in proyectos" :key="index" :titulo="proyecto.titulo"
-          :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes" :link="proyecto.link" />
+          :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes" :link="proyecto.link" :video="proyecto.video" />
       </div>
     </div>
   </section>
@@ -39,7 +39,10 @@ const proyectos = [
   {
     titulo: 'Clínica Veterinaria – Web App',
     descripcion:
-      'Aplicación web completa desarrollada con Spring Boot, MySQL y Thymeleaf. Permite gestionar dueños, mascotas y atenciones veterinarias, incluyendo historial, edición, eliminación, sesión de usuarios y seguridad con Spring Security. Integración de usuario logueado en el registro de atención y arquitectura escalable.',
+      `Aplicación web para gestión de clínica veterinaria, migrada de una arquitectura monolítica con Thymeleaf a un enfoque desacoplado con Vue 3 (frontend) y Spring Boot (backend).
+Se rediseñó la base de datos para mejorar escalabilidad y rendimiento, incorporando relaciones optimizadas e integridad de datos.
+Incluye gestión de dueños, mascotas y atenciones con historial clínico, autenticación con Spring Security y control de roles.
+El frontend consume APIs REST y aplica buenas prácticas como separación por capas, validaciones y manejo de errores.`,
     imagenes: [
       './img/proyecto1/veterinaria1.png',
       './img/proyecto1/veterinaria2.png',
@@ -47,7 +50,8 @@ const proyectos = [
       './img/proyecto1/veterinaria4.png',
       './img/proyecto1/veterinaria5.png',
     ],
-    link: 'https://github.com/dakoo096/clinicaVeterinaria'
+    video: 'https://www.youtube.com/embed/xh_BXyYUfoI',
+    link: ''
   },
   {
     titulo: 'Blog Personal',

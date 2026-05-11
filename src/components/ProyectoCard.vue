@@ -1,6 +1,12 @@
 <template>
   <div class="proyecto-card">
-    <div class="carousel-container" @click="abrirModal">
+    <div v-if="video" class="video-container">
+      <iframe :src="video" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen class="proyecto-video"></iframe>
+    </div>
+
+    <div v-else class="carousel-container" @click="abrirModal">
       <img :src="imagenes[indiceActual]" class="proyecto-imagen" />
 
       <button class="flecha flecha-izq" @click.stop="imagenAnterior">‹</button>
@@ -59,6 +65,7 @@ const props = defineProps({
   descripcion: String,
   imagenes: Array,
   link: String,
+  video: String,
 });
 
 const esLinkValido = computed(() => {
@@ -83,9 +90,11 @@ const irAImagen = (i) => {
 };
 
 onMounted(() => {
-  intervalo = setInterval(() => {
-    imagenSiguiente();
-  }, 3000);
+  if (!props.video) {
+    intervalo = setInterval(() => {
+      imagenSiguiente();
+    }, 3000);
+  }
 });
 
 onBeforeUnmount(() => {
@@ -152,6 +161,23 @@ const modalAnterior = () => {
 .proyecto-card:hover .proyecto-imagen {
   transform: scale(1.05);
   filter: brightness(1.05);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.proyecto-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .flecha {
@@ -228,6 +254,10 @@ const modalAnterior = () => {
   color: #222;
   margin-bottom: 0.6rem;
   text-align: center;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .proyecto-descripcion {
