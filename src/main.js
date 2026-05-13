@@ -8,11 +8,13 @@ import 'boxicons/css/boxicons.min.css'
 
 import './assets/main.css'
 import router from './router'
+import { i18n } from './i18n'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 const app = createApp(App)
 
+app.use(i18n)
 app.use(router)
 
 app.mount('#app')

@@ -3,9 +3,9 @@
   <div class="portada animate__animated animate__fadeIn">
     <!-- Texto Portada -->
     <div class="container-portada">
-      <h1>¡Hola! Soy Noelia Cabral</h1>
+      <h1>{{ $t('header.hola') }}</h1>
       <h2 class="" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-delay="1800">
-        Desarrolladora Full Stack
+        {{ $t('header.rol') }}
       </h2>
     </div>
 

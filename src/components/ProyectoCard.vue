@@ -25,11 +25,11 @@
       <div class="proyecto-buttons">
         <div class="proyecto-buttons">
           <a v-if="esLinkValido" class="proyecto-link" :href="link" target="_blank">
-            Ver Proyecto
+            {{ $t('proyectos.botones.ver') }}
           </a>
 
           <button v-else class="proyecto-link disabled" disabled>
-            Próximamente en GitHub
+            {{ $t('proyectos.botones.proximamente') }}
           </button>
         </div>
       </div>
@@ -151,11 +151,12 @@ const modalAnterior = () => {
 
 .proyecto-imagen {
   width: 100%;
-  height: 250px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   transition: transform 0.5s ease, filter 0.5s ease;
   border-bottom: 1px solid #f0f0f0;
   filter: brightness(0.95);
+  display: block;
 }
 
 .proyecto-card:hover .proyecto-imagen {
@@ -435,10 +436,6 @@ const modalAnterior = () => {
 }
 
 @media (max-width: 1024px) {
-  .proyecto-imagen {
-    height: 170px;
-  }
-
   .proyecto-titulo {
     font-size: 1.3rem;
   }
@@ -453,10 +450,6 @@ const modalAnterior = () => {
     grid-template-columns: 1fr;
   }
 
-  .proyecto-imagen {
-    height: 160px;
-  }
-
   .proyecto-card {
     max-width: 480px;
     margin: 0 auto;
@@ -464,10 +457,6 @@ const modalAnterior = () => {
 }
 
 @media (max-width: 480px) {
-  .proyecto-imagen {
-    height: 140px;
-  }
-
   .proyecto-titulo {
     font-size: 1.18rem;
   }

@@ -3,7 +3,7 @@
     data-aos-duration="500">
     <ParticleBackground />
 
-    <h2 class="text-center">Contacto</h2>
+    <h2 class="text-center">{{ $t('contacto.titulo') }}</h2>
     <div class="formulario-container d-flex">
       <!-- Imagen -->
       <div class="col-lg-5 col img-fluid container-imagen">
@@ -14,28 +14,27 @@
       <!-- Formulario -->
       <div class="formulario-derecha col-lg-7">
         <div class="info-formulario">
-          <h3 class="text-center">¿Querés saber más sobre mí o tenés alguna consulta?</h3>
-          <p>Completá el formulario y enviame tu mensaje. Me pondré en contacto con vos a la brevedad. ¡Gracias por tu
-            interés!</p>
+          <h3 class="text-center">{{ $t('contacto.subtitulo') }}</h3>
+          <p>{{ $t('contacto.texto') }}</p>
         </div>
         <form id="contact-form" class="text-center contact-form" @submit.prevent="enviarFormulario" ref="formRef">
           <div class="mb-3">
-            <label for="asunto" class="form-label">Asunto:</label>
+            <label for="asunto" class="form-label">{{ $t('contacto.labels.asunto') }}</label>
             <input type="text" class="form-control" id="asunto" name="asunto" v-model="asunto" required />
           </div>
 
           <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico:</label>
+            <label for="email" class="form-label">{{ $t('contacto.labels.email') }}</label>
             <input type="email" class="form-control" id="email" name="email" v-model="email" required />
           </div>
 
           <div class="mb-3">
-            <label for="mensaje" class="form-label">Escriba su consulta aquí:</label>
+            <label for="mensaje" class="form-label">{{ $t('contacto.labels.mensaje') }}</label>
             <textarea class="form-control" id="mensaje" name="mensaje" rows="3" v-model="mensaje" required></textarea>
           </div>
 
           <div class="formulario-boton">
-            <button type="submit" class="btn" ref="botonRef">Enviar</button>
+            <button type="submit" class="btn" ref="botonRef">{{ $t('contacto.botones.enviar') }}</button>
           </div>
         </form>
 
@@ -48,6 +47,9 @@ import { ref, onMounted } from "vue";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import ParticleBackground from "./ParticleBackground.vue";
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 /* =========================
    EMAILJS
@@ -68,7 +70,7 @@ const botonRef = ref(null);
 const enviarFormulario = async () => {
   const boton = botonRef.value;
 
-  boton.textContent = "Enviando mensaje...";
+  boton.textContent = t('contacto.botones.enviando');
   boton.disabled = true;
 
   const templateParams = {
@@ -81,11 +83,11 @@ const enviarFormulario = async () => {
     await emailjs.send("service_ynvt8os", "template_bb4i0ml", templateParams);
 
     Swal.fire({
-      title: '¡Mensaje enviado!',
+      title: t('contacto.swal.exito_titulo'),
       html: `
         <div class="py-4">
           <div class="text-4xl animate-bounce mb-3">✨</div>
-          <p class="text-gray-600 font-medium">Gracias por contactarme. <br> Te responderé a la brevedad. 🌸</p>
+          <p class="text-gray-600 font-medium">${t('contacto.swal.exito_texto')}</p>
         </div>
       `,
       timer: 3000,
@@ -111,7 +113,7 @@ const enviarFormulario = async () => {
     email.value = "";
     mensaje.value = "";
 
-    boton.textContent = "Enviar";
+    boton.textContent = t('contacto.botones.enviar');
     boton.disabled = false;
 
   } catch (error) {
@@ -119,12 +121,12 @@ const enviarFormulario = async () => {
 
     Swal.fire({
       icon: "error",
-      title: "Oops...",
-      text: "Hubo un error al enviar el mensaje. Por favor, intentalo de nuevo.",
+      title: t('contacto.swal.error_titulo'),
+      text: t('contacto.swal.error_texto'),
       confirmButtonColor: "#f38cbe",
     });
 
-    boton.textContent = "Enviar";
+    boton.textContent = t('contacto.botones.enviar');
     boton.disabled = false;
   }
 };

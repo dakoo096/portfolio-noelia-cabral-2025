@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="container-footer">
-      <p>&copy; 2025 Noelia Cabral. Todos los derechos reservados.</p>
+      <p>{{ $t('footer.texto') }}</p>
     </div>
   </footer>
 </template>

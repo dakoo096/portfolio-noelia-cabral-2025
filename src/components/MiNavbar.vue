@@ -11,15 +11,23 @@
       <!-- Links -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="#" @click.prevent="scrollToSection('body')">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" @click.prevent="scrollToSection('body')">{{
+            $t('navbar.inicio') }}</a></li>
           <li class="nav-item"><a class="nav-link" href="#acerca-de-mi"
-              @click.prevent="scrollToSection('#acerca-de-mi')">Acerca de mí</a></li>
-          <li class="nav-item"><a class="nav-link" href="#mi-stack" @click.prevent="scrollToSection('#mi-stack')">Mis
-              Habilidades</a></li>
+              @click.prevent="scrollToSection('#acerca-de-mi')">{{ $t('navbar.acerca_de_mi') }}</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mi-stack" @click.prevent="scrollToSection('#mi-stack')">{{
+            $t('navbar.mis_habilidades') }}</a></li>
           <li class="nav-item"><a class="nav-link" href="#mis-proyectos"
-              @click.prevent="scrollToSection('#mis-proyectos')">Mis Proyectos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacto"
-              @click.prevent="scrollToSection('#contacto')">Contacto</a></li>
+              @click.prevent="scrollToSection('#mis-proyectos')">{{ $t('navbar.mis_proyectos') }}</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto" @click.prevent="scrollToSection('#contacto')">{{
+            $t('navbar.contacto') }}</a></li>
+
+          <!-- Botón de idioma -->
+          <li class="nav-item mx-2 d-flex align-items-center">
+            <button class="lang-btn" @click="toggleLanguage">
+              {{ currentLang === 'es' ? 'EN' : 'ES' }}
+            </button>
+          </li>
 
           <!-- Botón modo oscuro -->
           <li class="nav-item">
@@ -35,9 +43,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { locale } = useI18n()
 const isDark = ref(false)
+
+const currentLang = computed(() => locale.value)
+
+const toggleLanguage = () => {
+  locale.value = locale.value === 'es' ? 'en' : 'es'
+  localStorage.setItem('language', locale.value)
+}
 
 const toggleDarkMode = () => {
   isDark.value = !isDark.value
@@ -86,13 +103,48 @@ onMounted(() => {
 
 
 <style scoped>
-.dark-mode-btn {
+.navbar .dark-mode-btn,
+.navbar .lang-btn {
   background: none;
-  border: none;
-  font-size: 1.4rem;
   cursor: pointer;
-  padding: 0.2rem;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
+  color: #343a40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.navbar .dark-mode-btn {
+  font-size: 1.4rem;
+  padding: 1rem 0.5rem;
+  border: none;
+}
+
+.navbar .lang-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 1.3rem 0.5rem;
+}
+
+.navbar .dark-mode-btn::after,
+.navbar .lang-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar .dark-mode-btn:hover::after,
+.navbar .lang-btn:hover::after {
+  width: 100%;
 }
 
 

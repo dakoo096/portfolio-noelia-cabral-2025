@@ -2,27 +2,17 @@
   <section class="acerca-de-mi" id="acerca-de-mi" data-aos="fade-in" data-aos-easing="ease-in-sine"
     data-aos-offset="100" data-aos-duration="500">
     <ParticleBackground />
-    <h2>Acerca de mí</h2>
+    <h2>{{ $t('acerca_de_mi.titulo') }}</h2>
     <div class="acerca-de-mi-container">
 
       <p>
-        Soy Técnica en Desarrollo Web y Aplicaciones Digitales y actualmente me desempeño como Desarrolladora Full Stack
-        en la Municipalidad de Córdoba, donde participo en el desarrollo y mantenimiento de aplicaciones internas,
-        integrando tanto frontend como backend y colaborando con equipos multidisciplinarios.
+        {{ $t('acerca_de_mi.p1') }}
       </p>
       <p>
-        Me considero una persona responsable, curiosa y comprometida con la calidad de mi trabajo. Aprender nuevas
-        tecnologías no me representa un desafío negativo; por el contrario, es algo que disfruto y que impulsa mi
-        crecimiento profesional.
+        {{ $t('acerca_de_mi.p2') }}
       </p>
       <p>
-        Además de mi formación técnica, cuento con una sólida trayectoria previa en el área administrativa, lo que
-        fortaleció mis habilidades de organización, resolución de problemas y comunicación.
-      </p>
-      <p>
-        Mi objetivo es seguir avanzando en mi carrera, incorporando buenas prácticas, perfeccionando mis habilidades y
-        construyendo soluciones claras, estables y bien fundamentadas que generen un impacto positivo tanto en los
-        usuarios como en los equipos de trabajo.
+        {{ $t('acerca_de_mi.p3') }}
       </p>
 
     </div>

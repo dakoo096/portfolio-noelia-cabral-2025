@@ -2,13 +2,8 @@
   <section class="mi-stack" id="mi-stack" data-aos="fade-in" data-aos-easing="ease-in-sine" data-aos-offset="100"
     data-aos-duration="500">
     <ParticleBackground />
-    <h2>Mis Habilidades</h2>
-    <p class="subtitulo">
-      Aquí presento las tecnologías que uso en mis proyectos: frontend, backend, bases de datos, herramientas de
-      desarrollo y testing.
-      <br>
-      Es el stack con el que trabajo día a día y en el que sigo creciendo como profesional.
-    </p>
+    <h2>{{ $t('stack.titulo') }}</h2>
+    <p class="subtitulo" v-html="$t('stack.subtitulo')"></p>
 
     <div class="mi-stack-container">
       <div class="categoria-stack" v-for="(categoria, index) in categorias" :key="index">
@@ -24,12 +19,14 @@
 <script setup>
 import StackCard from './StackCard.vue'
 import ParticleBackground from './ParticleBackground.vue'
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 
-const categorias = [
+const categorias = computed(() => [
   {
-    titulo: "Frontend",
+    titulo: t('stack.categorias.frontend'),
     skills: [
       { icono: "./img/logos/html.png", nombre: "HTML5" },
       { icono: "./img/logos/css.png", nombre: "CSS3" },
@@ -40,7 +37,7 @@ const categorias = [
     ]
   },
   {
-    titulo: "Backend",
+    titulo: t('stack.categorias.backend'),
     skills: [
       { icono: "./img/logos/java.png", nombre: "Java" },
       { icono: "./img/logos/springboot.png", nombre: "Spring Boot" },
@@ -51,7 +48,7 @@ const categorias = [
     ],
   },
   {
-    titulo: "Herramientas y Bases de Datos",
+    titulo: t('stack.categorias.herramientas'),
     skills: [
       { icono: "./img/logos/git.png", nombre: "Git" },
       { icono: "./img/logos/github.png", nombre: "Github" },
@@ -63,19 +60,19 @@ const categorias = [
     ],
   },
   {
-    titulo: "Testing / QA",
+    titulo: t('stack.categorias.testing'),
     skills: [
       { icono: "./img/logos/cypress.png", nombre: "Cypress" },
     ],
   },
   {
-    titulo: "Desarrollo de videojuegos / Diseño 3D",
+    titulo: t('stack.categorias.otros'),
     skills: [
       { icono: "./img/logos/godot.png", nombre: "Godot" },
       { icono: "./img/logos/zbrush.png", nombre: "ZBrush" },
     ],
   },
-]
+])
 
 let observer = null
 let lastScrollY = 0

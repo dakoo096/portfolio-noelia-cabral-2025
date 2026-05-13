@@ -2,15 +2,16 @@
   <section class="mis-proyectos" id="mis-proyectos" data-aos="fade-in" data-aos-easing="ease-in-sine"
     data-aos-offset="100" data-aos-duration="500">
     <ParticleBackground />
-    <h2>Mis Proyectos</h2>
+    <h2>{{ $t('proyectos.titulo') }}</h2>
     <p class="subtitulo">
-      Selección de algunos de mis proyectos de práctica y personales, desarrollados con diversas tecnologías y enfoques.
+      {{ $t('proyectos.subtitulo') }}
     </p>
 
     <div class="mis-proyectos-container">
       <div class="proyectos-grid">
         <ProyectoCard v-for="(proyecto, index) in proyectos" :key="index" :titulo="proyecto.titulo"
-          :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes" :link="proyecto.link" :video="proyecto.video" />
+          :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes" :link="proyecto.link"
+          :video="proyecto.video" />
       </div>
     </div>
   </section>
@@ -19,12 +20,15 @@
 <script setup>
 import ProyectoCard from './ProyectoCard.vue'
 import ParticleBackground from './ParticleBackground.vue'
-import { onMounted } from 'vue'
-const proyectos = [
+import { onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const proyectos = computed(() => [
   {
-    titulo: 'E-Commerce – Arquitectura de Microservicios',
-    descripcion:
-      'Aplicación web de comercio electrónico desarrollada con arquitectura de microservicios utilizando Spring Boot, Spring Cloud, Api Gateway y MySQL. El sistema se encuentra desacoplado en servicios independientes (usuarios, productos, carrito y ventas), comunicados a través de API REST y gestionados mediante un gateway centralizado. Incluye autenticación con JWT, control de roles (ADMIN/CLIENTE), carrito persistente, confirmación de compras, descuento automático de stock y manejo de sesión desde el frontend con Vue 3, Pinia y TypeScript.',
+    titulo: t('proyectos.ecommerce.titulo'),
+    descripcion: t('proyectos.ecommerce.desc'),
     imagenes: [
       './img/proyecto8/ecommerce5.jpeg',
       './img/proyecto8/ecommerce6.jpeg',
@@ -37,12 +41,8 @@ const proyectos = [
     link: 'https://github.com/dakoo096/repo-microservicios-tienda'
   },
   {
-    titulo: 'Clínica Veterinaria – Web App',
-    descripcion:
-      `Aplicación web para gestión de clínica veterinaria, migrada de una arquitectura monolítica con Thymeleaf a un enfoque desacoplado con Vue 3 (frontend) y Spring Boot (backend).
-Se rediseñó la base de datos para mejorar escalabilidad y rendimiento, incorporando relaciones optimizadas e integridad de datos.
-Incluye gestión de dueños, mascotas y atenciones con historial clínico, autenticación con Spring Security y control de roles.
-El frontend consume APIs REST y aplica buenas prácticas como separación por capas, validaciones y manejo de errores.`,
+    titulo: t('proyectos.veterinaria.titulo'),
+    descripcion: t('proyectos.veterinaria.desc'),
     imagenes: [
       './img/proyecto1/veterinaria1.png',
       './img/proyecto1/veterinaria2.png',
@@ -51,12 +51,11 @@ El frontend consume APIs REST y aplica buenas prácticas como separación por ca
       './img/proyecto1/veterinaria5.png',
     ],
     video: 'https://www.youtube.com/embed/xh_BXyYUfoI',
-    link: ''
+    link: 'https://github.com/dakoo096/clinicaVeterinariaV2'
   },
   {
-    titulo: 'Blog Personal',
-    descripcion:
-      'Plataforma donde los usuarios pueden crear, editar, borrar y comentar publicaciones. Incluye autenticación, control de privacidad, permisos por usuario, carga dinámica de posts, y una interfaz cuidada y completamente responsive.',
+    titulo: t('proyectos.blog.titulo'),
+    descripcion: t('proyectos.blog.desc'),
     imagenes: [
       './img/proyecto2/blog1.jpeg',
       './img/proyecto2/blog2.jpeg',
@@ -67,9 +66,8 @@ El frontend consume APIs REST y aplica buenas prácticas como separación por ca
     link: 'https://github.com/dakoo096/mi-blog-personal.git'
   },
   {
-    titulo: 'Biblioteca Virtual',
-    descripcion:
-      'Aplicación web CRUD para gestión de libros con Spring Boot, Thymeleaf y MySQL. Implementa paginación, buscador, validaciones, vistas responsivas y operaciones completas de administración.',
+    titulo: t('proyectos.biblioteca.titulo'),
+    descripcion: t('proyectos.biblioteca.desc'),
     imagenes: [
       './img/proyecto3/biblioteca1.png',
       './img/proyecto3/biblioteca2.png',
@@ -81,21 +79,8 @@ El frontend consume APIs REST y aplica buenas prácticas como separación por ca
     link: 'https://github.com/dakoo096/Biblioteca.git'
   },
   {
-    titulo: 'Login con Sistema de Roles',
-    descripcion:
-      'Aplicación de escritorio creada con Java y Swing, utilizando arquitectura por capas. Incluye validación de usuario, roles dinámicos y vistas específicas. Permite CRUD de usuarios con refresco automático.',
-    imagenes: [
-      './img/proyecto4/roles1.jpeg',
-      './img/proyecto4/roles2.jpeg',
-      './img/proyecto4/roles3.jpeg',
-      './img/proyecto4/roles4.jpeg',
-    ],
-    link: 'https://github.com/dakoo096/Login-Usuarios'
-  },
-  {
-    titulo: 'Peluquería Canina',
-    descripcion:
-      'App de escritorio con Java y Swing para gestión de mascotas y dueños. Relación 1:1, modelo por capas, tabla editable y persistencia completa.',
+    titulo: t('proyectos.peluqueria.titulo'),
+    descripcion: t('proyectos.peluqueria.desc'),
     imagenes: [
       './img/proyecto5/peluqueria1.jpeg',
       './img/proyecto5/peluqueria2.jpeg',
@@ -106,9 +91,8 @@ El frontend consume APIs REST y aplica buenas prácticas como separación por ca
     link: 'https://github.com/dakoo096/peluqueria-canina'
   },
   {
-    titulo: 'Concesionaria de Automóviles',
-    descripcion:
-      'Sistema en Java y Swing que permite carga, edición, lectura y eliminación de vehículos utilizando arquitectura IGU – Lógica – Persistencia.',
+    titulo: t('proyectos.concesionaria.titulo'),
+    descripcion: t('proyectos.concesionaria.desc'),
     imagenes: [
       './img/proyecto6/conse1.jpeg',
       './img/proyecto6/conse2.jpeg',
@@ -119,9 +103,8 @@ El frontend consume APIs REST y aplica buenas prácticas como separación por ca
     link: 'https://github.com/dakoo096/Concesionaria-Automovil'
   },
   {
-    titulo: 'Integrador CaC 2023',
-    descripcion:
-      'Sitio web responsive construido en HTML, CSS y JavaScript basado en un diseño de Codo a Codo. Totalmente adaptable y estéticamente moderno.',
+    titulo: t('proyectos.integrador.titulo'),
+    descripcion: t('proyectos.integrador.desc'),
     imagenes: [
       './img/proyecto7/cac1.png',
       './img/proyecto7/cac2.png',
@@ -129,7 +112,7 @@ El frontend consume APIs REST y aplica buenas prácticas como separación por ca
     ],
     link: 'https://dakoo096.github.io/tpIntegradorCaC/'
   }
-]
+])
 let observer = null
 let lastScrollY = 0
 

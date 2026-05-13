@@ -1,0 +1,93 @@
+{
+  "navbar": {
+    "inicio": "Home",
+    "acerca_de_mi": "About Me",
+    "mis_habilidades": "My Skills",
+    "mis_proyectos": "My Projects",
+    "contacto": "Contact"
+  },
+  "header": {
+    "hola": "Hi! I'm Noelia Cabral",
+    "rol": "Full Stack Developer"
+  },
+  "acerca_de_mi": {
+    "titulo": "About Me",
+    "p1": "I am a Full Stack Developer from Argentina focused on creating and maintaining functional and scalable web applications. I currently work at the Municipality of Córdoba, participating in the development of internal systems and integrating both frontend and backend solutions. I have practical experience working with different technologies and collaborating in multidisciplinary teams to optimize processes and improve user experience.",
+    "p2": "My profile is complemented by strong organizational skills, problem-solving abilities, and adaptability to new challenges, strengthened by both my technical background and my previous experience in the administrative area. Additionally, I enjoy learning new technologies and applying development best practices to build clear, stable, and well-structured solutions.",
+    "p3": "I graduated as a Web Development and Digital Applications Technician and I continue training constantly to keep growing professionally and expand my knowledge in software development."
+  },
+  "stack": {
+    "titulo": "My Skills",
+    "subtitulo": "Here I present the technologies I use in my projects: frontend, backend, databases, development tools, and testing. <br> It's the stack I work with every day and in which I continue to grow as a professional.",
+    "categorias": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "herramientas": "Tools & Databases",
+      "testing": "Testing / QA",
+      "otros": "Game Development / 3D Design"
+    }
+  },
+  "proyectos": {
+    "titulo": "My Projects",
+    "subtitulo": "A selection of some of my practice and personal projects, developed with various technologies and approaches.",
+    "ecommerce": {
+      "titulo": "E-Commerce – Microservices Architecture",
+      "desc": "E-commerce web application developed with microservices architecture using Spring Boot, Spring Cloud, Api Gateway, and MySQL. The system is decoupled into independent services (users, products, cart, and sales), communicating via REST API and managed by a centralized gateway. Includes JWT authentication, role control (ADMIN/CLIENT), persistent cart, purchase confirmation, automatic stock deduction, and session management from the frontend with Vue 3, Pinia, and TypeScript."
+    },
+    "veterinaria": {
+      "titulo": "Veterinary Clinic – Web App",
+      "desc": "Web application for veterinary clinic management, migrated from a monolithic architecture with Thymeleaf to a decoupled approach with Vue 3 (frontend) and Spring Boot (backend).\nThe database was redesigned to improve scalability and performance, incorporating optimized relationships and data integrity.\nIncludes management of owners, pets, and appointments with clinical history, Spring Security authentication, and role control.\nThe frontend consumes REST APIs and applies best practices such as layer separation, validations, and error handling."
+    },
+    "blog": {
+      "titulo": "Personal Blog",
+      "desc": "Platform where users can create, edit, delete, and comment on posts. Includes authentication, privacy control, user permissions, dynamic post loading, and a clean, fully responsive interface."
+    },
+    "biblioteca": {
+      "titulo": "Virtual Library",
+      "desc": "CRUD web application for book management with Spring Boot, Thymeleaf, and MySQL. Implements pagination, search engine, validations, responsive views, and full administration operations."
+    },
+    "login": {
+      "titulo": "Login with Role System",
+      "desc": "Desktop application created with Java and Swing, using layered architecture. Includes user validation, dynamic roles, and specific views. Allows user CRUD with automatic refresh."
+    },
+    "peluqueria": {
+      "titulo": "Dog Grooming",
+      "desc": "Desktop app with Java and Swing for pet and owner management. 1:1 relationship, layered model, editable table, and full persistence."
+    },
+    "concesionaria": {
+      "titulo": "Car Dealership",
+      "desc": "Java and Swing system that allows creating, editing, reading, and deleting vehicles using GUI – Logic – Persistence architecture."
+    },
+    "integrador": {
+      "titulo": "CaC Integrator 2023",
+      "desc": "Responsive website built in HTML, CSS, and JavaScript based on a Codo a Codo design. Fully adaptable and aesthetically modern."
+    },
+    "botones": {
+      "ver": "View Project",
+      "proximamente": "Coming soon to GitHub"
+    }
+  },
+  "contacto": {
+    "titulo": "Contact",
+    "subtitulo": "Want to know more about me or have any questions?",
+    "texto": "Fill out the form and send me your message. I will get back to you shortly. Thanks for your interest!",
+    "labels": {
+      "asunto": "Subject:",
+      "email": "Email:",
+      "mensaje": "Write your inquiry here:"
+    },
+    "botones": {
+      "enviar": "Send",
+      "enviando": "Sending message..."
+    },
+    "swal": {
+      "exito_titulo": "Message sent!",
+      "exito_texto": "Thank you for contacting me. <br> I will reply to you shortly. 🌸",
+      "error_titulo": "Oops...",
+      "error_texto": "There was an error sending the message. Please try again."
+    }
+  },
+  "footer": {
+    "texto": "© 2025 Noelia Cabral. All rights reserved."
+  }
+}
