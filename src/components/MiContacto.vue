@@ -1,6 +1,12 @@
 <template>
-  <section class="formulario my-5" id="contacto" data-aos="fade-in" data-aos-easing="ease-in-sine" data-aos-offset="100"
-    data-aos-duration="500">
+  <section
+    class="formulario my-5"
+    id="contacto"
+    data-aos="fade-in"
+    data-aos-easing="ease-in-sine"
+    data-aos-offset="100"
+    data-aos-duration="500"
+  >
     <ParticleBackground />
 
     <h2 class="text-center">{{ $t('contacto.titulo') }}</h2>
@@ -8,8 +14,11 @@
     <div class="formulario-container d-flex">
       <!-- Imagen -->
       <div class="col-lg-5 col img-fluid container-imagen">
-        <img src="/img/caricaturacontacto-2.png" alt="caricatura señalando a la derecha del formulario"
-          class="floating-img" />
+        <img
+          src="/img/caricaturacontacto-2.png"
+          alt="caricatura señalando a la derecha del formulario"
+          class="floating-img"
+        />
       </div>
 
       <!-- Formulario -->
@@ -20,24 +29,50 @@
             <p>{{ $t('contacto.texto') }}</p>
           </div>
 
-          <form id="contact-form" class="contact-form" @submit.prevent="enviarFormulario" ref="formRef">
+          <form
+            id="contact-form"
+            class="contact-form"
+            @submit.prevent="enviarFormulario"
+            ref="formRef"
+          >
             <!-- Fila de entradas: Asunto (Nombre/Empresa) e Email -->
             <div class="form-row">
               <div class="form-group">
                 <label for="asunto" class="form-label">{{ $t('contacto.labels.asunto') }}</label>
-                <input type="text" class="form-control" id="asunto" name="asunto" v-model="asunto" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="asunto"
+                  name="asunto"
+                  v-model="asunto"
+                  required
+                />
               </div>
 
               <div class="form-group">
                 <label for="email" class="form-label">{{ $t('contacto.labels.email') }}</label>
-                <input type="email" class="form-control" id="email" name="email" v-model="email" required />
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  v-model="email"
+                  required
+                />
               </div>
             </div>
 
             <!-- Mensaje -->
             <div class="form-group mb-4">
               <label for="mensaje" class="form-label">{{ $t('contacto.labels.mensaje') }}</label>
-              <textarea class="form-control" id="mensaje" name="mensaje" rows="4" v-model="mensaje" required></textarea>
+              <textarea
+                class="form-control"
+                id="mensaje"
+                name="mensaje"
+                rows="4"
+                v-model="mensaje"
+                required
+              ></textarea>
             </div>
 
             <div class="formulario-boton">
@@ -55,7 +90,11 @@
           <div class="contacto-socials-row">
             <span class="socials-label">{{ $t('contacto.o_tambien') }}</span>
             <div class="socials-buttons">
-              <a href="https://www.linkedin.com/in/noelia-cabral-381723140" target="_blank" class="social-btn">
+              <a
+                href="https://www.linkedin.com/in/noelia-cabral-381723140"
+                target="_blank"
+                class="social-btn"
+              >
                 <i class="bx bxl-linkedin"></i>
                 <span>LinkedIn</span>
               </a>
@@ -283,7 +322,7 @@ onMounted(() => {
   z-index: 0;
 }
 
-.formulario-container>* {
+.formulario-container > * {
   position: relative;
   z-index: 1;
 }
@@ -343,7 +382,10 @@ onMounted(() => {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(4px);
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .contacto-card:hover {
@@ -488,7 +530,9 @@ textarea.form-control {
   font-weight: 600;
   color: #475569;
   text-decoration: none;
-  transition: all 0.2s ease, transform 0.2s ease;
+  transition:
+    all 0.2s ease,
+    transform 0.2s ease;
 }
 
 .social-btn:hover {
@@ -508,22 +552,6 @@ textarea.form-control {
   color: #e3c3e8;
   border-color: #e3c3e8;
   background: rgba(255, 255, 255, 0.95);
-}
-
-/* ===== DARK MODE OVERRIDES ===== */
-:global(body.dark-mode) .formulario-container {
-  background-image: none !important;
-  background-color: #09090b !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-}
-
-
-:global(body.dark-mode) .contacto-divider {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-:global(body.dark-mode) .socials-label {
-  color: #cbd5e1;
 }
 
 /* RESPONSIVE */

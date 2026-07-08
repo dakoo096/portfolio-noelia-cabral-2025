@@ -379,6 +379,7 @@ body.dark-mode .modal-flecha:hover {
 body.dark-mode .formulario {
   background: linear-gradient(135deg, #1b1b1b, #242424);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 body.dark-mode .formulario h2 {
@@ -386,6 +387,17 @@ body.dark-mode .formulario h2 {
 }
 
 /* Nuevos estilos dark mode para la tarjeta de contacto */
+body.dark-mode .formulario-container {
+  background-image: none !important;
+  border-color: #09090b00;
+  box-shadow: none !important;
+}
+
+body.dark-mode .formulario-container::before {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
 body.dark-mode .contacto-card {
   background: rgba(30, 27, 40, 0.65) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
@@ -397,36 +409,66 @@ body.dark-mode .contacto-card:hover {
   border-color: rgba(243, 140, 190, 0.3) !important;
 }
 
-body.dark-mode .form-control {
-  background-color: #1f1f1f;
-  color: #f1f1f1;
-  border: 1px solid #444;
+body.dark-mode .info-formulario h3 {
+  color: #f1f5f9 !important;
 }
 
-body.dark-mode .form-control::placeholder {
-  color: #aaa;
+body.dark-mode .info-formulario p {
+  color: #cbd5e1 !important;
 }
 
 body.dark-mode .form-label {
-  color: #e0e0e0;
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .form-control {
+  background: rgba(15, 23, 42, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-mode .form-control:focus {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border-color: rgba(243, 140, 190, 0.5) !important;
+}
+
+body.dark-mode .form-control::placeholder {
+  color: #64748b !important;
+}
+
+body.dark-mode .socials-label {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .social-btn {
+  background: rgba(30, 27, 40, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .social-btn:hover {
+  background: rgba(55, 45, 65, 0.9) !important;
+  border-color: rgba(243, 140, 190, 0.5) !important;
+  color: rgba(243, 140, 190, 0.9) !important;
 }
 
 body.dark-mode .formulario-boton button {
   background: linear-gradient(135deg, #4a1d43, #1d0f1b);
   color: #bebdbd;
-  box-shadow: 0 6px 18px rgba(210, 149, 198, 0.35);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
 }
 
 body.dark-mode .formulario-boton button:hover {
-  transform: translateY(-3px);
-  color: #fff;
+  transform: translateY(-3px) !important;
+  color: #fff !important;
+  border-color: transparent !important;
   box-shadow: 0 10px 26px rgba(210, 149, 198, 0.55);
   background: linear-gradient(135deg, #1d0f1b, #4a1d43);
 }
+
 body.dark-mode .formulario-boton button:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 14px rgba(255, 177, 245, 0.815);
+  transform: translateY(0) !important;
 }
 
 body.dark-mode .footer {

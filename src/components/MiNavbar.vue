@@ -2,25 +2,14 @@
   <nav class="navbar navbar-expand-lg" :class="{ scrolled: scrolled }">
     <div class="container-fluid px-3">
       <!-- Logo Brand -->
-      <a
-        class="navbar-brand d-flex align-items-center"
-        href="#"
-        @click.prevent="scrollToSection('body')"
-      >
+      <a class="navbar-brand d-flex align-items-center" href="#" @click.prevent="scrollToSection('body')">
         <span class="logo-initials">NC</span>
         <span class="logo-name">Noelia Cabral</span>
       </a>
 
       <!-- Botón hamburguesa -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -30,33 +19,25 @@
           <li class="nav-item">
             <a class="nav-link" href="#" @click.prevent="scrollToSection('body')">{{
               $t('navbar.inicio')
-            }}</a>
+              }}</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#acerca-de-mi"
-              @click.prevent="scrollToSection('#acerca-de-mi')"
-              >{{ $t('navbar.acerca_de_mi') }}</a
-            >
+            <a class="nav-link" href="#acerca-de-mi" @click.prevent="scrollToSection('#acerca-de-mi')">{{
+              $t('navbar.acerca_de_mi') }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#mi-stack" @click.prevent="scrollToSection('#mi-stack')">{{
               $t('navbar.mis_habilidades')
-            }}</a>
+              }}</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#mis-proyectos"
-              @click.prevent="scrollToSection('#mis-proyectos')"
-              >{{ $t('navbar.mis_proyectos') }}</a
-            >
+            <a class="nav-link" href="#mis-proyectos" @click.prevent="scrollToSection('#mis-proyectos')">{{
+              $t('navbar.mis_proyectos') }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contacto" @click.prevent="scrollToSection('#contacto')">{{
               $t('navbar.contacto')
-            }}</a>
+              }}</a>
           </li>
 
           <!-- Botón de idioma -->
