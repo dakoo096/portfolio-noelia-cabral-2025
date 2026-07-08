@@ -21,9 +21,9 @@ app.mount('#app')
 
 // Inicialización AOS optimizada para móviles
 AOS.init({
-  duration: 500,        // Animación más rápida = más fluida
+  duration: 500, // Animación más rápida = más fluida
   easing: 'ease-out-cubic', // Transición suave y liviana
-  once: true,           // Evita que se repita en cada scroll (clave en mobile)
-  offset: 80,           // Empieza antes = se siente más responsivo
-  mirror: false         // Evita animaciones al subir (pesado en mobile)
+  once: true, // Evita que se repita en cada scroll (clave en mobile)
+  offset: 80, // Empieza antes = se siente más responsivo
+  mirror: false, // Evita animaciones al subir (pesado en mobile)
 })

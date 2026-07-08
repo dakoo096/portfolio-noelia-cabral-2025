@@ -32,11 +32,11 @@
     "subtitulo": "Selección de algunos de mis proyectos de práctica y personales, desarrollados con diversas tecnologías y enfoques.",
     "ecommerce": {
       "titulo": "E-Commerce – Arquitectura de Microservicios",
-      "desc": "Aplicación web de comercio electrónico desarrollada con arquitectura de microservicios utilizando Spring Boot, Spring Cloud, Api Gateway y MySQL. El sistema se encuentra desacoplado en servicios independientes (usuarios, productos, carrito y ventas), comunicados a través de API REST y gestionados mediante un gateway centralizado. Incluye autenticación con JWT, control de roles (ADMIN/CLIENT), carrito persistente, confirmación de compras, descuento automático de stock y manejo de sesión desde el frontend con Vue 3, Pinia y TypeScript."
+      "desc": "Plataforma de e-commerce basada en microservicios con Spring Boot, Spring Cloud y MySQL. Ofrece servicios independientes (usuarios, productos, carrito y ventas) integrados con una interfaz en Vue 3 con Pinia y TypeScript. Incluye autenticación JWT, roles y carrito de compras persistente."
     },
     "veterinaria": {
       "titulo": "Clínica Veterinaria – Web App",
-      "desc": "Aplicación web para gestión de clínica veterinaria, migrada de una arquitectura monolítica con Thymeleaf a un enfoque desacoplado con Vue 3 (frontend) y Spring Boot (backend).\nSe rediseñó la base de datos para mejorar escalabilidad y rendimiento, incorporando relaciones optimizadas e integridad de datos.\nIncluye gestión de dueños, mascotas y atenciones con historial clínico, autenticación con Spring Security y control de roles.\nEl frontend consume APIs REST y aplica buenas prácticas como separación por capas, validaciones y manejo de errores."
+      "desc": "Sistema web para gestión de clínica veterinaria con arquitectura desacoplada en Vue 3 (frontend) y Spring Boot (backend). Permite administrar dueños, mascotas, consultas e historial clínico, con autenticación segura y control de roles."
     },
     "blog": {
       "titulo": "Blog Personal",
@@ -62,6 +62,11 @@
       "titulo": "Integrador CaC 2023",
       "desc": "Sitio web responsive construido en HTML, CSS y JavaScript basado en un diseño de Codo a Codo. Totalmente adaptable y estéticamente moderno."
     },
+    "devdaily": {
+      "titulo": "DevDaily – App Móvil Multiplataforma & API",
+      "desc": "Aplicación móvil multiplataforma para desarrolladores que ofrece contenido técnico diario (consejos, preguntas de entrevista y atajos). Incluye un backend en Spring Boot con autenticación JWT, recomendación personalizada e historial de favoritos."
+    },
+    "tecnologias": "Tecnologías:",
     "botones": {
       "ver": "Ver Proyecto",
       "proximamente": "Próximamente en GitHub"

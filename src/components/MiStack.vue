@@ -1,6 +1,12 @@
 <template>
-  <section class="mi-stack" id="mi-stack" data-aos="fade-in" data-aos-easing="ease-in-sine" data-aos-offset="100"
-    data-aos-duration="500">
+  <section
+    class="mi-stack"
+    id="mi-stack"
+    data-aos="fade-in"
+    data-aos-easing="ease-in-sine"
+    data-aos-offset="100"
+    data-aos-duration="500"
+  >
     <ParticleBackground />
     <h2>{{ $t('stack.titulo') }}</h2>
     <p class="subtitulo" v-html="$t('stack.subtitulo')"></p>
@@ -9,7 +15,12 @@
       <div class="categoria-stack" v-for="(categoria, index) in categorias" :key="index">
         <h3>{{ categoria.titulo }}</h3>
         <div class="categoria-cards">
-          <StackCard v-for="(skill, idx) in categoria.skills" :key="idx" :icono="skill.icono" :nombre="skill.nombre" />
+          <StackCard
+            v-for="(skill, idx) in categoria.skills"
+            :key="idx"
+            :icono="skill.icono"
+            :nombre="skill.nombre"
+          />
         </div>
       </div>
     </div>
@@ -28,48 +39,50 @@ const categorias = computed(() => [
   {
     titulo: t('stack.categorias.frontend'),
     skills: [
-      { icono: "./img/logos/html.png", nombre: "HTML5" },
-      { icono: "./img/logos/css.png", nombre: "CSS3" },
-      { icono: "./img/logos/javascript.png", nombre: "JavaScript" },
-      { icono: "./img/logos/bootstrap.png", nombre: "Bootstrap" },
-      { icono: "./img/logos/vue.png", nombre: "Vue" },
-      { icono: "./img/logos/quasar.png", nombre: "Quasar" },
-    ]
+      { icono: './img/logos/html.png', nombre: 'HTML5' },
+      { icono: './img/logos/css.png', nombre: 'CSS3' },
+      { icono: './img/logos/javascript.png', nombre: 'JavaScript' },
+      { icono: './img/logos/bootstrap.png', nombre: 'Bootstrap' },
+      { icono: './img/logos/vue.png', nombre: 'Vue' },
+      { icono: './img/logos/quasar.png', nombre: 'Quasar' },
+      { icono: './img/logos/ionic_logo.png', nombre: 'Ionic' },
+      { icono: './img/logos/pinia.png', nombre: 'Pinia' },
+      { icono: './img/logos/vite.png', nombre: 'Vite' },
+    ],
   },
   {
     titulo: t('stack.categorias.backend'),
     skills: [
-      { icono: "./img/logos/java.png", nombre: "Java" },
-      { icono: "./img/logos/springboot.png", nombre: "Spring Boot" },
-      { icono: "./img/logos/springcloud.png", nombre: "Spring Cloud" },
-      { icono: "./img/logos/php.png", nombre: "PHP" },
-      { icono: "./img/logos/logopython.png", nombre: "Python" },
-      { icono: "./img/logos/logofastapi.svg", nombre: "FastAPI" },
+      { icono: './img/logos/java.png', nombre: 'Java' },
+      { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
+      { icono: './img/logos/springcloud.png', nombre: 'Spring Cloud' },
+      { icono: './img/logos/springsecurity.png', nombre: 'Spring Security' },
+      { icono: './img/logos/php.png', nombre: 'PHP' },
+      { icono: './img/logos/logopython.png', nombre: 'Python' },
+      { icono: './img/logos/logofastapi.svg', nombre: 'FastAPI' },
     ],
   },
   {
     titulo: t('stack.categorias.herramientas'),
     skills: [
-      { icono: "./img/logos/git.png", nombre: "Git" },
-      { icono: "./img/logos/github.png", nombre: "Github" },
-      { icono: "./img/logos/gitlab.png", nombre: "GitLab" },
-      { icono: "./img/logos/trello.png", nombre: "Trello" },
-      { icono: "./img/logos/mysql.png", nombre: "MySQL" },
-      { icono: "./img/logos/postgresql.png", nombre: "PostgreSQL" },
-      { icono: "./img/logos/postman.png", nombre: "Postman" },
+      { icono: './img/logos/git.png', nombre: 'Git' },
+      { icono: './img/logos/github.png', nombre: 'Github' },
+      { icono: './img/logos/gitlab.png', nombre: 'GitLab' },
+      { icono: './img/logos/trello.png', nombre: 'Trello' },
+      { icono: './img/logos/mysql.png', nombre: 'MySQL' },
+      { icono: './img/logos/postgresql.png', nombre: 'PostgreSQL' },
+      { icono: './img/logos/postman.png', nombre: 'Postman' },
     ],
   },
   {
     titulo: t('stack.categorias.testing'),
-    skills: [
-      { icono: "./img/logos/cypress.png", nombre: "Cypress" },
-    ],
+    skills: [{ icono: './img/logos/cypress.png', nombre: 'Cypress' }],
   },
   {
     titulo: t('stack.categorias.otros'),
     skills: [
-      { icono: "./img/logos/godot.png", nombre: "Godot" },
-      { icono: "./img/logos/zbrush.png", nombre: "ZBrush" },
+      { icono: './img/logos/godot.png', nombre: 'Godot' },
+      { icono: './img/logos/zbrush.png', nombre: 'ZBrush' },
     ],
   },
 ])
@@ -96,7 +109,6 @@ onMounted(() => {
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-
           const scrollingDown = currentScrollY > lastScrollY
 
           if (scrollingDown) {
@@ -106,7 +118,7 @@ onMounted(() => {
       })
       lastScrollY = currentScrollY
     },
-    { threshold: 0.25 }
+    { threshold: 0.25 },
   )
 
   observer.observe(section)
@@ -154,9 +166,8 @@ p {
   color: #6f6f6f;
 }
 
-
 .mi-stack h2::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -194,13 +205,14 @@ p {
   border-radius: 14px;
   padding: 0.8rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .categoria-stack:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-
 }
 
 .categoria-stack h3 {
@@ -218,7 +230,6 @@ p {
   gap: 0.7rem;
   /* antes 1rem */
 }
-
 
 /* Responsivo */
 @media (max-width: 1200px) {

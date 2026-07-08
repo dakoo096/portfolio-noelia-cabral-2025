@@ -1,14 +1,23 @@
 <template>
-  <section class="formulario my-5" id="contacto" data-aos="fade-in" data-aos-easing="ease-in-sine" data-aos-offset="100"
-    data-aos-duration="500">
+  <section
+    class="formulario my-5"
+    id="contacto"
+    data-aos="fade-in"
+    data-aos-easing="ease-in-sine"
+    data-aos-offset="100"
+    data-aos-duration="500"
+  >
     <ParticleBackground />
 
     <h2 class="text-center">{{ $t('contacto.titulo') }}</h2>
     <div class="formulario-container d-flex">
       <!-- Imagen -->
       <div class="col-lg-5 col img-fluid container-imagen">
-        <img src="/img/caricaturacontacto-2.png" alt="caricatura señalando a la derecha del formulario"
-          class="floating-img" />
+        <img
+          src="/img/caricaturacontacto-2.png"
+          alt="caricatura señalando a la derecha del formulario"
+          class="floating-img"
+        />
       </div>
 
       <!-- Formulario -->
@@ -17,70 +26,97 @@
           <h3 class="text-center">{{ $t('contacto.subtitulo') }}</h3>
           <p>{{ $t('contacto.texto') }}</p>
         </div>
-        <form id="contact-form" class="text-center contact-form" @submit.prevent="enviarFormulario" ref="formRef">
+        <form
+          id="contact-form"
+          class="text-center contact-form"
+          @submit.prevent="enviarFormulario"
+          ref="formRef"
+        >
           <div class="mb-3">
             <label for="asunto" class="form-label">{{ $t('contacto.labels.asunto') }}</label>
-            <input type="text" class="form-control" id="asunto" name="asunto" v-model="asunto" required />
+            <input
+              type="text"
+              class="form-control"
+              id="asunto"
+              name="asunto"
+              v-model="asunto"
+              required
+            />
           </div>
 
           <div class="mb-3">
             <label for="email" class="form-label">{{ $t('contacto.labels.email') }}</label>
-            <input type="email" class="form-control" id="email" name="email" v-model="email" required />
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              v-model="email"
+              required
+            />
           </div>
 
           <div class="mb-3">
             <label for="mensaje" class="form-label">{{ $t('contacto.labels.mensaje') }}</label>
-            <textarea class="form-control" id="mensaje" name="mensaje" rows="3" v-model="mensaje" required></textarea>
+            <textarea
+              class="form-control"
+              id="mensaje"
+              name="mensaje"
+              rows="3"
+              v-model="mensaje"
+              required
+            ></textarea>
           </div>
 
           <div class="formulario-boton">
-            <button type="submit" class="btn" ref="botonRef">{{ $t('contacto.botones.enviar') }}</button>
+            <button type="submit" class="btn" ref="botonRef">
+              {{ $t('contacto.botones.enviar') }}
+            </button>
           </div>
         </form>
-
       </div>
     </div>
   </section>
 </template>
 <script setup>
-import { ref, onMounted } from "vue";
-import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
-import ParticleBackground from "./ParticleBackground.vue";
-import { useI18n } from 'vue-i18n';
+import { ref, onMounted } from 'vue'
+import emailjs from '@emailjs/browser'
+import Swal from 'sweetalert2'
+import ParticleBackground from './ParticleBackground.vue'
+import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n();
+const { t } = useI18n()
 
 /* =========================
    EMAILJS
 ========================= */
 
 // Inicializa EmailJS
-emailjs.init("NMgydeVAgi1o6iWWP");
+emailjs.init('NMgydeVAgi1o6iWWP')
 
 // Campos del formulario
-const asunto = ref("");
-const email = ref("");
-const mensaje = ref("");
+const asunto = ref('')
+const email = ref('')
+const mensaje = ref('')
 
 // Refs del DOM
-const botonRef = ref(null);
+const botonRef = ref(null)
 
 // Función para enviar formulario
 const enviarFormulario = async () => {
-  const boton = botonRef.value;
+  const boton = botonRef.value
 
-  boton.textContent = t('contacto.botones.enviando');
-  boton.disabled = true;
+  boton.textContent = t('contacto.botones.enviando')
+  boton.disabled = true
 
   const templateParams = {
     asunto: asunto.value,
     email: email.value,
     mensaje: mensaje.value,
-  };
+  }
 
   try {
-    await emailjs.send("service_ynvt8os", "template_bb4i0ml", templateParams);
+    await emailjs.send('service_ynvt8os', 'template_bb4i0ml', templateParams)
 
     Swal.fire({
       title: t('contacto.swal.exito_titulo'),
@@ -94,86 +130,84 @@ const enviarFormulario = async () => {
       timerProgressBar: true,
       showConfirmButton: false,
       allowOutsideClick: false,
-      background: "#ffffff",
-      color: "#343a40",
+      background: '#ffffff',
+      color: '#343a40',
       backdrop: `rgba(0, 0, 0, 0.6)`,
       showClass: {
-        popup: 'animate__animated animate__zoomIn'
+        popup: 'animate__animated animate__zoomIn',
       },
       hideClass: {
-        popup: 'animate__animated animate__zoomOut'
+        popup: 'animate__animated animate__zoomOut',
       },
       customClass: {
         popup: 'rounded-30 shadow-2xl border-none',
-        timerProgressBar: 'bg-gradient-pink'
-      }
-    });
+        timerProgressBar: 'bg-gradient-pink',
+      },
+    })
 
-    asunto.value = "";
-    email.value = "";
-    mensaje.value = "";
+    asunto.value = ''
+    email.value = ''
+    mensaje.value = ''
 
-    boton.textContent = t('contacto.botones.enviar');
-    boton.disabled = false;
-
+    boton.textContent = t('contacto.botones.enviar')
+    boton.disabled = false
   } catch (error) {
-    console.error(error);
+    console.error(error)
 
     Swal.fire({
-      icon: "error",
+      icon: 'error',
       title: t('contacto.swal.error_titulo'),
       text: t('contacto.swal.error_texto'),
-      confirmButtonColor: "#f38cbe",
-    });
+      confirmButtonColor: '#f38cbe',
+    })
 
-    boton.textContent = t('contacto.botones.enviar');
-    boton.disabled = false;
+    boton.textContent = t('contacto.botones.enviar')
+    boton.disabled = false
   }
-};
+}
 
 /* =========================
    EFECTO SHINE SCROLL
 ========================= */
 
-let observer = null;
-let lastScrollY = 0;
+let observer = null
+let lastScrollY = 0
 
 const hacerShine = () => {
-  const section = document.querySelector(".formulario");
-  if (!section) return;
+  const section = document.querySelector('.formulario')
+  if (!section) return
 
-  section.classList.remove("shine");
-  void section.offsetWidth;
-  section.classList.add("shine");
-};
+  section.classList.remove('shine')
+  void section.offsetWidth
+  section.classList.add('shine')
+}
 
 onMounted(() => {
-  const section = document.querySelector("#contacto");
-  if (!section) return;
+  const section = document.querySelector('#contacto')
+  if (!section) return
 
   observer = new IntersectionObserver(
     (entries) => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY = window.scrollY
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const scrollingDown = currentScrollY > lastScrollY;
+          const scrollingDown = currentScrollY > lastScrollY
 
           if (scrollingDown) {
-            hacerShine();
+            hacerShine()
           }
         }
-      });
+      })
 
-      lastScrollY = currentScrollY;
+      lastScrollY = currentScrollY
     },
-    { threshold: 0.25 }
-  );
+    { threshold: 0.25 },
+  )
 
-  observer.observe(section);
-});
+  observer.observe(section)
+})
 </script>
-
 
 <style scoped>
 /*------------ CONTACTO ------------*/
@@ -212,7 +246,7 @@ onMounted(() => {
 }
 
 .formulario h2::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -243,7 +277,7 @@ onMounted(() => {
 }
 
 .formulario-container::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background-color: rgba(255, 255, 255, 0.6);
@@ -251,11 +285,10 @@ onMounted(() => {
   z-index: 0;
 }
 
-.formulario-container>* {
+.formulario-container > * {
   position: relative;
   z-index: 1;
 }
-
 
 .container-imagen {
   padding-left: 0 !important;
@@ -265,9 +298,7 @@ onMounted(() => {
   position: relative;
   overflow: hidden;
   z-index: 2;
-
 }
-
 
 .container-imagen img {
   position: absolute;
@@ -297,8 +328,6 @@ onMounted(() => {
     transform: translateY(0px);
   }
 }
-
-
 
 .formulario-derecha {
   padding: 2rem;
@@ -402,11 +431,9 @@ onMounted(() => {
 
 /* ======= TABLET (max-width: 992px) ======= */
 @media (max-width: 992px) {
-
   .formulario-container {
     flex-direction: column;
   }
-
 
   .container-imagen {
     display: none;
@@ -426,9 +453,7 @@ onMounted(() => {
   }
 }
 
-
 @media (max-width: 576px) {
-
   .formulario h2 {
     font-size: 1.7rem;
     padding: 1rem;
@@ -456,7 +481,6 @@ onMounted(() => {
 }
 
 @media (max-width: 400px) {
-
   .formulario h2 {
     font-size: 1.2rem;
     padding: 0.5rem;
@@ -472,7 +496,7 @@ onMounted(() => {
     position: relative;
   }
 
-  .formulario-container>* {
+  .formulario-container > * {
     position: relative;
     z-index: 2;
   }

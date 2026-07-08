@@ -6,10 +6,10 @@ const savedLocale = localStorage.getItem('language') || 'es'
 
 export const i18n = createI18n({
   legacy: false, // para Composition API
-  locale: savedLocale, 
+  locale: savedLocale,
   fallbackLocale: 'es',
   messages: {
     es,
-    en
-  }
+    en,
+  },
 })

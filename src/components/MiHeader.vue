@@ -16,10 +16,19 @@
 
     <!-- Redes -->
     <div class="redes animate__animated animate__fadeIn animate__delay-2s">
-      <p><a href="https://github.com/dakoo096" target="_blank"><img src="/img/githubfooter.png" alt="GitHub" /></a></p>
-      <p><a href="https://www.linkedin.com/in/noelia-cabral-381723140" target="_blank"><img
-            src="/img/linkedinfooter.png" alt="LinkedIn" /></a></p>
-      <p><a href="./img/cv/Cv_Cabral_Noelia_2026.pdf" download><img src="/img/cv.png" alt="CV" /></a></p>
+      <p>
+        <a href="https://github.com/dakoo096" target="_blank"
+          ><img src="/img/githubfooter.png" alt="GitHub"
+        /></a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/noelia-cabral-381723140" target="_blank"
+          ><img src="/img/linkedinfooter.png" alt="LinkedIn"
+        /></a>
+      </p>
+      <p>
+        <a href="./img/cv/Cv_Cabral_Noelia_2026.pdf" download><img src="/img/cv.png" alt="CV" /></a>
+      </p>
     </div>
   </div>
   <Redes />
@@ -49,7 +58,7 @@ import NavbarComponent from './MiNavbar.vue'
   z-index: 1;
 }
 
-.portada>* {
+.portada > * {
   position: relative;
   z-index: 2;
 }
@@ -69,7 +78,9 @@ import NavbarComponent from './MiNavbar.vue'
   border-right: 4px solid;
   width: 25ch;
   overflow: hidden;
-  animation: typing 1.5s steps(24), blink 0.5s infinite step-end alternate;
+  animation:
+    typing 1.5s steps(24),
+    blink 0.5s infinite step-end alternate;
 }
 
 .container-portada h2 {
@@ -156,7 +167,6 @@ import NavbarComponent from './MiNavbar.vue'
   }
 }
 
-
 /* Animaciones de texto */
 @keyframes typing {
   from {
@@ -169,7 +179,6 @@ import NavbarComponent from './MiNavbar.vue'
     border-color: transparent;
   }
 }
-
 
 /* MEDIA QUERIES */
 @media (max-width: 1200px) {
@@ -207,7 +216,6 @@ import NavbarComponent from './MiNavbar.vue'
   .container-portada h1 {
     font-size: 2.5rem;
   }
-
 
   .redes {
     gap: 1.5rem;
@@ -275,7 +283,5 @@ import NavbarComponent from './MiNavbar.vue'
   .container-portada h2 {
     font-size: 0.8rem;
   }
-
-
 }
 </style>

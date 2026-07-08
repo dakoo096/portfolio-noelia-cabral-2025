@@ -1,9 +1,14 @@
 <template>
   <div class="proyecto-card">
     <div v-if="video" class="video-container">
-      <iframe :src="video" title="YouTube video player" frameborder="0"
+      <iframe
+        :src="video"
+        title="YouTube video player"
+        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen class="proyecto-video"></iframe>
+        allowfullscreen
+        class="proyecto-video"
+      ></iframe>
     </div>
 
     <div v-else class="carousel-container" @click="abrirModal">
@@ -13,8 +18,13 @@
       <button class="flecha flecha-der" @click.stop="imagenSiguiente">›</button>
 
       <div class="indicadores">
-        <span v-for="(img, i) in imagenes" :key="i" class="punto" :class="{ activo: i === indiceActual }"
-          @click.stop="irAImagen(i)"></span>
+        <span
+          v-for="(img, i) in imagenes"
+          :key="i"
+          class="punto"
+          :class="{ activo: i === indiceActual }"
+          @click.stop="irAImagen(i)"
+        ></span>
       </div>
     </div>
 
@@ -22,16 +32,24 @@
       <h3 class="proyecto-titulo">{{ titulo }}</h3>
       <p class="proyecto-descripcion">{{ descripcion }}</p>
 
-      <div class="proyecto-buttons">
-        <div class="proyecto-buttons">
-          <a v-if="esLinkValido" class="proyecto-link" :href="link" target="_blank">
-            {{ $t('proyectos.botones.ver') }}
-          </a>
-
-          <button v-else class="proyecto-link disabled" disabled>
-            {{ $t('proyectos.botones.proximamente') }}
-          </button>
+      <div v-if="tecnologias && tecnologias.length" class="proyecto-tecnologias">
+        <span class="tecnologias-leyenda">{{ $t('proyectos.tecnologias') }}</span>
+        <div class="tecnologias-iconos">
+          <div v-for="(tech, idx) in tecnologias" :key="idx" class="tech-icono-wrapper">
+            <img :src="tech.icono" :alt="tech.nombre" class="tech-icono" />
+            <span class="tech-tooltip">{{ tech.nombre }}</span>
+          </div>
         </div>
+      </div>
+
+      <div class="proyecto-buttons">
+        <a v-if="esLinkValido" class="proyecto-link" :href="link" target="_blank">
+          {{ $t('proyectos.botones.ver') }}
+        </a>
+
+        <button v-else class="proyecto-link disabled" disabled>
+          {{ $t('proyectos.botones.proximamente') }}
+        </button>
       </div>
     </div>
 
@@ -41,15 +59,11 @@
           <button class="modal-cerrar" @click="cerrarModal">×</button>
 
           <div class="modal-carrusel">
-            <button class="modal-flecha izquierda" @click="modalAnterior">
-              ‹
-            </button>
+            <button class="modal-flecha izquierda" @click="modalAnterior">‹</button>
 
             <img :src="imagenes[modalIndice]" class="modal-imagen-grande" />
 
-            <button class="modal-flecha derecha" @click="modalSiguiente">
-              ›
-            </button>
+            <button class="modal-flecha derecha" @click="modalSiguiente">›</button>
           </div>
         </div>
       </div>
@@ -58,7 +72,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 
 const props = defineProps({
   titulo: String,
@@ -66,62 +80,61 @@ const props = defineProps({
   imagenes: Array,
   link: String,
   video: String,
-});
+  tecnologias: Array,
+})
 
 const esLinkValido = computed(() => {
-  return props.link && props.link.startsWith("http");
-});
+  return props.link && props.link.startsWith('http')
+})
 
 /* CARRUSEL PEQUEÑO */
-const indiceActual = ref(0);
-let intervalo = null;
+const indiceActual = ref(0)
+let intervalo = null
 
 const imagenSiguiente = () => {
-  indiceActual.value = (indiceActual.value + 1) % props.imagenes.length;
-};
+  indiceActual.value = (indiceActual.value + 1) % props.imagenes.length
+}
 
 const imagenAnterior = () => {
-  indiceActual.value =
-    (indiceActual.value - 1 + props.imagenes.length) % props.imagenes.length;
-};
+  indiceActual.value = (indiceActual.value - 1 + props.imagenes.length) % props.imagenes.length
+}
 
 const irAImagen = (i) => {
-  indiceActual.value = i;
-};
+  indiceActual.value = i
+}
 
 onMounted(() => {
   if (!props.video) {
     intervalo = setInterval(() => {
-      imagenSiguiente();
-    }, 3000);
+      imagenSiguiente()
+    }, 3000)
   }
-});
+})
 
 onBeforeUnmount(() => {
-  clearInterval(intervalo);
-});
+  clearInterval(intervalo)
+})
 
 /* MODAL */
-const modalAbierto = ref(false);
-const modalIndice = ref(0);
+const modalAbierto = ref(false)
+const modalIndice = ref(0)
 
 const abrirModal = () => {
-  modalIndice.value = indiceActual.value;
-  modalAbierto.value = true;
-};
+  modalIndice.value = indiceActual.value
+  modalAbierto.value = true
+}
 
 const cerrarModal = () => {
-  modalAbierto.value = false;
-};
+  modalAbierto.value = false
+}
 
 const modalSiguiente = () => {
-  modalIndice.value = (modalIndice.value + 1) % props.imagenes.length;
-};
+  modalIndice.value = (modalIndice.value + 1) % props.imagenes.length
+}
 
 const modalAnterior = () => {
-  modalIndice.value =
-    (modalIndice.value - 1 + props.imagenes.length) % props.imagenes.length;
-};
+  modalIndice.value = (modalIndice.value - 1 + props.imagenes.length) % props.imagenes.length
+}
 </script>
 
 <style scoped>
@@ -132,7 +145,9 @@ const modalAnterior = () => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -153,7 +168,9 @@ const modalAnterior = () => {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  transition: transform 0.5s ease, filter 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
   border-bottom: 1px solid #f0f0f0;
   filter: brightness(0.95);
   display: block;
@@ -262,7 +279,7 @@ const modalAnterior = () => {
 }
 
 .proyecto-descripcion {
-  font-size: 1.rem;
+  font-size: 1rem;
   color: #555;
   text-align: justify;
   line-height: 1.55rem;
@@ -273,10 +290,16 @@ const modalAnterior = () => {
 /*   BOTÓN                 */
 /* ======================= */
 .proyecto-buttons {
-  margin-top: auto;
+  margin-top: 0.5rem;
   padding-bottom: 1.2rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.proyecto-descripcion + .proyecto-buttons {
+  margin-top: auto;
 }
 
 .proyecto-link {
@@ -323,7 +346,6 @@ const modalAnterior = () => {
   padding: 1rem;
   z-index: 9 !important;
   animation: fadeIn 0.2s ease;
-
 }
 
 @keyframes fadeIn {
@@ -335,7 +357,6 @@ const modalAnterior = () => {
     opacity: 1;
   }
 }
-
 
 .modal-content {
   position: relative;
@@ -408,7 +429,6 @@ const modalAnterior = () => {
   backdrop-filter: blur(3px);
 }
 
-
 .modal-flecha:hover {
   background: rgba(255, 255, 255, 0.9);
 }
@@ -473,7 +493,6 @@ const modalAnterior = () => {
 }
 
 @media (max-width: 400px) {
-
   .proyecto-titulo {
     font-size: 1rem;
   }
@@ -487,5 +506,94 @@ const modalAnterior = () => {
     padding: 0.5rem;
     font-size: 0.8rem;
   }
+}
+
+/* TECNOLOGIAS SECCION */
+.proyecto-tecnologias {
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tecnologias-leyenda {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tecnologias-iconos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.tech-icono-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.tech-icono-wrapper:hover {
+  transform: translateY(-4px) scale(1.15);
+}
+
+.tech-icono {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08));
+  transition: filter 0.3s ease;
+}
+
+.tech-icono-wrapper:hover .tech-icono {
+  filter: drop-shadow(0px 6px 12px rgba(135, 87, 133, 0.3));
+}
+
+/* TOOLTIP ESTILO LINDO */
+.tech-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0px) scale(0.85);
+  background: rgba(30, 27, 33, 0.95);
+  color: #fff;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 20;
+}
+
+.tech-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: rgba(30, 27, 33, 0.95) transparent transparent transparent;
+}
+
+.tech-icono-wrapper:hover .tech-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-8px) scale(1);
 }
 </style>

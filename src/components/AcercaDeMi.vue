@@ -1,10 +1,15 @@
 <template>
-  <section class="acerca-de-mi" id="acerca-de-mi" data-aos="fade-in" data-aos-easing="ease-in-sine"
-    data-aos-offset="100" data-aos-duration="500">
+  <section
+    class="acerca-de-mi"
+    id="acerca-de-mi"
+    data-aos="fade-in"
+    data-aos-easing="ease-in-sine"
+    data-aos-offset="100"
+    data-aos-duration="500"
+  >
     <ParticleBackground />
     <h2>{{ $t('acerca_de_mi.titulo') }}</h2>
     <div class="acerca-de-mi-container">
-
       <p>
         {{ $t('acerca_de_mi.p1') }}
       </p>
@@ -14,52 +19,50 @@
       <p>
         {{ $t('acerca_de_mi.p3') }}
       </p>
-
     </div>
   </section>
 </template>
 
 <script setup>
-import ParticleBackground from './ParticleBackground.vue';
-import { onMounted } from 'vue';
+import ParticleBackground from './ParticleBackground.vue'
+import { onMounted } from 'vue'
 
-let observer = null;
-let lastScrollY = 0;
+let observer = null
+let lastScrollY = 0
 
 const hacerShine = () => {
-  const section = document.querySelector('.acerca-de-mi');
-  if (!section) return;
+  const section = document.querySelector('.acerca-de-mi')
+  if (!section) return
 
-  section.classList.remove('shine');
-  void section.offsetWidth;
-  section.classList.add('shine');
-};
+  section.classList.remove('shine')
+  void section.offsetWidth
+  section.classList.add('shine')
+}
 
 onMounted(() => {
-  const section = document.querySelector('#acerca-de-mi');
-  if (!section) return;
+  const section = document.querySelector('#acerca-de-mi')
+  if (!section) return
 
   observer = new IntersectionObserver(
     (entries) => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY = window.scrollY
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const scrollingDown = currentScrollY > lastScrollY;
+          const scrollingDown = currentScrollY > lastScrollY
           if (scrollingDown) {
-            hacerShine();
+            hacerShine()
           }
         }
-      });
-      lastScrollY = currentScrollY;
+      })
+      lastScrollY = currentScrollY
     },
-    { threshold: 0.25 }
-  );
+    { threshold: 0.25 },
+  )
 
-  observer.observe(section);
-});
+  observer.observe(section)
+})
 </script>
-
 
 <style scoped>
 .acerca-de-mi {
@@ -130,7 +133,7 @@ onMounted(() => {
 }
 
 .acerca-de-mi h2::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -165,7 +168,6 @@ onMounted(() => {
   .acerca-de-mi-container {
     font-size: 1rem;
   }
-
 }
 
 @media (max-width: 400px) {

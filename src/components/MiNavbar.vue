@@ -1,26 +1,53 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-
       <!-- Botón hamburguesa -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- Links -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="#" @click.prevent="scrollToSection('body')">{{
-            $t('navbar.inicio') }}</a></li>
-          <li class="nav-item"><a class="nav-link" href="#acerca-de-mi"
-              @click.prevent="scrollToSection('#acerca-de-mi')">{{ $t('navbar.acerca_de_mi') }}</a></li>
-          <li class="nav-item"><a class="nav-link" href="#mi-stack" @click.prevent="scrollToSection('#mi-stack')">{{
-            $t('navbar.mis_habilidades') }}</a></li>
-          <li class="nav-item"><a class="nav-link" href="#mis-proyectos"
-              @click.prevent="scrollToSection('#mis-proyectos')">{{ $t('navbar.mis_proyectos') }}</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacto" @click.prevent="scrollToSection('#contacto')">{{
-            $t('navbar.contacto') }}</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" @click.prevent="scrollToSection('body')">{{
+              $t('navbar.inicio')
+            }}</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#acerca-de-mi"
+              @click.prevent="scrollToSection('#acerca-de-mi')"
+              >{{ $t('navbar.acerca_de_mi') }}</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#mi-stack" @click.prevent="scrollToSection('#mi-stack')">{{
+              $t('navbar.mis_habilidades')
+            }}</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#mis-proyectos"
+              @click.prevent="scrollToSection('#mis-proyectos')"
+              >{{ $t('navbar.mis_proyectos') }}</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto" @click.prevent="scrollToSection('#contacto')">{{
+              $t('navbar.contacto')
+            }}</a>
+          </li>
 
           <!-- Botón de idioma -->
           <li class="nav-item mx-2 d-flex align-items-center">
@@ -36,7 +63,6 @@
             </button>
           </li>
         </ul>
-
       </div>
     </div>
   </nav>
@@ -86,9 +112,9 @@ const scrollToSection = (targetSelector) => {
   // Easing function for smooth acceleration and deceleration
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2
-    if (t < 1) return c / 2 * t * t + b
+    if (t < 1) return (c / 2) * t * t + b
     t--
-    return -c / 2 * (t * (t - 2) - 1) + b
+    return (-c / 2) * (t * (t - 2) - 1) + b
   }
 
   requestAnimationFrame(animation)
@@ -100,7 +126,6 @@ onMounted(() => {
   document.body.classList.toggle('dark-mode', saved)
 })
 </script>
-
 
 <style scoped>
 .navbar .dark-mode-btn,
@@ -147,7 +172,6 @@ onMounted(() => {
   width: 100%;
 }
 
-
 /* Navbar base */
 .navbar {
   background-color: rgba(227, 195, 232, 0.7);
@@ -162,7 +186,6 @@ onMounted(() => {
   overflow-x: hidden;
   z-index: 9999;
 }
-
 
 .navbar a,
 .navbar button {
@@ -207,8 +230,6 @@ onMounted(() => {
   transform: translateY(0);
 }
 
-
-
 @media (max-width: 768px) {
   .navbar {
     padding-left: 0 !important;
@@ -228,7 +249,6 @@ onMounted(() => {
     margin-left: 0 !important;
   }
 }
-
 
 @media (max-width: 600px) {
   .navbar a {

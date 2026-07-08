@@ -32,11 +32,11 @@
     "subtitulo": "A selection of some of my practice and personal projects, developed with various technologies and approaches.",
     "ecommerce": {
       "titulo": "E-Commerce – Microservices Architecture",
-      "desc": "E-commerce web application developed with microservices architecture using Spring Boot, Spring Cloud, Api Gateway, and MySQL. The system is decoupled into independent services (users, products, cart, and sales), communicating via REST API and managed by a centralized gateway. Includes JWT authentication, role control (ADMIN/CLIENT), persistent cart, purchase confirmation, automatic stock deduction, and session management from the frontend with Vue 3, Pinia, and TypeScript."
+      "desc": "E-commerce platform based on microservices with Spring Boot, Spring Cloud, and MySQL. Offers independent services (users, products, cart, and sales) integrated with a Vue 3, Pinia, and TypeScript frontend. Includes JWT authentication, roles, and persistent shopping cart."
     },
     "veterinaria": {
       "titulo": "Veterinary Clinic – Web App",
-      "desc": "Web application for veterinary clinic management, migrated from a monolithic architecture with Thymeleaf to a decoupled approach with Vue 3 (frontend) and Spring Boot (backend).\nThe database was redesigned to improve scalability and performance, incorporating optimized relationships and data integrity.\nIncludes management of owners, pets, and appointments with clinical history, Spring Security authentication, and role control.\nThe frontend consumes REST APIs and applies best practices such as layer separation, validations, and error handling."
+      "desc": "Web system for veterinary clinic management featuring a decoupled architecture with Vue 3 (frontend) and Spring Boot (backend). Allows managing owners, pets, appointments, and medical history, with secure authentication and role control."
     },
     "blog": {
       "titulo": "Personal Blog",
@@ -62,6 +62,11 @@
       "titulo": "CaC Integrator 2023",
       "desc": "Responsive website built in HTML, CSS, and JavaScript based on a Codo a Codo design. Fully adaptable and aesthetically modern."
     },
+    "devdaily": {
+      "titulo": "DevDaily – Multiplatform Mobile App & API",
+      "desc": "Multiplatform mobile application for developers offering daily technical content (tips, interview questions, and shortcuts). Features a Spring Boot backend with JWT authentication, personalized recommendations, and bookmarked favorites."
+    },
+    "tecnologias": "Technologies:",
     "botones": {
       "ver": "View Project",
       "proximamente": "Coming soon to GitHub"

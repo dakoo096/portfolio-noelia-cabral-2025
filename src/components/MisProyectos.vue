@@ -1,6 +1,12 @@
 <template>
-  <section class="mis-proyectos" id="mis-proyectos" data-aos="fade-in" data-aos-easing="ease-in-sine"
-    data-aos-offset="100" data-aos-duration="500">
+  <section
+    class="mis-proyectos"
+    id="mis-proyectos"
+    data-aos="fade-in"
+    data-aos-easing="ease-in-sine"
+    data-aos-offset="100"
+    data-aos-duration="500"
+  >
     <ParticleBackground />
     <h2>{{ $t('proyectos.titulo') }}</h2>
     <p class="subtitulo">
@@ -9,9 +15,16 @@
 
     <div class="mis-proyectos-container">
       <div class="proyectos-grid">
-        <ProyectoCard v-for="(proyecto, index) in proyectos" :key="index" :titulo="proyecto.titulo"
-          :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes" :link="proyecto.link"
-          :video="proyecto.video" />
+        <ProyectoCard
+          v-for="(proyecto, index) in proyectos"
+          :key="index"
+          :titulo="proyecto.titulo"
+          :descripcion="proyecto.descripcion"
+          :imagenes="proyecto.imagenes"
+          :link="proyecto.link"
+          :video="proyecto.video"
+          :tecnologias="proyecto.tecnologias"
+        />
       </div>
     </div>
   </section>
@@ -27,6 +40,24 @@ const { t } = useI18n()
 
 const proyectos = computed(() => [
   {
+    titulo: t('proyectos.devdaily.titulo'),
+    descripcion: t('proyectos.devdaily.desc'),
+    imagenes: [
+      './img/proyecto9/devDaily header.png',
+      './img/proyecto9/devDaily icon.png',
+      './img/proyecto9/splash.png',
+    ],
+    link: 'https://github.com/dakoo096/devdaily',
+    tecnologias: [
+      { icono: './img/logos/ionic_logo.png', nombre: 'Ionic' },
+      { icono: './img/logos/vue.png', nombre: 'Vue.js' },
+      { icono: './img/logos/pinia.png', nombre: 'Pinia' },
+      { icono: './img/logos/java.png', nombre: 'Java' },
+      { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
+      { icono: './img/logos/springsecurity.png', nombre: 'Spring Security' },
+    ],
+  },
+  {
     titulo: t('proyectos.ecommerce.titulo'),
     descripcion: t('proyectos.ecommerce.desc'),
     imagenes: [
@@ -36,9 +67,15 @@ const proyectos = computed(() => [
       './img/proyecto8/ecommerce2.jpeg',
       './img/proyecto8/ecommerce3.jpeg',
       './img/proyecto8/ecommerce4.jpeg',
-
     ],
-    link: 'https://github.com/dakoo096/repo-microservicios-tienda'
+    link: 'https://github.com/dakoo096/repo-microservicios-tienda',
+    tecnologias: [
+      { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
+      { icono: './img/logos/springcloud.png', nombre: 'Spring Cloud' },
+      { icono: './img/logos/mysql.png', nombre: 'MySQL' },
+      { icono: './img/logos/vue.png', nombre: 'Vue.js' },
+      { icono: './img/logos/pinia.png', nombre: 'Pinia' },
+    ],
   },
   {
     titulo: t('proyectos.veterinaria.titulo'),
@@ -51,7 +88,12 @@ const proyectos = computed(() => [
       './img/proyecto1/veterinaria5.png',
     ],
     video: 'https://www.youtube.com/embed/xh_BXyYUfoI',
-    link: 'https://github.com/dakoo096/clinicaVeterinariaV2'
+    link: 'https://github.com/dakoo096/clinicaVeterinariaV2',
+    tecnologias: [
+      { icono: './img/logos/vue.png', nombre: 'Vue.js' },
+      { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
+      { icono: './img/logos/springsecurity.png', nombre: 'Spring Security' },
+    ],
   },
   {
     titulo: t('proyectos.blog.titulo'),
@@ -63,7 +105,12 @@ const proyectos = computed(() => [
       './img/proyecto2/blog4.jpeg',
       './img/proyecto2/blog5.jpeg',
     ],
-    link: 'https://github.com/dakoo096/mi-blog-personal.git'
+    link: 'https://github.com/dakoo096/mi-blog-personal.git',
+    tecnologias: [
+      { icono: './img/logos/html.png', nombre: 'HTML5' },
+      { icono: './img/logos/css.png', nombre: 'CSS3' },
+      { icono: './img/logos/javascript.png', nombre: 'JavaScript' },
+    ],
   },
   {
     titulo: t('proyectos.biblioteca.titulo'),
@@ -76,7 +123,13 @@ const proyectos = computed(() => [
       './img/proyecto3/biblioteca5.png',
       './img/proyecto3/biblioteca6.png',
     ],
-    link: 'https://github.com/dakoo096/Biblioteca.git'
+    link: 'https://github.com/dakoo096/Biblioteca.git',
+    tecnologias: [
+      { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
+      { icono: './img/logos/mysql.png', nombre: 'MySQL' },
+      { icono: './img/logos/html.png', nombre: 'HTML5' },
+      { icono: './img/logos/css.png', nombre: 'CSS3' },
+    ],
   },
   {
     titulo: t('proyectos.peluqueria.titulo'),
@@ -88,7 +141,8 @@ const proyectos = computed(() => [
       './img/proyecto5/peluqueria4.jpeg',
       './img/proyecto5/peluqueria5.jpeg',
     ],
-    link: 'https://github.com/dakoo096/peluqueria-canina'
+    link: 'https://github.com/dakoo096/peluqueria-canina',
+    tecnologias: [{ icono: './img/logos/java.png', nombre: 'Java' }],
   },
   {
     titulo: t('proyectos.concesionaria.titulo'),
@@ -100,22 +154,23 @@ const proyectos = computed(() => [
       './img/proyecto6/conse4.jpeg',
       './img/proyecto6/conse5.jpeg',
     ],
-    link: 'https://github.com/dakoo096/Concesionaria-Automovil'
+    link: 'https://github.com/dakoo096/Concesionaria-Automovil',
+    tecnologias: [{ icono: './img/logos/java.png', nombre: 'Java' }],
   },
   {
     titulo: t('proyectos.integrador.titulo'),
     descripcion: t('proyectos.integrador.desc'),
-    imagenes: [
-      './img/proyecto7/cac1.png',
-      './img/proyecto7/cac2.png',
-      './img/proyecto7/cac3.png',
+    imagenes: ['./img/proyecto7/cac1.png', './img/proyecto7/cac2.png', './img/proyecto7/cac3.png'],
+    link: 'https://dakoo096.github.io/tpIntegradorCaC/',
+    tecnologias: [
+      { icono: './img/logos/html.png', nombre: 'HTML5' },
+      { icono: './img/logos/css.png', nombre: 'CSS3' },
+      { icono: './img/logos/javascript.png', nombre: 'JavaScript' },
     ],
-    link: 'https://dakoo096.github.io/tpIntegradorCaC/'
-  }
+  },
 ])
 let observer = null
 let lastScrollY = 0
-
 
 const hacerShine = () => {
   const section = document.querySelector('.mis-proyectos')
@@ -124,7 +179,6 @@ const hacerShine = () => {
   section.classList.remove('shine')
   void section.offsetWidth
   section.classList.add('shine')
-
 }
 onMounted(() => {
   const section = document.querySelector('#mis-proyectos')
@@ -136,7 +190,6 @@ onMounted(() => {
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-
           const scrollingDown = currentScrollY > lastScrollY
 
           if (scrollingDown) {
@@ -146,12 +199,11 @@ onMounted(() => {
       })
       lastScrollY = currentScrollY
     },
-    { threshold: 0.25 }
+    { threshold: 0.25 },
   )
 
   observer.observe(section)
 })
-
 </script>
 
 <style scoped>
@@ -193,7 +245,7 @@ onMounted(() => {
 
 /* Subrayado animado */
 .mis-proyectos h2::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -10px;
   left: 50%;

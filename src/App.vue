@@ -10,7 +10,6 @@
   </div>
 </template>
 
-
 <script setup>
 import HeaderComponent from './components/MiHeader.vue'
 import BackToTop from './components/BackToTop.vue'
@@ -19,9 +18,7 @@ import MiStack from './components/MiStack.vue'
 import MisProyectos from './components/MisProyectos.vue'
 import FooterComponent from './components/MiFooter.vue'
 import Contacto from './components/MiContacto.vue'
-
 </script>
-
 
 <style scoped>
 #app {

@@ -1,7 +1,12 @@
 <template>
   <section class="boton-back-to-top">
-    <button v-show="visible" @click="scrollTop" id="myBtn" title="Go to top"
-      class="btn rounded align-items-center p-3 bg-gradient bg-opacity-75">
+    <button
+      v-show="visible"
+      @click="scrollTop"
+      id="myBtn"
+      title="Go to top"
+      class="btn rounded align-items-center p-3 bg-gradient bg-opacity-75"
+    >
       <i class="bx bxs-up-arrow-alt bx-tada"></i>
     </button>
   </section>
@@ -34,9 +39,9 @@ const smoothScrollToTop = () => {
   // Easing function for smooth acceleration and deceleration
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2
-    if (t < 1) return c / 2 * t * t + b
+    if (t < 1) return (c / 2) * t * t + b
     t--
-    return -c / 2 * (t * (t - 2) - 1) + b
+    return (-c / 2) * (t * (t - 2) - 1) + b
   }
 
   requestAnimationFrame(animation)
@@ -53,7 +58,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', toggleVisibility)
 })
-
 </script>
 
 <style scoped>
@@ -66,7 +70,6 @@ onUnmounted(() => {
   width: auto;
   display: inline-flex;
 }
-
 
 .boton-back-to-top button {
   font-size: 1.5rem;
