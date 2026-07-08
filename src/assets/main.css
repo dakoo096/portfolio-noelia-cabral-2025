@@ -117,6 +117,10 @@ body.dark-mode::before {
   background-color: transparent;
 }
 
+body.dark-mode .navbar-collapse {
+  background-color: #1e1e1e00 !important;
+}
+
 body.dark-mode .navbar-toggler-icon {
   filter: invert(1);
 }

@@ -19,7 +19,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#" @click.prevent="scrollToSection('body')">{{
               $t('navbar.inicio')
-              }}</a>
+            }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#acerca-de-mi" @click.prevent="scrollToSection('#acerca-de-mi')">{{
@@ -28,7 +28,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#mi-stack" @click.prevent="scrollToSection('#mi-stack')">{{
               $t('navbar.mis_habilidades')
-              }}</a>
+            }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#mis-proyectos" @click.prevent="scrollToSection('#mis-proyectos')">{{
@@ -37,7 +37,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#contacto" @click.prevent="scrollToSection('#contacto')">{{
               $t('navbar.contacto')
-              }}</a>
+            }}</a>
           </li>
 
           <!-- Botón de idioma -->
@@ -269,15 +269,26 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  padding: 6px;
+  padding: 0;
   transition: all 0.25s ease;
   border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.dark-mode-btn i {
+  transition: transform 0.25s ease;
+  display: inline-block;
 }
 
 .dark-mode-btn:hover {
   color: #0f172a;
-  transform: scale(1.1) rotate(15deg);
   background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dark-mode-btn:hover i {
+  transform: scale(1.1) rotate(15deg);
 }
 
 /* Adaptación para pantallas oscuras */
@@ -340,14 +351,11 @@ body.dark-mode .dark-mode-btn:hover {
 
   .navbar-collapse {
     background-color: #ffffff;
+    text-align: center;
     border-radius: 12px;
     padding: 1rem;
     margin-top: 0.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-
-  :global(body.dark-mode) .navbar-collapse {
-    background-color: #1e1e1e;
   }
 
   .navbar-nav {
@@ -370,7 +378,7 @@ body.dark-mode .dark-mode-btn:hover {
 
   .dark-mode-btn {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 0.6rem 0.5rem;
   }
 }
