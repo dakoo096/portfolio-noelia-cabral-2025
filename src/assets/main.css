@@ -106,12 +106,15 @@ section,
 }
 
 /* ===== DARK MODE: FONDO GLOBAL ===== */
+/* Se oculta la imagen de fondo rosa y se usa un fondo oscuro sólido */
 body.dark-mode {
-  background-color: #000000;
+  background-image: none;
+  background-color: #09090b;
 }
 
+/* El ::before light-mode tiene fondo blanco, en dark lo eliminamos */
 body.dark-mode::before {
-  background-color: rgba(0, 0, 0, 0.808);
+  background-color: transparent;
 }
 
 body.dark-mode .navbar-toggler-icon {
@@ -126,12 +129,12 @@ body.dark-mode .navbar {
 }
 
 body.dark-mode .navbar a,
-.navbar button {
+body.dark-mode .navbar button {
   color: #eaeaea;
 }
 
 body.dark-mode .navbar a:hover,
-.navbar button:hover {
+body.dark-mode .navbar button:hover {
   background-color: transparent;
   color: #fff;
 }
@@ -148,19 +151,6 @@ body.dark-mode .dark-mode-btn:hover {
 
 body.dark-mode .dark-mode-btn:active {
   background-color: #444;
-}
-
-body.dark-mode .portada::before {
-  content: '';
-  background-color: rgba(0, 0, 0, 0.55);
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.849), rgba(0, 0, 0, 0.74));
-}
-
-body.dark-mode .container-portada h1,
-body.dark-mode .container-portada h2 {
-  color: #f1f1f1;
 }
 
 /* ===== DARK MODE: ACERCA DE MI ===== */
@@ -202,7 +192,7 @@ body.dark-mode .mi-stack h2::after {
 
 body.dark-mode .mi-stack .subtitulo {
   color: #cfcfcf;
-  opacity: 0.9;
+  opacity: 0.5;
 }
 
 /* Grid container */
@@ -222,34 +212,14 @@ body.dark-mode .categoria-stack:hover {
 }
 
 /* Títulos de categoría */
+/* Títulos de categoría */
 body.dark-mode .categoria-stack h3 {
-  color: #f1f1f1;
+  color: #f1f5f9;
+  border-bottom-color: rgba(243, 140, 190, 0.3);
 }
 
-/* ===== DARK MODE: STACK CARD ===== */
-
-body.dark-mode .mi-stack-container-card:hover {
-  background: linear-gradient(135deg, #3e1738, #161516);
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 26px rgba(180, 100, 170, 0.55);
-}
-
-/* Logo: leve realce sin alterar colores */
-body.dark-mode .mi-stack-container-card img {
-  filter: brightness(1.05) contrast(1.05);
-}
-
-/* ===== DARK MODE: STACK CARDS ===== */
-
-body.dark-mode .mi-stack-container-card {
-  background: linear-gradient(135deg, #4a1d43, #1d0f1b);
-  box-shadow: 0 6px 18px rgba(210, 149, 198, 0.35);
-  border: none;
-  color: #eaeaea;
-}
-body.dark-mode .mi-stack-container-card .texto {
-  color: #e0e0e0;
-}
+/* ===== DARK MODE: STACK BADGES (pill style) ===== */
+/* Handled inside StackCard.vue via :global selectors */
 /* ===== DARK MODE: MIS PROYECTOS ===== */
 
 body.dark-mode .mis-proyectos {
@@ -459,5 +429,5 @@ body.dark-mode .boton-back-to-top button:active {
 }
 
 body.dark-mode .boton-back-to-top i {
-  color: #111;
+  color: #ffffff;
 }

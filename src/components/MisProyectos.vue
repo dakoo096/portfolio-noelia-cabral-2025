@@ -14,17 +14,42 @@
     </p>
 
     <div class="mis-proyectos-container">
-      <div class="proyectos-grid">
-        <ProyectoCard
-          v-for="(proyecto, index) in proyectos"
-          :key="index"
-          :titulo="proyecto.titulo"
-          :descripcion="proyecto.descripcion"
-          :imagenes="proyecto.imagenes"
-          :link="proyecto.link"
-          :video="proyecto.video"
-          :tecnologias="proyecto.tecnologias"
-        />
+      <!-- Sección Destacados -->
+      <div class="proyectos-seccion">
+        <h3 class="proyectos-subseccion-titulo">
+          <span class="bullet">•</span> {{ $t('proyectos.destacados') }}
+        </h3>
+        <div class="proyectos-grid">
+          <ProyectoCard
+            v-for="(proyecto, index) in proyectosDestacados"
+            :key="'destacado-' + index"
+            :titulo="proyecto.titulo"
+            :descripcion="proyecto.descripcion"
+            :imagenes="proyecto.imagenes"
+            :link="proyecto.link"
+            :video="proyecto.video"
+            :tecnologias="proyecto.tecnologias"
+          />
+        </div>
+      </div>
+
+      <!-- Sección Otros -->
+      <div class="proyectos-seccion">
+        <h3 class="proyectos-subseccion-titulo">
+          <span class="bullet">•</span> {{ $t('proyectos.otros') }}
+        </h3>
+        <div class="proyectos-grid">
+          <ProyectoCard
+            v-for="(proyecto, index) in otrosProyectos"
+            :key="'otro-' + index"
+            :titulo="proyecto.titulo"
+            :descripcion="proyecto.descripcion"
+            :imagenes="proyecto.imagenes"
+            :link="proyecto.link"
+            :video="proyecto.video"
+            :tecnologias="proyecto.tecnologias"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -38,7 +63,7 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const proyectos = computed(() => [
+const proyectosDestacados = computed(() => [
   {
     titulo: t('proyectos.devdaily.titulo'),
     descripcion: t('proyectos.devdaily.desc'),
@@ -91,10 +116,14 @@ const proyectos = computed(() => [
     link: 'https://github.com/dakoo096/clinicaVeterinariaV2',
     tecnologias: [
       { icono: './img/logos/vue.png', nombre: 'Vue.js' },
+      { icono: './img/logos/tailwindcss.svg', nombre: 'Tailwind CSS' },
       { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
       { icono: './img/logos/springsecurity.png', nombre: 'Spring Security' },
     ],
   },
+])
+
+const otrosProyectos = computed(() => [
   {
     titulo: t('proyectos.blog.titulo'),
     descripcion: t('proyectos.blog.desc'),
@@ -169,6 +198,7 @@ const proyectos = computed(() => [
     ],
   },
 ])
+
 let observer = null
 let lastScrollY = 0
 
@@ -180,6 +210,7 @@ const hacerShine = () => {
   void section.offsetWidth
   section.classList.add('shine')
 }
+
 onMounted(() => {
   const section = document.querySelector('#mis-proyectos')
   if (!section) return
@@ -278,11 +309,37 @@ onMounted(() => {
   padding: 0.5rem 1rem;
 }
 
+/* Secciones de Proyectos */
+.proyectos-seccion {
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.proyectos-seccion:last-child {
+  margin-bottom: 1rem;
+}
+
+.proyectos-subseccion-titulo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3a4a;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bullet {
+  color: #f38cbe;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
 /* GRID */
 .proyectos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* 3 items per row exactly */
   gap: 2rem;
 }
 
@@ -310,6 +367,10 @@ onMounted(() => {
 
   .proyectos-grid {
     grid-template-columns: 1fr;
+  }
+
+  .proyectos-subseccion-titulo {
+    font-size: 1.3rem;
   }
 }
 

@@ -43,6 +43,7 @@ const categorias = computed(() => [
       { icono: './img/logos/css.png', nombre: 'CSS3' },
       { icono: './img/logos/javascript.png', nombre: 'JavaScript' },
       { icono: './img/logos/bootstrap.png', nombre: 'Bootstrap' },
+      { icono: './img/logos/tailwindcss.svg', nombre: 'Tailwind CSS' },
       { icono: './img/logos/vue.png', nombre: 'Vue' },
       { icono: './img/logos/quasar.png', nombre: 'Quasar' },
       { icono: './img/logos/ionic_logo.png', nombre: 'Ionic' },
@@ -194,8 +195,8 @@ p {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
 /* Tarjetas de categoría */
@@ -216,19 +217,22 @@ p {
 }
 
 .categoria-stack h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #343a40;
   margin-bottom: 1rem;
-  text-align: center;
+  text-align: left;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(232, 183, 207, 0.4);
+  padding-bottom: 0.5rem;
 }
 
 .categoria-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.7rem;
-  /* antes 1rem */
+  justify-content: flex-start;
+  gap: 0.55rem;
 }
 
 /* Responsivo */
@@ -248,17 +252,7 @@ p {
   }
 
   .categoria-stack h3 {
-    font-size: 1.1rem;
-  }
-
-  .mi-stack-container-card {
-    width: 80px;
-    height: 100px;
-  }
-
-  .mi-stack-container-card img {
-    width: 50px;
-    height: 50px;
+    font-size: 0.95rem;
   }
 }
 

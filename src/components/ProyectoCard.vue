@@ -1,14 +1,9 @@
 <template>
   <div class="proyecto-card">
     <div v-if="video" class="video-container">
-      <iframe
-        :src="video"
-        title="YouTube video player"
-        frameborder="0"
+      <iframe :src="video" title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        class="proyecto-video"
-      ></iframe>
+        allowfullscreen class="proyecto-video"></iframe>
     </div>
 
     <div v-else class="carousel-container" @click="abrirModal">
@@ -18,13 +13,8 @@
       <button class="flecha flecha-der" @click.stop="imagenSiguiente">›</button>
 
       <div class="indicadores">
-        <span
-          v-for="(img, i) in imagenes"
-          :key="i"
-          class="punto"
-          :class="{ activo: i === indiceActual }"
-          @click.stop="irAImagen(i)"
-        ></span>
+        <span v-for="(img, i) in imagenes" :key="i" class="punto" :class="{ activo: i === indiceActual }"
+          @click.stop="irAImagen(i)"></span>
       </div>
     </div>
 
@@ -44,10 +34,12 @@
 
       <div class="proyecto-buttons">
         <a v-if="esLinkValido" class="proyecto-link" :href="link" target="_blank">
+          <i class="bx bx-link-external icon-btn"></i>
           {{ $t('proyectos.botones.ver') }}
         </a>
 
         <button v-else class="proyecto-link disabled" disabled>
+          <i class="bx bx-lock-alt icon-btn"></i>
           {{ $t('proyectos.botones.proximamente') }}
         </button>
       </div>
@@ -140,20 +132,19 @@ const modalAnterior = () => {
 <style scoped>
 .proyecto-card {
   background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.03);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition:
-    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    box-shadow 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  border: 1px solid #cbd5e1;
 }
 
 .proyecto-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(135, 87, 133, 0.15);
+  transform: translateY(-6px);
+  border-color: #94a3b8;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
   z-index: 2;
 }
 
@@ -184,7 +175,7 @@ const modalAnterior = () => {
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
 }
@@ -263,27 +254,26 @@ const modalAnterior = () => {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem 1rem 1.4rem;
+  padding: 1.5rem;
 }
 
 .proyecto-titulo {
-  font-size: 1.45rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.35rem;
   font-weight: 700;
-  color: #222;
-  margin-bottom: 0.6rem;
-  text-align: center;
-  min-height: 4rem;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  text-align: left;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .proyecto-descripcion {
-  font-size: 1rem;
-  color: #555;
-  text-align: justify;
-  line-height: 1.55rem;
-  opacity: 0.95;
+  font-size: 0.92rem;
+  color: #475569;
+  text-align: left;
+  line-height: 1.5;
 }
 
 /* ======================= */
@@ -291,14 +281,14 @@ const modalAnterior = () => {
 /* ======================= */
 .proyecto-buttons {
   margin-top: 0.5rem;
-  padding-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
 
-.proyecto-descripcion + .proyecto-buttons {
+.proyecto-descripcion+.proyecto-buttons {
   margin-top: auto;
 }
 
@@ -326,6 +316,10 @@ const modalAnterior = () => {
   box-shadow: 0px 12px 24px rgba(232, 183, 207, 0.5);
   color: #fff;
   border-color: transparent;
+}
+
+.icon-btn {
+  font-size: 1.1rem;
 }
 
 .proyecto-link:active {
@@ -511,17 +505,17 @@ const modalAnterior = () => {
 /* TECNOLOGIAS SECCION */
 .proyecto-tecnologias {
   margin-top: auto;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
 }
 
 .tecnologias-leyenda {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #666;
+  color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -529,9 +523,9 @@ const modalAnterior = () => {
 .tecnologias-iconos {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 4px 0;
 }
 

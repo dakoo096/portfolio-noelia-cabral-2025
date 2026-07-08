@@ -30,6 +30,8 @@
   "proyectos": {
     "titulo": "Mis Proyectos",
     "subtitulo": "Selección de algunos de mis proyectos de práctica y personales, desarrollados con diversas tecnologías y enfoques.",
+    "destacados": "Proyectos Destacados",
+    "otros": "Otros Proyectos",
     "ecommerce": {
       "titulo": "E-Commerce – Arquitectura de Microservicios",
       "desc": "Plataforma de e-commerce basada en microservicios con Spring Boot, Spring Cloud y MySQL. Ofrece servicios independientes (usuarios, productos, carrito y ventas) integrados con una interfaz en Vue 3 con Pinia y TypeScript. Incluye autenticación JWT, roles y carrito de compras persistente."

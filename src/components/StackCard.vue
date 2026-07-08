@@ -1,7 +1,7 @@
 <template>
-  <div class="mi-stack-container-card">
-    <img :src="icono" :alt="nombre" />
-    <span class="texto">{{ nombre }}</span>
+  <div class="skill-badge">
+    <img :src="icono" :alt="nombre" class="skill-icon" />
+    <span class="skill-label">{{ nombre }}</span>
   </div>
 </template>
 
@@ -13,78 +13,73 @@ defineProps({
 </script>
 
 <style scoped>
-.mi-stack-container-card {
-  display: flex;
-  flex-direction: column;
+.skill-badge {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  cursor: pointer;
-  width: 100px;
-  height: 120px;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  border-radius: 10px;
   cursor: default;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+  backdrop-filter: blur(4px);
 }
 
-.mi-stack-container-card:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  background: #e3c3e8;
+.skill-badge:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #e8b7cf;
+  box-shadow: 0 6px 20px rgba(232, 183, 207, 0.35);
 }
 
-.mi-stack-container-card img {
-  width: 45px;
-  height: 45px;
-  margin-bottom: 0.5rem;
+.skill-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
-.mi-stack-container-card .texto {
+.skill-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
   font-weight: 600;
-  font-size: 0.9rem;
-  text-align: center;
-  color: #333;
+  color: #1e293b;
+  white-space: nowrap;
 }
 
-.mi-stack-container-card:hover .texto {
-  color: #fff;
+/* Dark mode */
+:global(body.dark-mode) .skill-badge {
+  background: rgba(30, 27, 40, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+:global(body.dark-mode) .skill-badge:hover {
+  background: rgba(55, 45, 65, 0.9);
+  border-color: rgba(243, 140, 190, 0.5);
+  box-shadow: 0 6px 20px rgba(243, 140, 190, 0.2);
+}
+
+:global(body.dark-mode) .skill-label {
+  color: #e2e8f0;
 }
 
 @media (max-width: 600px) {
-  .mi-stack-container-card {
-    width: 80px;
-    height: 100px;
-    padding: 0.8rem;
+  .skill-badge {
+    padding: 5px 10px;
   }
 
-  .mi-stack-container-card img {
-    width: 35px;
-    height: 35px;
+  .skill-icon {
+    width: 18px;
+    height: 18px;
   }
 
-  .mi-stack-container-card .texto {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .mi-stack-container-card {
-    width: 70px;
-    height: 90px;
-    padding: 0.6rem;
-  }
-
-  .mi-stack-container-card img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .mi-stack-container-card .texto {
-    font-size: 0.7rem;
+  .skill-label {
+    font-size: 0.78rem;
   }
 }
 </style>
