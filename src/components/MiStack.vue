@@ -201,31 +201,35 @@ p {
 
 /* Tarjetas de categoría */
 .categoria-stack {
-  background-color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(4px);
-  border-radius: 14px;
-  padding: 0.8rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .categoria-stack:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(232, 183, 207, 0.25);
+  border-color: rgba(232, 183, 207, 0.6);
 }
 
 .categoria-stack h3 {
-  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: #343a40;
-  margin-bottom: 1rem;
-  text-align: left;
-  letter-spacing: 0.03em;
+  color: #64748b;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-bottom: 2px solid rgba(232, 183, 207, 0.4);
-  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  padding-bottom: 0.6rem;
 }
 
 .categoria-cards {

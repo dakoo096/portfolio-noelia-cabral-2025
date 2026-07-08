@@ -1,10 +1,5 @@
 <template>
-  <canvas
-    ref="particleCanvas"
-    class="particle-canvas"
-    @mousemove="handleMouseMove"
-    @mouseout="handleMouseOut"
-  ></canvas>
+  <canvas ref="particleCanvas" class="particle-canvas"></canvas>
 </template>
 
 <script setup>
@@ -17,7 +12,7 @@ const props = defineProps({
   },
   quantity: {
     type: Number,
-    default: 4000,
+    default: 1500,
   },
 })
 
@@ -25,10 +20,12 @@ const particleCanvas = ref(null)
 let ctx = null
 let particles = []
 let animationId = null
+let parent = null
+
 const mouse = {
   x: null,
   y: null,
-  radius: 100,
+  radius: 130,
 }
 
 class Particle {
@@ -108,12 +105,13 @@ const animate = () => {
 }
 
 const handleMouseMove = (event) => {
+  if (!particleCanvas.value) return
   const rect = particleCanvas.value.getBoundingClientRect()
   mouse.x = event.clientX - rect.left
   mouse.y = event.clientY - rect.top
 }
 
-const handleMouseOut = () => {
+const handleMouseLeave = () => {
   mouse.x = null
   mouse.y = null
 }
@@ -130,11 +128,22 @@ onMounted(() => {
   ctx = particleCanvas.value.getContext('2d')
   handleResize()
   window.addEventListener('resize', handleResize)
+
+  parent = particleCanvas.value.parentElement
+  if (parent) {
+    parent.addEventListener('mousemove', handleMouseMove)
+    parent.addEventListener('mouseleave', handleMouseLeave)
+  }
+
   animate()
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
+  if (parent) {
+    parent.removeEventListener('mousemove', handleMouseMove)
+    parent.removeEventListener('mouseleave', handleMouseLeave)
+  }
   cancelAnimationFrame(animationId)
 })
 </script>
@@ -147,6 +156,6 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: auto;
+  pointer-events: none; /* Dejamos pasar los clicks a los textos y botones */
 }
 </style>

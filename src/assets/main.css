@@ -168,10 +168,40 @@ body.dark-mode .acerca-de-mi h2::after {
   background: linear-gradient(90deg, #d295c6, #b67ab0);
 }
 
-body.dark-mode .acerca-de-mi-container {
-  background-color: #1a1a1a;
-  color: #e0e0e0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+/* Nuevos estilos dark mode para grilla y status card */
+body.dark-mode .bio-col p {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .status-card {
+  background: rgba(30, 27, 40, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.dark-mode .status-card:hover {
+  box-shadow: 0 10px 25px rgba(243, 140, 190, 0.15) !important;
+  border-color: rgba(243, 140, 190, 0.3) !important;
+}
+
+body.dark-mode .status-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .status-title {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .status-item {
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+body.dark-mode .status-item .label {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .status-item .value {
+  color: #e2e8f0 !important;
 }
 
 /* ===== DARK MODE: MI STACK ===== */
@@ -191,8 +221,8 @@ body.dark-mode .mi-stack h2::after {
 }
 
 body.dark-mode .mi-stack .subtitulo {
-  color: #cfcfcf;
-  opacity: 0.5;
+  color: #cbd5e1 !important;
+  opacity: 0.9 !important;
 }
 
 /* Grid container */
@@ -202,20 +232,20 @@ body.dark-mode .mi-stack-container {
 
 /* Categorías */
 body.dark-mode .categoria-stack {
-  background-color: #1a1a1a;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(30, 27, 40, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25) !important;
 }
 
 body.dark-mode .categoria-stack:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 1);
+  box-shadow: 0 10px 25px rgba(243, 140, 190, 0.15) !important;
+  border-color: rgba(243, 140, 190, 0.3) !important;
 }
 
 /* Títulos de categoría */
-/* Títulos de categoría */
 body.dark-mode .categoria-stack h3 {
-  color: #f1f5f9;
-  border-bottom-color: rgba(243, 140, 190, 0.3);
+  color: #94a3b8 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* ===== DARK MODE: STACK BADGES (pill style) ===== */
@@ -240,15 +270,17 @@ body.dark-mode .mis-proyectos h2::after {
 
 /* Subtítulo */
 body.dark-mode .mis-proyectos .subtitulo {
-  color: #cfcfcf;
-  opacity: 0.9;
+  color: #cbd5e1 !important;
+  opacity: 0.9 !important;
+}
+
+/* Subtítulos de sección de proyectos */
+body.dark-mode .proyectos-subseccion-titulo {
+  color: #cbd5e1 !important;
 }
 
 /* Contenedor interno */
 body.dark-mode .mis-proyectos-container {
-  background-color: #181818;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 /* ===== DARK MODE: PROYECTO CARD ===== */
@@ -353,25 +385,16 @@ body.dark-mode .formulario h2 {
   color: #f1f1f1;
 }
 
-body.dark-mode .formulario-container::before {
-  background-color: rgba(30, 30, 30, 0.85);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(20, 20, 20, 0.8));
-  backdrop-filter: blur(12px);
+/* Nuevos estilos dark mode para la tarjeta de contacto */
+body.dark-mode .contacto-card {
+  background: rgba(30, 27, 40, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25) !important;
 }
 
-body.dark-mode .formulario-derecha {
-  background-color: transparent;
-  backdrop-filter: none;
-}
-
-body.dark-mode .info-formulario h3 {
-  background: linear-gradient(135deg, #4a1d43, #1d0f1b);
-  color: #f1f1f1;
-  box-shadow: 0 6px 18px rgba(210, 149, 198, 0.35);
-}
-
-body.dark-mode .info-formulario p {
-  color: #d6d6d6;
+body.dark-mode .contacto-card:hover {
+  box-shadow: 0 10px 25px rgba(243, 140, 190, 0.15) !important;
+  border-color: rgba(243, 140, 190, 0.3) !important;
 }
 
 body.dark-mode .form-control {

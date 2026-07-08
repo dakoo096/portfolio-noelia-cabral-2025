@@ -1,9 +1,14 @@
 <template>
   <div class="proyecto-card">
     <div v-if="video" class="video-container">
-      <iframe :src="video" title="YouTube video player" frameborder="0"
+      <iframe
+        :src="video"
+        title="YouTube video player"
+        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen class="proyecto-video"></iframe>
+        allowfullscreen
+        class="proyecto-video"
+      ></iframe>
     </div>
 
     <div v-else class="carousel-container" @click="abrirModal">
@@ -13,8 +18,13 @@
       <button class="flecha flecha-der" @click.stop="imagenSiguiente">›</button>
 
       <div class="indicadores">
-        <span v-for="(img, i) in imagenes" :key="i" class="punto" :class="{ activo: i === indiceActual }"
-          @click.stop="irAImagen(i)"></span>
+        <span
+          v-for="(img, i) in imagenes"
+          :key="i"
+          class="punto"
+          :class="{ activo: i === indiceActual }"
+          @click.stop="irAImagen(i)"
+        ></span>
       </div>
     </div>
 
@@ -288,7 +298,7 @@ const modalAnterior = () => {
   width: 100%;
 }
 
-.proyecto-descripcion+.proyecto-buttons {
+.proyecto-descripcion + .proyecto-buttons {
   margin-top: auto;
 }
 

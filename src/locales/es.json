@@ -14,7 +14,19 @@
     "titulo": "Acerca de mí",
     "p1": "Soy desarrolladora Full Stack de Argentina enfocada en la creación y mantenimiento de aplicaciones web funcionales y escalables. Actualmente trabajo en la Municipalidad de Córdoba, participando en el desarrollo de sistemas internos e integrando soluciones tanto en frontend como backend. Cuento con experiencia práctica trabajando con distintas tecnologías y colaborando en equipos multidisciplinarios para optimizar procesos y mejorar la experiencia de los usuarios.",
     "p2": "Mi perfil se complementa con una sólida capacidad de organización, resolución de problemas y adaptación a nuevos desafíos, fortalecida tanto por mi formación técnica como por mi experiencia previa en el área administrativa. Además, disfruto aprender nuevas tecnologías y aplicar buenas prácticas de desarrollo para construir soluciones claras, estables y bien estructuradas.",
-    "p3": "Me recibí como Técnica en Desarrollo Web y Aplicaciones Digitales y continúo capacitándome de manera constante para seguir creciendo profesionalmente y ampliar mis conocimientos dentro del desarrollo de software."
+    "p3": "Me recibí como Técnica en Desarrollo Web y Aplicaciones Digitales y continúo capacitándome de manera constante para seguir creciendo profesionalmente y ampliar mis conocimientos dentro del desarrollo de software.",
+    "status_card": {
+      "titulo": "ESTADO",
+      "disponible": "Disponible",
+      "ubicacion": "Ubicación",
+      "ubicacion_val": "Córdoba, Argentina",
+      "horario": "Horario",
+      "horario_val": "Lunes a Viernes (UTC-3)",
+      "modalidad": "Modalidad",
+      "modalidad_val": "Remoto / Híbrido",
+      "idiomas": "Idiomas",
+      "idiomas_val": "Español (Nativo) / Inglés A2"
+    }
   },
   "stack": {
     "titulo": "Mis Habilidades",
@@ -78,6 +90,8 @@
     "titulo": "Contacto",
     "subtitulo": "¿Querés saber más sobre mí o tenés alguna consulta?",
     "texto": "Completá el formulario y enviame tu mensaje. Me pondré en contacto con vos a la brevedad. ¡Gracias por tu interés!",
+    "o_tambien": "o también en",
+    "descargar_cv": "Descargar CV",
     "labels": {
       "asunto": "Asunto:",
       "email": "Correo Electrónico:",

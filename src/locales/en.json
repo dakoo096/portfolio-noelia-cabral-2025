@@ -14,7 +14,19 @@
     "titulo": "About Me",
     "p1": "I am a Full Stack Developer from Argentina focused on creating and maintaining functional and scalable web applications. I currently work at the Municipality of Córdoba, participating in the development of internal systems and integrating both frontend and backend solutions. I have practical experience working with different technologies and collaborating in multidisciplinary teams to optimize processes and improve user experience.",
     "p2": "My profile is complemented by strong organizational skills, problem-solving abilities, and adaptability to new challenges, strengthened by both my technical background and my previous experience in the administrative area. Additionally, I enjoy learning new technologies and applying development best practices to build clear, stable, and well-structured solutions.",
-    "p3": "I graduated as a Web Development and Digital Applications Technician and I continue training constantly to keep growing professionally and expand my knowledge in software development."
+    "p3": "I graduated as a Web Development and Digital Applications Technician and I continue training constantly to keep growing professionally and expand my knowledge in software development.",
+    "status_card": {
+      "titulo": "STATUS",
+      "disponible": "Available",
+      "ubicacion": "Location",
+      "ubicacion_val": "Córdoba, Argentina",
+      "horario": "Schedule",
+      "horario_val": "Monday to Friday (UTC-3)",
+      "modalidad": "Modalidad",
+      "modalidad_val": "Remote / Hybrid",
+      "idiomas": "Languages",
+      "idiomas_val": "Spanish (Native) / English A2"
+    }
   },
   "stack": {
     "titulo": "My Skills",
@@ -78,6 +90,8 @@
     "titulo": "Contact",
     "subtitulo": "Want to know more about me or have any questions?",
     "texto": "Fill out the form and send me your message. I will get back to you shortly. Thanks for your interest!",
+    "o_tambien": "or also on",
+    "descargar_cv": "Download CV",
     "labels": {
       "asunto": "Subject:",
       "email": "Email:",
