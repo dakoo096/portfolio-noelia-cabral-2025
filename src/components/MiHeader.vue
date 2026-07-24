@@ -17,14 +17,11 @@
     <!-- Redes -->
     <div class="redes animate__animated animate__fadeIn animate__delay-2s">
       <p>
-        <a href="https://github.com/dakoo096" target="_blank"
-          ><img src="/img/githubfooter.png" alt="GitHub"
-        /></a>
+        <a href="https://github.com/dakoo096" target="_blank"><img src="/img/githubfooter.png" alt="GitHub" /></a>
       </p>
       <p>
-        <a href="https://www.linkedin.com/in/noelia-cabral-381723140" target="_blank"
-          ><img src="/img/linkedinfooter.png" alt="LinkedIn"
-        /></a>
+        <a href="https://www.linkedin.com/in/noelia-cabral-381723140" target="_blank"><img src="/img/linkedinfooter.png"
+            alt="LinkedIn" /></a>
       </p>
       <p>
         <a href="./img/cv/Cv_Cabral_Noelia_2026.pdf" download><img src="/img/cv.png" alt="CV" /></a>
@@ -41,10 +38,11 @@ import NavbarComponent from './MiNavbar.vue'
 <style scoped>
 .portada {
   position: relative;
-  background-image: url(/img/fondo-lofi-dia.png);
+  background-image: url(/img/videoPortada.gif);
   border-bottom: 2px solid #7a7a7a6b;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 45rem;
   overflow: hidden;
   cursor: default;
@@ -58,7 +56,7 @@ import NavbarComponent from './MiNavbar.vue'
   z-index: 1;
 }
 
-.portada > * {
+.portada>* {
   position: relative;
   z-index: 2;
 }
@@ -287,13 +285,12 @@ import NavbarComponent from './MiNavbar.vue'
 
 /* ===== DARK MODE: PORTADA ===== */
 :global(body.dark-mode) .portada {
-  background-image: none;
-  background-color: #09090b;
+  background-image: url(/img/videoPortadaDarkMode.gif) !important;
 }
 
 :global(body.dark-mode) .portada::before {
-  background-color: rgba(0, 0, 0, 0.849);
-  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  opacity: 1 !important;
 }
 
 :global(body.dark-mode) .container-portada h1,

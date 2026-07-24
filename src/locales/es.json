@@ -50,11 +50,11 @@
     },
     "veterinaria": {
       "titulo": "Clínica Veterinaria – Web App",
-      "desc": "Sistema web para gestión de clínica veterinaria con arquitectura desacoplada en Vue 3 (frontend) y Spring Boot (backend). Permite administrar dueños, mascotas, consultas e historial clínico, con autenticación segura y control de roles."
+      "desc": "Sistema web para gestión de clínica veterinaria con arquitectura desacoplada en Vue 3, Vite y Tailwind CSS (frontend), y Java con Spring Boot, Spring Security y MySQL (backend). Permite administrar dueños, mascotas, consultas e historial clínico, con autenticación segura y control de roles."
     },
     "blog": {
       "titulo": "Blog Personal",
-      "desc": "Plataforma donde los usuarios pueden crear, editar, borrar y comentar publicaciones. Incluye autenticación, control de privacidad, permisos por usuario, carga dinámica de posts, y una interfaz cuidada y completamente responsive."
+      "desc": "Plataforma web con arquitectura desacoplada en Vue 3 y Vite (frontend), y Java con Spring Boot, Spring Security y MySQL (backend). Permite crear, editar, eliminar y comentar publicaciones, con gestión de notificaciones y la posibilidad de mencionar personas en los comentarios."
     },
     "biblioteca": {
       "titulo": "Biblioteca Virtual",

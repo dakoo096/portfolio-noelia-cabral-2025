@@ -105,16 +105,16 @@ section,
   }
 }
 
-/* ===== DARK MODE: FONDO GLOBAL ===== */
-/* Se oculta la imagen de fondo rosa y se usa un fondo oscuro sólido */
 body.dark-mode {
-  background-image: none;
-  background-color: #09090b;
+  background-image: url('/img/fondoDarkMode.png') !important;
+  background-size: cover;
+  background-position: center;
+  background-color: #09090b !important;
 }
 
-/* El ::before light-mode tiene fondo blanco, en dark lo eliminamos */
+/* El ::before light-mode tiene fondo blanco, en dark lo eliminamos o hacemos transparente */
 body.dark-mode::before {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 body.dark-mode .navbar-collapse {
@@ -392,14 +392,18 @@ body.dark-mode .formulario h2 {
 
 /* Nuevos estilos dark mode para la tarjeta de contacto */
 body.dark-mode .formulario-container {
-  background-image: none !important;
-  border-color: #09090b00;
-  box-shadow: none !important;
+  background-image: url('/img/fondo-lofi-dia-inverse.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
 body.dark-mode .formulario-container::before {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
+  background-color: rgba(9, 9, 11, 0.75) !important;
+  backdrop-filter: blur(10px) !important;
+  opacity: 1 !important;
 }
 
 body.dark-mode .contacto-card {
