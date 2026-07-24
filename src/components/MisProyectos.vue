@@ -1,12 +1,6 @@
 <template>
-  <section
-    class="mis-proyectos"
-    id="mis-proyectos"
-    data-aos="fade-in"
-    data-aos-easing="ease-in-sine"
-    data-aos-offset="100"
-    data-aos-duration="500"
-  >
+  <section class="mis-proyectos" id="mis-proyectos" data-aos="fade-in" data-aos-easing="ease-in-sine"
+    data-aos-offset="100" data-aos-duration="500">
     <ParticleBackground />
     <h2>{{ $t('proyectos.titulo') }}</h2>
     <p class="subtitulo">
@@ -20,16 +14,9 @@
           <span class="bullet">•</span> {{ $t('proyectos.destacados') }}
         </h3>
         <div class="proyectos-grid">
-          <ProyectoCard
-            v-for="(proyecto, index) in proyectosDestacados"
-            :key="'destacado-' + index"
-            :titulo="proyecto.titulo"
-            :descripcion="proyecto.descripcion"
-            :imagenes="proyecto.imagenes"
-            :link="proyecto.link"
-            :video="proyecto.video"
-            :tecnologias="proyecto.tecnologias"
-          />
+          <ProyectoCard v-for="(proyecto, index) in proyectosDestacados" :key="'destacado-' + index"
+            :titulo="proyecto.titulo" :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes"
+            :link="proyecto.link" :video="proyecto.video" :tecnologias="proyecto.tecnologias" />
         </div>
       </div>
 
@@ -39,16 +26,9 @@
           <span class="bullet">•</span> {{ $t('proyectos.otros') }}
         </h3>
         <div class="proyectos-grid">
-          <ProyectoCard
-            v-for="(proyecto, index) in otrosProyectos"
-            :key="'otro-' + index"
-            :titulo="proyecto.titulo"
-            :descripcion="proyecto.descripcion"
-            :imagenes="proyecto.imagenes"
-            :link="proyecto.link"
-            :video="proyecto.video"
-            :tecnologias="proyecto.tecnologias"
-          />
+          <ProyectoCard v-for="(proyecto, index) in otrosProyectos" :key="'otro-' + index" :titulo="proyecto.titulo"
+            :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes" :link="proyecto.link"
+            :video="proyecto.video" :tecnologias="proyecto.tecnologias" />
         </div>
       </div>
     </div>
@@ -68,9 +48,13 @@ const proyectosDestacados = computed(() => [
     titulo: t('proyectos.devdaily.titulo'),
     descripcion: t('proyectos.devdaily.desc'),
     imagenes: [
-      './img/proyecto9/devDaily header.png',
-      './img/proyecto9/devDaily icon.png',
-      './img/proyecto9/splash.png',
+      './img/proyecto9/devbloom 0.png',
+      './img/proyecto9/devbloom 1.png',
+      './img/proyecto9/devbloom 2.png',
+      './img/proyecto9/devbloom 3.png',
+      './img/proyecto9/devbloom 4.png',
+      './img/proyecto9/devbloom 5.png',
+
     ],
     link: 'https://github.com/dakoo096/devdaily',
     tecnologias: [
@@ -106,13 +90,19 @@ const proyectosDestacados = computed(() => [
     titulo: t('proyectos.veterinaria.titulo'),
     descripcion: t('proyectos.veterinaria.desc'),
     imagenes: [
-      './img/proyecto1/veterinaria1.png',
-      './img/proyecto1/veterinaria2.png',
-      './img/proyecto1/veterinaria3.png',
-      './img/proyecto1/veterinaria4.png',
-      './img/proyecto1/veterinaria5.png',
+      './img/proyecto1/clinica 1.png',
+      './img/proyecto1/clinica 2.png',
+      './img/proyecto1/clinica 3.png',
+      './img/proyecto1/clinica 4.png',
+      './img/proyecto1/clinica 5.png',
+      './img/proyecto1/clinica 6.png',
+      './img/proyecto1/clinica 7.png',
+      './img/proyecto1/clinica 8.png',
+      './img/proyecto1/clinica 9.png',
+      './img/proyecto1/clinica 10.png',
+      './img/proyecto1/clinica 11.png',
+
     ],
-    video: 'https://www.youtube.com/embed/xh_BXyYUfoI',
     link: 'https://github.com/dakoo096/clinicaVeterinariaV2',
     tecnologias: [
       { icono: './img/logos/vue.png', nombre: 'Vue.js' },
@@ -185,17 +175,6 @@ const otrosProyectos = computed(() => [
     ],
     link: 'https://github.com/dakoo096/Concesionaria-Automovil',
     tecnologias: [{ icono: './img/logos/java.png', nombre: 'Java' }],
-  },
-  {
-    titulo: t('proyectos.integrador.titulo'),
-    descripcion: t('proyectos.integrador.desc'),
-    imagenes: ['./img/proyecto7/cac1.png', './img/proyecto7/cac2.png', './img/proyecto7/cac3.png'],
-    link: 'https://dakoo096.github.io/tpIntegradorCaC/',
-    tecnologias: [
-      { icono: './img/logos/html.png', nombre: 'HTML5' },
-      { icono: './img/logos/css.png', nombre: 'CSS3' },
-      { icono: './img/logos/javascript.png', nombre: 'JavaScript' },
-    ],
   },
 ])
 

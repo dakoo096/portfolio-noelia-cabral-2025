@@ -72,10 +72,6 @@
       "titulo": "Concesionaria de Automóviles",
       "desc": "Sistema en Java y Swing que permite carga, edición, lectura y eliminación de vehículos utilizando arquitectura IGU – Lógica – Persistencia."
     },
-    "integrador": {
-      "titulo": "Integrador CaC 2023",
-      "desc": "Sitio web responsive construido en HTML, CSS y JavaScript basado en un diseño de Codo a Codo. Totalmente adaptable y estéticamente moderno."
-    },
     "devdaily": {
       "titulo": "DevDaily – App Móvil Multiplataforma & API",
       "desc": "Aplicación móvil multiplataforma para desarrolladores que ofrece contenido técnico diario (consejos, preguntas de entrevista y atajos). Incluye un backend en Spring Boot con autenticación JWT, recomendación personalizada e historial de favoritos."

@@ -72,10 +72,6 @@
       "titulo": "Car Dealership",
       "desc": "Java and Swing system that allows creating, editing, reading, and deleting vehicles using GUI – Logic – Persistence architecture."
     },
-    "integrador": {
-      "titulo": "CaC Integrator 2023",
-      "desc": "Responsive website built in HTML, CSS, and JavaScript based on a Codo a Codo design. Fully adaptable and aesthetically modern."
-    },
     "devdaily": {
       "titulo": "DevDaily – Multiplatform Mobile App & API",
       "desc": "Multiplatform mobile application for developers offering daily technical content (tips, interview questions, and shortcuts). Features a Spring Boot backend with JWT authentication, personalized recommendations, and bookmarked favorites."
