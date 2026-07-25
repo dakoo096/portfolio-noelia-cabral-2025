@@ -157,32 +157,7 @@ const otrosProyectos = computed(() => [
       { icono: './img/logos/css.png', nombre: 'CSS3' },
     ],
   },
-  {
-    titulo: t('proyectos.peluqueria.titulo'),
-    descripcion: t('proyectos.peluqueria.desc'),
-    imagenes: [
-      './img/proyecto5/peluqueria1.jpeg',
-      './img/proyecto5/peluqueria2.jpeg',
-      './img/proyecto5/peluqueria3.jpeg',
-      './img/proyecto5/peluqueria4.jpeg',
-      './img/proyecto5/peluqueria5.jpeg',
-    ],
-    link: 'https://github.com/dakoo096/peluqueria-canina',
-    tecnologias: [{ icono: './img/logos/java.png', nombre: 'Java' }],
-  },
-  {
-    titulo: t('proyectos.concesionaria.titulo'),
-    descripcion: t('proyectos.concesionaria.desc'),
-    imagenes: [
-      './img/proyecto6/conse1.jpeg',
-      './img/proyecto6/conse2.jpeg',
-      './img/proyecto6/conse3.jpeg',
-      './img/proyecto6/conse4.jpeg',
-      './img/proyecto6/conse5.jpeg',
-    ],
-    link: 'https://github.com/dakoo096/Concesionaria-Automovil',
-    tecnologias: [{ icono: './img/logos/java.png', nombre: 'Java' }],
-  },
+
 ])
 
 let observer = null

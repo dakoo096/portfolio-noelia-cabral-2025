@@ -112,6 +112,14 @@ body.dark-mode {
   background-color: #09090b !important;
 }
 
+body.dark-mode .portada-video-light {
+  display: none !important;
+}
+
+body.dark-mode .portada-video-dark {
+  display: block !important;
+}
+
 /* El ::before light-mode tiene fondo blanco, en dark lo eliminamos o hacemos transparente */
 body.dark-mode::before {
   background-color: transparent !important;

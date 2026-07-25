@@ -64,14 +64,7 @@
       "titulo": "Login con Sistema de Roles",
       "desc": "Aplicación de escritorio creada con Java y Swing, utilizando arquitectura por capas. Incluye validación de usuario, roles dinámicos y vistas específicas. Permite CRUD de usuarios con refresco automático."
     },
-    "peluqueria": {
-      "titulo": "Peluquería Canina",
-      "desc": "App de escritorio con Java y Swing para gestión de mascotas y dueños. Relación 1:1, modelo por capas, tabla editable y persistencia completa."
-    },
-    "concesionaria": {
-      "titulo": "Concesionaria de Automóviles",
-      "desc": "Sistema en Java y Swing que permite carga, edición, lectura y eliminación de vehículos utilizando arquitectura IGU – Lógica – Persistencia."
-    },
+
     "devdaily": {
       "titulo": "DevDaily – App Móvil Multiplataforma & API",
       "desc": "Aplicación móvil multiplataforma para desarrolladores que ofrece contenido técnico diario (consejos, preguntas de entrevista y atajos). Incluye un backend en Spring Boot con autenticación JWT, recomendación personalizada e historial de favoritos."

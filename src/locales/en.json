@@ -64,14 +64,7 @@
       "titulo": "Login with Role System",
       "desc": "Desktop application created with Java and Swing, using layered architecture. Includes user validation, dynamic roles, and specific views. Allows user CRUD with automatic refresh."
     },
-    "peluqueria": {
-      "titulo": "Dog Grooming",
-      "desc": "Desktop app with Java and Swing for pet and owner management. 1:1 relationship, layered model, editable table, and full persistence."
-    },
-    "concesionaria": {
-      "titulo": "Car Dealership",
-      "desc": "Java and Swing system that allows creating, editing, reading, and deleting vehicles using GUI – Logic – Persistence architecture."
-    },
+
     "devdaily": {
       "titulo": "DevDaily – Multiplatform Mobile App & API",
       "desc": "Multiplatform mobile application for developers offering daily technical content (tips, interview questions, and shortcuts). Features a Spring Boot backend with JWT authentication, personalized recommendations, and bookmarked favorites."

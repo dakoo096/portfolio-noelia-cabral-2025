@@ -1,6 +1,16 @@
 <template>
   <NavbarComponent />
   <div class="portada animate__animated animate__fadeIn">
+    <!-- Video de fondo (MP4 en modo claro) -->
+    <video class="portada-video portada-video-light" autoplay loop muted playsinline>
+      <source src="/img/videoPortada.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Video de fondo (MP4 en modo oscuro) -->
+    <video class="portada-video portada-video-dark" autoplay loop muted playsinline>
+      <source src="/img/videoPortadadarkMode.mp4" type="video/mp4" />
+    </video>
+
     <!-- Texto Portada -->
     <div class="container-portada">
       <h1>{{ $t('header.hola') }}</h1>
@@ -38,26 +48,42 @@ import NavbarComponent from './MiNavbar.vue'
 <style scoped>
 .portada {
   position: relative;
-  background-image: url(/img/videoPortada.gif);
   border-bottom: 2px solid #7a7a7a6b;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   height: 45rem;
   overflow: hidden;
   cursor: default;
+}
+
+.portada-video {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0 !important;
+}
+
+.portada-video-light {
+  display: block;
+}
+
+.portada-video-dark {
+  display: none;
 }
 
 .portada::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 255, 255, 0.26);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.3) 60%, rgba(255, 255, 255, 0.15) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
-.portada>* {
-  position: relative;
+.container-portada,
+.container-portada-img,
+.redes {
   z-index: 2;
 }
 
@@ -76,6 +102,7 @@ import NavbarComponent from './MiNavbar.vue'
   border-right: 4px solid;
   width: 25ch;
   overflow: hidden;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
   animation:
     typing 1.5s steps(24),
     blink 0.5s infinite step-end alternate;
@@ -86,6 +113,7 @@ import NavbarComponent from './MiNavbar.vue'
   font-size: 2rem;
   margin-top: 1rem;
   padding-left: 3rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* Imagen Portada */
@@ -284,17 +312,22 @@ import NavbarComponent from './MiNavbar.vue'
 }
 
 /* ===== DARK MODE: PORTADA ===== */
-:global(body.dark-mode) .portada {
-  background-image: url(/img/videoPortadaDarkMode.gif) !important;
+:global(body.dark-mode) .portada-video-light {
+  display: none !important;
+}
+
+:global(body.dark-mode) .portada-video-dark {
+  display: block !important;
 }
 
 :global(body.dark-mode) .portada::before {
-  background-color: rgba(0, 0, 0, 0.4) !important;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(9, 9, 11, 0.95) 100%) !important;
   opacity: 1 !important;
 }
 
 :global(body.dark-mode) .container-portada h1,
 :global(body.dark-mode) .container-portada h2 {
   color: #f1f5f9;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
 }
 </style>
