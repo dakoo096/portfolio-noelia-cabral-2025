@@ -156,13 +156,12 @@ const otrosProyectos = computed(() => [
     ],
     link: 'https://github.com/dakoo096/Biblioteca.git',
     tecnologias: [
-      { icono: './img/logos/java.png', nombre: 'Java 17' },
-      { icono: './img/logos/springboot.png', nombre: 'Spring Boot 3' },
-      { icono: './img/logos/springsecurity.png', nombre: 'Spring Security 6' },
+      { icono: './img/logos/java.png', nombre: 'Java' },
+      { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
+      { icono: './img/logos/springsecurity.png', nombre: 'Spring Security' },
       { icono: './img/logos/mysql.png', nombre: 'MySQL' },
-      { icono: './img/logos/bootstrap.png', nombre: 'Bootstrap 5' },
-      { icono: './img/logos/html.png', nombre: 'Thymeleaf' },
-      { icono: './img/logos/css.png', nombre: 'CSS3' },
+      { icono: './img/logos/bootstrap.png', nombre: 'Bootstrap' },
+      { icono: './img/logos/thymeleaf logo.png', nombre: 'Thymeleaf' },
     ],
   },
 
