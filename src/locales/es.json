@@ -46,19 +46,19 @@
     "otros": "Otros Proyectos",
     "ecommerce": {
       "titulo": "E-Commerce – Arquitectura de Microservicios",
-      "desc": "Plataforma de e-commerce basada en microservicios con Spring Boot, Spring Cloud y MySQL. Ofrece servicios independientes (usuarios, productos, carrito y ventas) integrados con una interfaz en Vue 3 con Pinia y TypeScript. Incluye autenticación JWT, roles y carrito de compras persistente."
+      "desc": "Plataforma de comercio electrónico desarrollada bajo una arquitectura de microservicios orientada a la escalabilidad y separación de dominios. Implementa servicios independientes para usuarios, productos, carrito y ventas utilizando Spring Boot y Spring Cloud, con comunicación mediante API Gateway, autenticación JWT y frontend desarrollado en Vue 3."
     },
     "veterinaria": {
       "titulo": "Clínica Veterinaria – Web App",
-      "desc": "Sistema web para gestión de clínica veterinaria con arquitectura desacoplada en Vue 3, Vite y Tailwind CSS (frontend), y Java con Spring Boot, Spring Security y MySQL (backend). Permite administrar dueños, mascotas, consultas e historial clínico, con autenticación segura y control de roles."
+      "desc": "Sistema integral para la gestión de clínicas veterinarias que centraliza propietarios, mascotas, turnos e historiales clínicos. Implementa una arquitectura frontend-backend desacoplada con Vue 3 y Spring Boot, autenticación basada en roles y una API REST orientada a la administración eficiente de la información clínica."
     },
     "blog": {
       "titulo": "Blog Personal",
-      "desc": "Plataforma web con arquitectura desacoplada en Vue 3 y Vite (frontend), y Java con Spring Boot, Spring Security y MySQL (backend). Permite crear, editar, eliminar y comentar publicaciones, con gestión de notificaciones y la posibilidad de mencionar personas en los comentarios."
+      "desc": "Plataforma de publicación de contenido desarrollada con arquitectura Full Stack desacoplada. Permite crear, editar y comentar publicaciones, incorporando interacción entre usuarios mediante menciones y notificaciones. Implementa autenticación segura con Spring Security y frontend desarrollado en Vue 3."
     },
     "biblioteca": {
       "titulo": "Biblioteca SaaS – Gestión Bibliotecaria Virtual",
-      "desc": "Sistema web moderno para gestión de bibliotecas virtuales desarrollado con Spring Boot 3, Spring Security 6, Spring Data JPA, Thymeleaf y MySQL. Incluye autenticación con roles (Admin y Lector), dashboard analítico en tiempo real, catálogo interactivo con búsqueda y reseñas, préstamos, reservas, notificaciones flotantes, modo oscuro y reportes PDF."
+      "desc": "Sistema web SaaS para la gestión integral de bibliotecas virtuales. Permite administrar catálogo, préstamos, reservas y usuarios mediante una plataforma con autenticación por roles, dashboard de métricas, generación de reportes PDF y gestión de reseñas. Desarrollado con Spring Boot, Thymeleaf y MySQL."
     },
     "login": {
       "titulo": "Login con Sistema de Roles",
@@ -67,7 +67,7 @@
 
     "devdaily": {
       "titulo": "DevDaily – App Móvil Multiplataforma & API",
-      "desc": "Aplicación móvil multiplataforma para desarrolladores que ofrece contenido técnico diario (consejos, preguntas de entrevista y atajos). Incluye un backend en Spring Boot con autenticación JWT, recomendación personalizada e historial de favoritos."
+      "desc": "Aplicación móvil multiplataforma orientada al aprendizaje continuo de desarrolladores. Permite acceder a contenido técnico diario, desafíos y preguntas de entrevista mediante una experiencia personalizada. Cuenta con una API REST desarrollada en Spring Boot, autenticación JWT, gestión de favoritos, preferencias de usuario y sistema de recomendaciones basado en intereses."
     },
     "tecnologias": "Tecnologías:",
     "botones": {
