@@ -57,8 +57,8 @@
       "desc": "Web platform featuring a decoupled architecture with Vue 3 and Vite (frontend), and Java with Spring Boot, Spring Security, and MySQL (backend). Allows users to create, edit, delete, and comment on posts, including notification management and the ability to mention people in comments."
     },
     "biblioteca": {
-      "titulo": "Virtual Library",
-      "desc": "CRUD web application for book management with Spring Boot, Thymeleaf, and MySQL. Implements pagination, search engine, validations, responsive views, and full administration operations."
+      "titulo": "SaaS Library – Virtual Library Management System",
+      "desc": "Modern web system for virtual library management built with Spring Boot 3, Spring Security 6, Spring Data JPA, Thymeleaf, and MySQL. Features role-based authentication (Admin & Reader), real-time analytical dashboard, interactive catalog with search and reviews, loan & reservation management, toast notifications, dark mode, and PDF reports."
     },
     "login": {
       "titulo": "Login with Role System",
