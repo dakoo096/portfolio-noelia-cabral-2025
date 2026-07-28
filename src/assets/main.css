@@ -12,6 +12,9 @@ body {
   background-position: center;
   overflow-x: hidden;
 }
+body.loading-lock {
+  overflow: hidden;
+}
 body::before {
   content: '';
   position: fixed;
