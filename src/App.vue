@@ -63,7 +63,7 @@ onMounted(async () => {
     assets.map((el) => track(el.tagName === 'VIDEO' ? waitForVideo(el) : waitForImage(el))),
   )
 
-  const minDelay = new Promise((resolve) => setTimeout(resolve, 3000))
+  const minDelay = new Promise((resolve) => setTimeout(resolve, 5000))
   const safetyTimeout = new Promise((resolve) => setTimeout(resolve, 8000))
 
   await Promise.race([Promise.all([assetsPromise, minDelay]), safetyTimeout])
