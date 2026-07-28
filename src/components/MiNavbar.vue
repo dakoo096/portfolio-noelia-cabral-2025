@@ -80,8 +80,15 @@ const toggleDarkMode = () => {
   localStorage.setItem('darkMode', isDark.value)
 }
 
+let ticking = false
 const handleScroll = () => {
-  scrolled.value = window.scrollY > 40
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      scrolled.value = window.scrollY > 30
+      ticking = false
+    })
+    ticking = true
+  }
 }
 
 // Custom smooth scroll for slower speed
@@ -121,7 +128,7 @@ onMounted(() => {
   isDark.value = saved
   document.body.classList.toggle('dark-mode', saved)
 
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', handleScroll, { passive: true })
   handleScroll() // Trigger initially to catch load state
 })
 
@@ -140,17 +147,27 @@ onBeforeUnmount(() => {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50% !important;
+  transform: translateX(-50%);
   width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box;
   z-index: 9999;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: top, width, border-radius, padding;
+  transition: 
+    top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Transición al hacer scroll */
 .navbar.scrolled {
   top: 1.25rem;
-  left: 50% !important;
-  transform: translateX(-50%);
   width: 90% !important;
   max-width: 1200px;
   border-radius: 18px;
@@ -343,8 +360,6 @@ body.dark-mode .dark-mode-btn:hover {
 @media (max-width: 991px) {
   .navbar.scrolled {
     width: 95% !important;
-    left: 50% !important;
-    transform: translateX(-50%);
     border-radius: 12px;
     padding: 0.5rem 1rem;
   }
