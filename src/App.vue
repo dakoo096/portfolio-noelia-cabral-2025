@@ -8,6 +8,7 @@
     <MisProyectos />
     <Contacto />
     <FooterComponent />
+    <PetMascot :ready="!isLoading" />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import MisProyectos from './components/MisProyectos.vue'
 import FooterComponent from './components/MiFooter.vue'
 import Contacto from './components/MiContacto.vue'
 import LoadingScreen from './components/LoadingScreen.vue'
+import PetMascot from './components/PetMascot.vue'
 
 const isLoading = ref(true)
 const progress = ref(0)
