@@ -8,10 +8,23 @@
     </p>
 
     <div class="mis-proyectos-container">
-      <!-- Sección Destacados -->
+      <!-- Sección Proyectos Laborales -->
       <div class="proyectos-seccion">
         <h3 class="proyectos-subseccion-titulo">
-          <span class="bullet">•</span> {{ $t('proyectos.destacados') }}
+          <span class="bullet">•</span> {{ $t('proyectos.laborales') }}
+        </h3>
+        <div class="proyectos-grid">
+          <ProyectoCard v-for="(proyecto, index) in proyectosLaborales" :key="'laboral-' + index"
+            :titulo="proyecto.titulo" :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes"
+            :link="proyecto.link" :video="proyecto.video" :tecnologias="proyecto.tecnologias"
+            :esLaboral="proyecto.esLaboral" :badgeText="proyecto.badgeText" />
+        </div>
+      </div>
+
+      <!-- Sección Proyectos Personales & Destacados -->
+      <div class="proyectos-seccion">
+        <h3 class="proyectos-subseccion-titulo">
+          <span class="bullet">•</span> {{ $t('proyectos.personales') }}
         </h3>
         <div class="proyectos-grid">
           <ProyectoCard v-for="(proyecto, index) in proyectosDestacados" :key="'destacado-' + index"
@@ -20,7 +33,7 @@
         </div>
       </div>
 
-      <!-- Sección Otros -->
+      <!-- Sección Otros Proyectos -->
       <div class="proyectos-seccion">
         <h3 class="proyectos-subseccion-titulo">
           <span class="bullet">•</span> {{ $t('proyectos.otros') }}
@@ -43,6 +56,41 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
+const proyectosLaborales = computed(() => [
+  {
+    titulo: t('proyectos.mbta.titulo'),
+    descripcion: t('proyectos.mbta.desc'),
+    imagenes: ['./img/mbta/mbta1.svg'],
+    esLaboral: true,
+    badgeText: 'Municipalidad de Córdoba',
+    tecnologias: [
+      { icono: './img/logos/vue.png', nombre: 'Vue 3' },
+      { icono: './img/logos/quasar.png', nombre: 'Quasar Framework' },
+      { icono: './img/logos/logofastapi.svg', nombre: 'FastAPI' },
+      { icono: './img/logos/logopython.png', nombre: 'Python' },
+      { icono: './img/logos/php.png', nombre: 'PHP' },
+      { icono: './img/logos/postgresql.png', nombre: 'PostgreSQL' },
+      { icono: './img/logos/pinia.png', nombre: 'Pinia' },
+      { icono: './img/logos/vite.png', nombre: 'Vite' },
+    ],
+  },
+  {
+    titulo: t('proyectos.geoportal.titulo'),
+    descripcion: t('proyectos.geoportal.desc'),
+    imagenes: ['./img/geoportal/geoportal1.svg'],
+    esLaboral: true,
+    badgeText: 'Municipalidad de Córdoba • GIS',
+    tecnologias: [
+      { icono: './img/logos/vue.png', nombre: 'Vue 3' },
+      { icono: './img/logos/quasar.png', nombre: 'Quasar Framework' },
+      { icono: './img/logos/vite.png', nombre: 'Vite' },
+      { icono: './img/logos/logofastapi.svg', nombre: 'FastAPI' },
+      { icono: './img/logos/logopython.png', nombre: 'Python' },
+      { icono: './img/logos/postgresql.png', nombre: 'PostgreSQL' },
+    ],
+  },
+])
+
 const proyectosDestacados = computed(() => [
   {
     titulo: t('proyectos.devdaily.titulo'),
@@ -54,7 +102,6 @@ const proyectosDestacados = computed(() => [
       './img/proyecto9/devbloom 3.png',
       './img/proyecto9/devbloom 4.png',
       './img/proyecto9/devbloom 5.png',
-
     ],
     link: 'https://github.com/dakoo096/devdaily',
     tecnologias: [
@@ -102,7 +149,6 @@ const proyectosDestacados = computed(() => [
       './img/proyecto1/clinica 9.png',
       './img/proyecto1/clinica 10.png',
       './img/proyecto1/clinica 11.png',
-
     ],
     link: 'https://github.com/dakoo096/clinicaVeterinariaV2',
     tecnologias: [
@@ -152,7 +198,6 @@ const otrosProyectos = computed(() => [
       './img/proyecto3/biblioteca 8.png',
       './img/proyecto3/biblioteca 9.png',
       './img/proyecto3/biblioteca 10.png',
-
     ],
     link: 'https://github.com/dakoo096/Biblioteca.git',
     tecnologias: [
@@ -164,7 +209,6 @@ const otrosProyectos = computed(() => [
       { icono: './img/logos/thymeleaf logo.png', nombre: 'Thymeleaf' },
     ],
   },
-
 ])
 
 let observer = null

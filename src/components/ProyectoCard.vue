@@ -1,5 +1,9 @@
 <template>
   <div class="proyecto-card">
+    <div v-if="esLaboral" class="card-badge-laboral">
+      <i class="bx bx-briefcase-alt-2"></i> {{ badgeText || $t('proyectos.botones.sistema_privado') }}
+    </div>
+
     <div v-if="video" class="video-container">
       <iframe
         :src="video"
@@ -48,6 +52,11 @@
           {{ $t('proyectos.botones.ver') }}
         </a>
 
+        <button v-else-if="esLaboral" class="proyecto-link laboral-btn" disabled>
+          <i class="bx bx-building-house icon-btn"></i>
+          {{ $t('proyectos.botones.sistema_privado') }}
+        </button>
+
         <button v-else class="proyecto-link disabled" disabled>
           <i class="bx bx-lock-alt icon-btn"></i>
           {{ $t('proyectos.botones.proximamente') }}
@@ -83,6 +92,11 @@ const props = defineProps({
   link: String,
   video: String,
   tecnologias: Array,
+  esLaboral: {
+    type: Boolean,
+    default: false,
+  },
+  badgeText: String,
 })
 
 const esLinkValido = computed(() => {
@@ -599,5 +613,44 @@ const modalAnterior = () => {
 .tech-icono-wrapper:hover .tech-tooltip {
   opacity: 1;
   transform: translateX(-50%) translateY(-8px) scale(1);
+}
+
+/* STYLES FOR LABORAL PROJECTS */
+.proyecto-card {
+  position: relative;
+}
+
+.card-badge-laboral {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  background: rgba(15, 23, 42, 0.88);
+  color: #f38cbe;
+  border: 1px solid rgba(243, 140, 190, 0.4);
+  backdrop-filter: blur(6px);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.3px;
+}
+
+.proyecto-link.laboral-btn {
+  background: linear-gradient(135deg, rgba(243, 140, 190, 0.12), rgba(168, 85, 247, 0.12));
+  color: #334155;
+  border: 1px solid rgba(243, 140, 190, 0.4);
+  cursor: default;
+  box-shadow: none;
+  font-size: 0.88rem;
+}
+
+.proyecto-link.laboral-btn:hover {
+  transform: none;
+  box-shadow: none;
 }
 </style>

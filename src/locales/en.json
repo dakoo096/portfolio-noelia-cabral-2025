@@ -41,9 +41,19 @@
   },
   "proyectos": {
     "titulo": "My Projects",
-    "subtitulo": "A selection of some of my practice and personal projects, developed with various technologies and approaches.",
+    "subtitulo": "A selection of my production work projects and personal developments, built with various technologies and architectures.",
+    "laborales": "Experience & Work Projects",
+    "personales": "Personal & Featured Projects",
     "destacados": "Featured Projects",
     "otros": "Other Projects",
+    "mbta": {
+      "titulo": "MBTA – Municipal Administrative & Payroll Management System",
+      "desc": "Government platform for managing intern contracts, contractors, municipal secretariats, budgets, and payroll settlement processes. Participated in developing new frontend features using Vue 3 + Quasar, government authentication (VeDi), PDF/Excel report exports, and progressive backend migration from PHP to Python with FastAPI and PostgreSQL."
+    },
+    "geoportal": {
+      "titulo": "Geoportal – Geographic Information Web Platform (GIS)",
+      "desc": "Web platform for visualizing, exploring, and managing geospatial data. Implemented map interaction features with Leaflet, integration with geospatial services (WMS/WFS exposed via GeoServer), new REST endpoints with FastAPI, and UI/UX modernization using Vue 3 and Quasar Framework."
+    },
     "ecommerce": {
       "titulo": "E-Commerce – Microservices Architecture",
       "desc": "E-commerce platform developed under a microservices architecture oriented toward scalability and domain separation. Implements independent services for users, products, cart, and sales using Spring Boot and Spring Cloud, communicating via API Gateway, JWT authentication, and a Vue 3 frontend."
@@ -64,7 +74,6 @@
       "titulo": "Login with Role System",
       "desc": "Desktop application created with Java and Swing, using layered architecture. Includes user validation, dynamic roles, and specific views. Allows user CRUD with automatic refresh."
     },
-
     "devdaily": {
       "titulo": "DevDaily – Multiplatform Mobile App & API",
       "desc": "Cross-platform mobile application oriented toward continuous learning for developers. Allows access to daily technical content, challenges, and interview questions through a personalized experience. Features a REST API developed in Spring Boot, JWT authentication, favorites management, user preferences, and an interest-based recommendation system."
@@ -72,7 +81,8 @@
     "tecnologias": "Technologies:",
     "botones": {
       "ver": "View Project",
-      "proximamente": "Coming soon to GitHub"
+      "proximamente": "Coming soon to GitHub",
+      "sistema_privado": "Work Project • Live System"
     }
   },
   "contacto": {

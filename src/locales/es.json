@@ -41,9 +41,19 @@
   },
   "proyectos": {
     "titulo": "Mis Proyectos",
-    "subtitulo": "Selección de algunos de mis proyectos de práctica y personales, desarrollados con diversas tecnologías y enfoques.",
+    "subtitulo": "Selección de mis proyectos laborales en producción y desarrollos personales, creados con diversas tecnologías y arquitecturas.",
+    "laborales": "Experiencia & Proyectos Laborales",
+    "personales": "Proyectos Personales & Destacados",
     "destacados": "Proyectos Destacados",
     "otros": "Otros Proyectos",
+    "mbta": {
+      "titulo": "MBTA – Gestión Administrativa y Nóminas Municipales",
+      "desc": "Plataforma gubernamental destinada a la administración de becarios, monotributistas, secretarías, presupuestos y procesos de liquidación municipal. Participé en el desarrollo de nuevas funcionalidades en Vue 3 + Quasar, autenticación gubernamental (VeDi), reportes en PDF/Excel y la migración del backend de PHP hacia Python con FastAPI y PostgreSQL."
+    },
+    "geoportal": {
+      "titulo": "Geoportal – Plataforma Web de Información Geográfica (GIS)",
+      "desc": "Plataforma web para la visualización, exploración y gestión de información geoespacial. Desarrollé funcionalidades de interacción en mapas con Leaflet, integración con servicios GIS (WMS/WFS expuestos por GeoServer), nuevos endpoints REST en FastAPI y modernización UI/UX con Vue 3 y Quasar Framework."
+    },
     "ecommerce": {
       "titulo": "E-Commerce – Arquitectura de Microservicios",
       "desc": "Plataforma de comercio electrónico desarrollada bajo una arquitectura de microservicios orientada a la escalabilidad y separación de dominios. Implementa servicios independientes para usuarios, productos, carrito y ventas utilizando Spring Boot y Spring Cloud, con comunicación mediante API Gateway, autenticación JWT y frontend desarrollado en Vue 3."
@@ -64,7 +74,6 @@
       "titulo": "Login con Sistema de Roles",
       "desc": "Aplicación de escritorio creada con Java y Swing, utilizando arquitectura por capas. Incluye validación de usuario, roles dinámicos y vistas específicas. Permite CRUD de usuarios con refresco automático."
     },
-
     "devdaily": {
       "titulo": "DevDaily – App Móvil Multiplataforma & API",
       "desc": "Aplicación móvil multiplataforma orientada al aprendizaje continuo de desarrolladores. Permite acceder a contenido técnico diario, desafíos y preguntas de entrevista mediante una experiencia personalizada. Cuenta con una API REST desarrollada en Spring Boot, autenticación JWT, gestión de favoritos, preferencias de usuario y sistema de recomendaciones basado en intereses."
@@ -72,7 +81,8 @@
     "tecnologias": "Tecnologías:",
     "botones": {
       "ver": "Ver Proyecto",
-      "proximamente": "Próximamente en GitHub"
+      "proximamente": "Próximamente en GitHub",
+      "sistema_privado": "Proyecto Laboral • En Producción"
     }
   },
   "contacto": {
