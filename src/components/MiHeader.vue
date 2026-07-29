@@ -2,12 +2,12 @@
   <NavbarComponent />
   <div class="portada animate__animated animate__fadeIn">
     <!-- Video de fondo (MP4 en modo claro) -->
-    <video class="portada-video portada-video-light" autoplay loop muted playsinline>
+    <video class="portada-video portada-video-light" autoplay loop muted playsinline preload="metadata">
       <source src="/img/videoPortada.mp4" type="video/mp4" />
     </video>
 
     <!-- Video de fondo (MP4 en modo oscuro) -->
-    <video class="portada-video portada-video-dark" autoplay loop muted playsinline>
+    <video class="portada-video portada-video-dark" autoplay loop muted playsinline preload="metadata">
       <source src="/img/videoPortadadarkMode.mp4" type="video/mp4" />
     </video>
 

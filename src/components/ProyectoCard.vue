@@ -16,7 +16,7 @@
     </div>
 
     <div v-else class="carousel-container" @click="abrirModal">
-      <img :src="imagenes[indiceActual]" class="proyecto-imagen" />
+      <img :src="imagenes[indiceActual]" class="proyecto-imagen" loading="lazy" decoding="async" />
 
       <button class="flecha flecha-izq" @click.stop="imagenAnterior">‹</button>
       <button class="flecha flecha-der" @click.stop="imagenSiguiente">›</button>
@@ -40,7 +40,7 @@
         <span class="tecnologias-leyenda">{{ $t('proyectos.tecnologias') }}</span>
         <div class="tecnologias-iconos">
           <div v-for="(tech, idx) in tecnologias" :key="idx" class="tech-icono-wrapper">
-            <img :src="tech.icono" :alt="tech.nombre" class="tech-icono" />
+            <img :src="tech.icono" :alt="tech.nombre" class="tech-icono" loading="lazy" decoding="async" />
             <span class="tech-tooltip">{{ tech.nombre }}</span>
           </div>
         </div>

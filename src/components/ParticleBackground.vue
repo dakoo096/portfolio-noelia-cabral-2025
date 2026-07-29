@@ -82,11 +82,18 @@ class Particle {
   }
 }
 
+let isVisible = true
+let observer = null
+
 const init = () => {
   particles = []
   if (!particleCanvas.value) return
-  const numberOfParticles =
-    (particleCanvas.value.width * particleCanvas.value.height) / props.quantity
+  const isMobile = window.innerWidth <= 768
+  const divisor = isMobile ? props.quantity * 5 : props.quantity
+  const numberOfParticles = Math.min(
+    (particleCanvas.value.width * particleCanvas.value.height) / divisor,
+    isMobile ? 35 : 250
+  )
   for (let i = 0; i < numberOfParticles; i++) {
     let x = Math.random() * particleCanvas.value.width
     let y = Math.random() * particleCanvas.value.height
@@ -95,7 +102,10 @@ const init = () => {
 }
 
 const animate = () => {
-  if (!ctx || !particleCanvas.value) return
+  if (!ctx || !particleCanvas.value || !isVisible) {
+    animationId = null
+    return
+  }
   ctx.clearRect(0, 0, particleCanvas.value.width, particleCanvas.value.height)
   for (let i = 0; i < particles.length; i++) {
     particles[i].draw()
@@ -127,15 +137,29 @@ const handleResize = () => {
 onMounted(() => {
   ctx = particleCanvas.value.getContext('2d')
   handleResize()
-  window.addEventListener('resize', handleResize)
+  window.addEventListener('resize', handleResize, { passive: true })
 
   parent = particleCanvas.value.parentElement
-  if (parent) {
-    parent.addEventListener('mousemove', handleMouseMove)
-    parent.addEventListener('mouseleave', handleMouseLeave)
+  if (parent && window.innerWidth > 768) {
+    parent.addEventListener('mousemove', handleMouseMove, { passive: true })
+    parent.addEventListener('mouseleave', handleMouseLeave, { passive: true })
   }
 
-  animate()
+  if ('IntersectionObserver' in window && particleCanvas.value) {
+    observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        isVisible = entry.isIntersecting
+        if (isVisible && !animationId) {
+          animate()
+        }
+      },
+      { threshold: 0.05 }
+    )
+    observer.observe(particleCanvas.value)
+  } else {
+    animate()
+  }
 })
 
 onUnmounted(() => {
@@ -144,7 +168,12 @@ onUnmounted(() => {
     parent.removeEventListener('mousemove', handleMouseMove)
     parent.removeEventListener('mouseleave', handleMouseLeave)
   }
-  cancelAnimationFrame(animationId)
+  if (observer) {
+    observer.disconnect()
+  }
+  if (animationId) {
+    cancelAnimationFrame(animationId)
+  }
 })
 </script>
 

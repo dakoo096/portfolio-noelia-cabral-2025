@@ -362,7 +362,9 @@ watch(
 )
 
 onMounted(() => {
-  window.addEventListener('mousemove', handleMouseMove, { passive: true })
+  if (window.innerWidth > 768) {
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+  }
 
   blinkInterval = setInterval(() => {
     if (!isSleeping.value) {
