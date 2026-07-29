@@ -92,6 +92,7 @@ let observer = null
 let lastScrollY = 0
 
 const hacerShine = () => {
+  if (window.innerWidth <= 768) return
   const section = document.querySelector('.mi-stack')
   if (!section) return
 

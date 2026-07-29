@@ -95,6 +95,13 @@ section,
 }
 
 @media (max-width: 768px) {
+  .shine::after {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
   section,
   .container {
     padding: 0.5rem;
