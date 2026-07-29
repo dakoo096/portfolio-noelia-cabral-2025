@@ -117,7 +117,9 @@ watch(
   background: #1a1a1a;
   border: 3px solid #f38cbe;
   padding: 3px;
-  box-shadow: 3px 3px 0 #000;
+  box-shadow: 3px 3px 0 #000, 0 0 12px rgba(243, 140, 190, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
 .pixel-bar-fill {
@@ -129,7 +131,19 @@ watch(
     #e8b7cf 8px,
     #e8b7cf 16px
   );
-  transition: width 0.25s steps(12);
+  background-size: 32px 100%;
+  animation: loading-stripe-move 0.6s linear infinite;
+  transition: width 0.3s ease-out;
+  box-shadow: 0 0 10px rgba(243, 140, 190, 0.6);
+}
+
+@keyframes loading-stripe-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 32px 0;
+  }
 }
 
 .loading-percent {

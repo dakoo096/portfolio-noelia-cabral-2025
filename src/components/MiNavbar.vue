@@ -49,7 +49,7 @@
 
           <!-- Botón modo oscuro -->
           <li class="nav-item d-flex align-items-center">
-            <button class="dark-mode-btn" @click="toggleDarkMode">
+            <button class="dark-mode-btn" @click="toggleDarkMode($event)">
               <i :class="['bx', isDark ? 'bx-sun' : 'bx-moon']"></i>
             </button>
           </li>
@@ -74,10 +74,72 @@ const toggleLanguage = () => {
   localStorage.setItem('language', locale.value)
 }
 
-const toggleDarkMode = () => {
-  isDark.value = !isDark.value
-  document.body.classList.toggle('dark-mode', isDark.value)
-  localStorage.setItem('darkMode', isDark.value)
+const toggleDarkMode = (event) => {
+  const rect = event?.currentTarget?.getBoundingClientRect()
+  const x = rect ? rect.left + rect.width / 2 : event?.clientX ?? window.innerWidth / 2
+  const y = rect ? rect.top + rect.height / 2 : event?.clientY ?? window.innerHeight / 2
+
+  const endRadius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y)
+  )
+
+  const applyTheme = () => {
+    isDark.value = !isDark.value
+    document.body.classList.toggle('dark-mode', isDark.value)
+    localStorage.setItem('darkMode', isDark.value)
+  }
+
+  // 1. Lanzar la animación visual (Aparece -> Implosiona -> Explosión)
+  triggerThemeExplosion(x, y, !isDark.value)
+
+  // 2. Coordinar el cambio de tema justo en la implosión (450ms)
+  setTimeout(() => {
+    if (document.startViewTransition) {
+      const transition = document.startViewTransition(() => {
+        applyTheme()
+      })
+
+      transition.ready.then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${endRadius}px at ${x}px ${y}px)`,
+            ],
+          },
+          {
+            duration: 850,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            pseudoElement: '::view-transition-new(root)',
+          }
+        )
+      })
+    } else {
+      applyTheme()
+    }
+  }, 450)
+}
+
+const triggerThemeExplosion = (x, y, goingDark) => {
+  const overlay = document.createElement('div')
+  overlay.className = 'theme-explosion-overlay'
+  overlay.style.left = `${x}px`
+  overlay.style.top = `${y}px`
+
+  overlay.style.background = goingDark
+    ? 'radial-gradient(circle, #ffffff 0%, #f38cbe 25%, #a855f7 50%, #6366f1 75%, #09090b 100%)'
+    : 'radial-gradient(circle, #ffffff 0%, #f38cbe 30%, #e3c3e8 60%, #f8f9fa 100%)'
+
+  document.body.appendChild(overlay)
+
+  requestAnimationFrame(() => {
+    overlay.classList.add('active')
+  })
+
+  setTimeout(() => {
+    overlay.remove()
+  }, 1350)
 }
 
 let ticking = false
