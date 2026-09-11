@@ -77,7 +77,13 @@ const proyectosLaborales = computed(() => [
   {
     titulo: t('proyectos.geoportal.titulo'),
     descripcion: t('proyectos.geoportal.desc'),
-    imagenes: ['./img/geoportal/geoportal1.svg'],
+    imagenes: [
+      './img/geoportal/geoportal1.png',
+      './img/geoportal/geoportal2.png',
+      './img/geoportal/geoportal3.png',
+      './img/geoportal/geoportal4.png',
+    ],
+    link: 'https://geoportal.cordoba.gob.ar/',
     esLaboral: true,
     badgeText: 'Municipalidad de Córdoba • GIS',
     tecnologias: [
