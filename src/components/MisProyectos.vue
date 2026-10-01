@@ -26,6 +26,20 @@
         <h3 class="proyectos-subseccion-titulo">
           <span class="bullet">•</span> {{ $t('proyectos.personales') }}
         </h3>
+
+        <!-- Card Destacada de Ancho Completo: NOMIDA Automations -->
+        <ProyectoDestacadoCard
+          :titulo="proyectoNomida.titulo"
+          :subtitulo="proyectoNomida.subtitulo"
+          :descripcion="proyectoNomida.descripcion"
+          :badgeText="proyectoNomida.badgeText"
+          :link="proyectoNomida.link"
+          :imagenes="proyectoNomida.imagenes"
+          :nombresVistas="proyectoNomida.nombresVistas"
+          :highlights="proyectoNomida.highlights"
+          :tecnologias="proyectoNomida.tecnologias"
+        />
+
         <div class="proyectos-grid">
           <ProyectoCard v-for="(proyecto, index) in proyectosDestacados" :key="'destacado-' + index"
             :titulo="proyecto.titulo" :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes"
@@ -50,11 +64,50 @@
 
 <script setup>
 import ProyectoCard from './ProyectoCard.vue'
+import ProyectoDestacadoCard from './ProyectoDestacadoCard.vue'
 import ParticleBackground from './ParticleBackground.vue'
 import { onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+
+const proyectoNomida = computed(() => ({
+  titulo: t('proyectos.nomida.titulo'),
+  subtitulo: t('proyectos.nomida.subtitulo'),
+  descripcion: t('proyectos.nomida.desc'),
+  badgeText: t('proyectos.nomida.badge_destacado'),
+  link: 'https://nomida.com.ar/',
+  imagenes: [
+    './img/nomida/dashboard.png',
+    './img/nomida/consultas.png',
+    './img/nomida/configuracion.png',
+    './img/nomida/flujo-whatsapp.png',
+  ],
+  nombresVistas: [
+    '1. Dashboard de NOMIDA (Portada)',
+    '2. Gestión de Consultas',
+    '3. Configuración',
+    '4. Flujo WhatsApp / automatización',
+  ],
+  highlights: [
+    t('proyectos.nomida.features.multitenant'),
+    t('proyectos.nomida.features.whatsapp'),
+    t('proyectos.nomida.features.reglas'),
+    t('proyectos.nomida.features.consultas'),
+    t('proyectos.nomida.features.analytics'),
+    t('proyectos.nomida.features.deploy'),
+  ],
+  tecnologias: [
+    { icono: './img/logos/vue.png', nombre: 'Vue 3' },
+    { icono: './img/logos/quasar.png', nombre: 'Quasar' },
+    { icono: './img/logos/typescript.svg', nombre: 'TypeScript' },
+    { icono: './img/logos/logopython.png', nombre: 'Python' },
+    { icono: './img/logos/logofastapi.svg', nombre: 'FastAPI' },
+    { icono: './img/logos/postgresql.png', nombre: 'PostgreSQL' },
+    { icono: './img/logos/docker.png', nombre: 'Docker' },
+    { icono: './img/logos/whatsapp.svg', nombre: 'WhatsApp Cloud API / Meta' },
+  ],
+}))
 
 const proyectosLaborales = computed(() => [
   {

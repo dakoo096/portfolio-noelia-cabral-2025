@@ -54,6 +54,21 @@
       "titulo": "Geoportal – Geographic Information Web Platform (GIS)",
       "desc": "Web platform for visualizing, exploring, and managing geospatial data. Implemented map interaction features with Leaflet, integration with geospatial services (WMS/WFS exposed via GeoServer), new REST endpoints with FastAPI, and UI/UX modernization using Vue 3 and Quasar Framework."
     },
+    "nomida": {
+      "titulo": "NOMIDA Automations",
+      "subtitulo": "Automation Platform for WhatsApp Business",
+      "badge_destacado": "FEATURED PROJECT · FULL STACK",
+      "badge_desarrollo": "IN ACTIVE DEVELOPMENT",
+      "desc": "NOMIDA Automations is a multi-tenant automation platform for WhatsApp Business oriented to businesses. It allows configuring automated responses, managing customer inquiries, administering conversation rules, and analyzing commercial interactions from a centralized dashboard.",
+      "features": {
+        "multitenant": "Multi-tenant architecture",
+        "whatsapp": "WhatsApp Cloud API",
+        "reglas": "Configurable rules",
+        "consultas": "Inquiry management",
+        "analytics": "Analytics",
+        "deploy": "Production deploy"
+      }
+    },
     "ecommerce": {
       "titulo": "E-Commerce – Microservices Architecture",
       "desc": "E-commerce platform developed under a microservices architecture oriented toward scalability and domain separation. Implements independent services for users, products, cart, and sales using Spring Boot and Spring Cloud, communicating via API Gateway, JWT authentication, and a Vue 3 frontend."
