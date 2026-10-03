@@ -15,9 +15,13 @@
       <!-- Imagen -->
       <div class="col-lg-5 col img-fluid container-imagen">
         <img
-          src="/img/caricaturacontacto-2.png"
+          src="/img/caricaturacontacto-2.webp"
           alt="caricatura señalando a la derecha del formulario"
           class="floating-img"
+          width="422"
+          height="570"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -116,19 +120,14 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import emailjs from '@emailjs/browser'
-import Swal from 'sweetalert2'
 import ParticleBackground from './ParticleBackground.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
 /* =========================
-   EMAILJS
+   EMAILJS & FORMULARIO
 ========================= */
-
-// Inicializa EmailJS
-emailjs.init('NMgydeVAgi1o6iWWP')
 
 // Campos del formulario
 const asunto = ref('')
@@ -138,7 +137,7 @@ const mensaje = ref('')
 // Refs del DOM
 const botonRef = ref(null)
 
-// Función para enviar formulario
+// Función para enviar formulario con imports dinámicos
 const enviarFormulario = async () => {
   const boton = botonRef.value
 
@@ -152,6 +151,12 @@ const enviarFormulario = async () => {
   }
 
   try {
+    const [{ default: emailjs }, { default: Swal }] = await Promise.all([
+      import('@emailjs/browser'),
+      import('sweetalert2')
+    ])
+
+    emailjs.init('NMgydeVAgi1o6iWWP')
     await emailjs.send('service_ynvt8os', 'template_bb4i0ml', templateParams)
 
     Swal.fire({
@@ -190,6 +195,7 @@ const enviarFormulario = async () => {
   } catch (error) {
     console.error(error)
 
+    const { default: Swal } = await import('sweetalert2')
     Swal.fire({
       icon: 'error',
       title: t('contacto.swal.error_titulo'),
@@ -305,7 +311,7 @@ onMounted(() => {
   transition: all 0.5s;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   justify-content: center;
-  background-image: url(/img/fondo-lofi-dia-inverse.png);
+  background-image: url(/img/fondo-lofi-dia-inverse.webp);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 0 0 20px 20px;

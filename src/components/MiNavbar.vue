@@ -42,14 +42,22 @@
 
           <!-- Botón de idioma -->
           <li class="nav-item mx-2 d-flex align-items-center">
-            <button class="lang-btn" @click="toggleLanguage">
+            <button
+              class="lang-btn"
+              @click="toggleLanguage"
+              :aria-label="currentLang === 'es' ? 'Cambiar idioma a Inglés' : 'Switch language to Spanish'"
+            >
               {{ currentLang === 'es' ? 'EN' : 'ES' }}
             </button>
           </li>
 
           <!-- Botón modo oscuro -->
           <li class="nav-item d-flex align-items-center">
-            <button class="dark-mode-btn" @click="toggleDarkMode($event)">
+            <button
+              class="dark-mode-btn"
+              @click="toggleDarkMode($event)"
+              :aria-label="isDark ? 'Activar modo claro' : 'Activar modo oscuro'"
+            >
               <i :class="['bx', isDark ? 'bx-sun' : 'bx-moon']"></i>
             </button>
           </li>

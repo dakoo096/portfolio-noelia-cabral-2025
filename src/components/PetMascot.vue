@@ -385,8 +385,6 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 .pet-container {
   position: fixed;
   bottom: 20px;

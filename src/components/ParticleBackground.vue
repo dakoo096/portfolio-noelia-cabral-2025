@@ -82,17 +82,17 @@ class Particle {
   }
 }
 
-let isVisible = true
+let isVisible = false
 let observer = null
 
 const init = () => {
   particles = []
   if (!particleCanvas.value) return
   const isMobile = window.innerWidth <= 768
-  const divisor = isMobile ? props.quantity * 5 : props.quantity
+  const divisor = isMobile ? props.quantity * 8 : props.quantity * 2
   const numberOfParticles = Math.min(
     (particleCanvas.value.width * particleCanvas.value.height) / divisor,
-    isMobile ? 35 : 250
+    isMobile ? 20 : 75
   )
   for (let i = 0; i < numberOfParticles; i++) {
     let x = Math.random() * particleCanvas.value.width
@@ -135,6 +135,10 @@ const handleResize = () => {
 }
 
 onMounted(() => {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return
+  }
+
   ctx = particleCanvas.value.getContext('2d')
   handleResize()
   window.addEventListener('resize', handleResize, { passive: true })
@@ -152,12 +156,16 @@ onMounted(() => {
         isVisible = entry.isIntersecting
         if (isVisible && !animationId) {
           animate()
+        } else if (!isVisible && animationId) {
+          cancelAnimationFrame(animationId)
+          animationId = null
         }
       },
       { threshold: 0.05 }
     )
     observer.observe(particleCanvas.value)
   } else {
+    isVisible = true
     animate()
   }
 })

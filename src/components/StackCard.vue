@@ -1,6 +1,6 @@
 <template>
   <div class="skill-badge">
-    <img :src="icono" :alt="nombre" class="skill-icon" />
+    <img :src="icono" :alt="nombre" class="skill-icon" loading="lazy" decoding="async" width="22" height="22" />
     <span class="skill-label">{{ nombre }}</span>
   </div>
 </template>

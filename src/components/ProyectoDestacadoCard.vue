@@ -1,5 +1,5 @@
 <template>
-  <div class="proyecto-card proyecto-card-destacado">
+  <div class="proyecto-card proyecto-card-destacado" ref="cardElement">
     <!-- Carrusel / Preview a la izquierda en Desktop, arriba en Mobile -->
     <div class="carousel-container destacado-carousel" @click="abrirModal">
       <!-- Imagen real si cargó con éxito -->
@@ -10,6 +10,8 @@
         class="proyecto-imagen destacado-imagen"
         loading="lazy"
         decoding="async"
+        width="600"
+        height="380"
         @error="onImageError(indiceActual)"
       />
 
@@ -91,7 +93,15 @@
         <span class="tecnologias-leyenda">{{ $t('proyectos.tecnologias') }}</span>
         <div class="tecnologias-iconos">
           <div v-for="(tech, idx) in tecnologias" :key="idx" class="tech-icono-wrapper">
-            <img :src="tech.icono" :alt="tech.nombre" class="tech-icono" loading="lazy" decoding="async" />
+            <img
+              :src="tech.icono"
+              :alt="tech.nombre"
+              class="tech-icono"
+              loading="lazy"
+              decoding="async"
+              width="24"
+              height="24"
+            />
             <span class="tech-tooltip">{{ tech.nombre }}</span>
           </div>
         </div>
@@ -229,8 +239,10 @@ const onImageError = (index) => {
 }
 
 /* CARRUSEL */
+const cardElement = ref(null)
 const indiceActual = ref(0)
 let intervalo = null
+let observer = null
 
 const imagenSiguiente = () => {
   if (!props.imagenes || props.imagenes.length === 0) return
@@ -246,16 +258,43 @@ const irAImagen = (i) => {
   indiceActual.value = i
 }
 
+const iniciarIntervalo = () => {
+  if (intervalo || !props.imagenes || props.imagenes.length <= 1) return
+  intervalo = setInterval(() => {
+    imagenSiguiente()
+  }, 4500)
+}
+
+const detenerIntervalo = () => {
+  if (intervalo) {
+    clearInterval(intervalo)
+    intervalo = null
+  }
+}
+
 onMounted(() => {
-  if (props.imagenes && props.imagenes.length > 1) {
-    intervalo = setInterval(() => {
-      imagenSiguiente()
-    }, 4500)
+  if ('IntersectionObserver' in window && cardElement.value) {
+    observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          iniciarIntervalo()
+        } else {
+          detenerIntervalo()
+        }
+      },
+      { threshold: 0.1 }
+    )
+    observer.observe(cardElement.value)
+  } else {
+    iniciarIntervalo()
   }
 })
 
 onBeforeUnmount(() => {
-  if (intervalo) clearInterval(intervalo)
+  detenerIntervalo()
+  if (observer) {
+    observer.disconnect()
+  }
 })
 
 /* MODAL */

@@ -4,7 +4,8 @@
       v-show="visible"
       @click="scrollTop"
       id="myBtn"
-      title="Go to top"
+      title="Volver arriba"
+      aria-label="Volver arriba"
       class="btn rounded align-items-center p-3 bg-gradient bg-opacity-75"
     >
       <i class="bx bxs-up-arrow-alt bx-tada"></i>

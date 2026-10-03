@@ -48,8 +48,6 @@ watch(
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 .loading-screen {
   position: fixed;
   inset: 0;

@@ -3,10 +3,12 @@
   <div id="app">
     <HeaderComponent />
     <BackToTop />
-    <AcercaDeMi />
-    <MiStack />
-    <MisProyectos />
-    <Contacto />
+    <main id="main-content">
+      <AcercaDeMi />
+      <MiStack />
+      <MisProyectos />
+      <Contacto />
+    </main>
     <FooterComponent />
     <PetMascot :ready="!isLoading" />
   </div>
@@ -65,8 +67,8 @@ onMounted(async () => {
     assets.map((el) => track(el.tagName === 'VIDEO' ? waitForVideo(el) : waitForImage(el))),
   )
 
-  const minDelay = new Promise((resolve) => setTimeout(resolve, 4000))
-  const safetyTimeout = new Promise((resolve) => setTimeout(resolve, 6000))
+  const minDelay = new Promise((resolve) => setTimeout(resolve, 700))
+  const safetyTimeout = new Promise((resolve) => setTimeout(resolve, 2500))
 
   await Promise.race([Promise.all([assetsPromise, minDelay]), safetyTimeout])
 

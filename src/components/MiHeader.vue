@@ -21,20 +21,48 @@
 
     <!-- Imagen Portada con animación de flote -->
     <div class="container-portada-img" data-aos="fade-in" data-aos-delay="1800">
-      <img src="/img/caricatura-2.png" alt="Caricatura de Noelia Cabral" class="floating-img" />
+      <img
+        src="/img/caricatura-2.webp"
+        alt="Caricatura de Noelia Cabral"
+        class="floating-img"
+        width="422"
+        height="540"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
     </div>
 
     <!-- Redes -->
     <div class="redes animate__animated animate__fadeIn animate__delay-2s">
       <p>
-        <a href="https://github.com/dakoo096" target="_blank"><img src="/img/githubfooter.png" alt="GitHub" /></a>
+        <a
+          href="https://github.com/dakoo096"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Perfil de GitHub de Noelia Cabral"
+        >
+          <img src="/img/githubfooter.webp" alt="GitHub" width="45" height="45" loading="eager" decoding="async" />
+        </a>
       </p>
       <p>
-        <a href="https://www.linkedin.com/in/noelia-cabral-381723140" target="_blank"><img src="/img/linkedinfooter.png"
-            alt="LinkedIn" /></a>
+        <a
+          href="https://www.linkedin.com/in/noelia-cabral-381723140"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Perfil de LinkedIn de Noelia Cabral"
+        >
+          <img src="/img/linkedinfooter.webp" alt="LinkedIn" width="45" height="45" loading="eager" decoding="async" />
+        </a>
       </p>
       <p>
-        <a href="./img/cv/Cv_Cabral_Noelia_2026.pdf" download><img src="/img/cv.png" alt="CV" /></a>
+        <a
+          href="./img/cv/Cv_Cabral_Noelia_2026.pdf"
+          download
+          aria-label="Descargar Curriculum Vitae"
+        >
+          <img src="/img/cv.webp" alt="CV" width="45" height="45" loading="eager" decoding="async" />
+        </a>
       </p>
     </div>
   </div>

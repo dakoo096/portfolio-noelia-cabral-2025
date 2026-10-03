@@ -1,5 +1,5 @@
 <template>
-  <div class="proyecto-card">
+  <div class="proyecto-card" ref="cardElement">
     <div v-if="esLaboral" class="card-badge-laboral">
       <i class="bx bx-briefcase-alt-2"></i> {{ badgeText || $t('proyectos.botones.sistema_privado') }}
     </div>
@@ -16,10 +16,18 @@
     </div>
 
     <div v-else class="carousel-container" @click="abrirModal">
-      <img :src="imagenes[indiceActual]" class="proyecto-imagen" loading="lazy" decoding="async" />
+      <img
+        :src="imagenes[indiceActual]"
+        :alt="titulo"
+        class="proyecto-imagen"
+        loading="lazy"
+        decoding="async"
+        width="600"
+        height="340"
+      />
 
-      <button class="flecha flecha-izq" @click.stop="imagenAnterior">‹</button>
-      <button class="flecha flecha-der" @click.stop="imagenSiguiente">›</button>
+      <button class="flecha flecha-izq" @click.stop="imagenAnterior" aria-label="Imagen anterior">‹</button>
+      <button class="flecha flecha-der" @click.stop="imagenSiguiente" aria-label="Imagen siguiente">›</button>
 
       <div class="indicadores">
         <span
@@ -28,6 +36,7 @@
           class="punto"
           :class="{ activo: i === indiceActual }"
           @click.stop="irAImagen(i)"
+          :aria-label="'Ir a imagen ' + (i + 1)"
         ></span>
       </div>
     </div>
@@ -40,7 +49,15 @@
         <span class="tecnologias-leyenda">{{ $t('proyectos.tecnologias') }}</span>
         <div class="tecnologias-iconos">
           <div v-for="(tech, idx) in tecnologias" :key="idx" class="tech-icono-wrapper">
-            <img :src="tech.icono" :alt="tech.nombre" class="tech-icono" loading="lazy" decoding="async" />
+            <img
+              :src="tech.icono"
+              :alt="tech.nombre"
+              class="tech-icono"
+              loading="lazy"
+              decoding="async"
+              width="24"
+              height="24"
+            />
             <span class="tech-tooltip">{{ tech.nombre }}</span>
           </div>
         </div>
@@ -97,14 +114,20 @@
     <teleport to="body">
       <div v-if="modalAbierto" class="modal-overlay" @click.self="cerrarModal">
         <div class="modal-content">
-          <button class="modal-cerrar" @click="cerrarModal">×</button>
+          <button class="modal-cerrar" @click="cerrarModal" aria-label="Cerrar modal">×</button>
 
           <div class="modal-carrusel">
-            <button class="modal-flecha izquierda" @click="modalAnterior">‹</button>
+            <button class="modal-flecha izquierda" @click="modalAnterior" aria-label="Imagen anterior">‹</button>
 
-            <img :src="imagenes[modalIndice]" class="modal-imagen-grande" />
+            <img
+              :src="imagenes[modalIndice]"
+              :alt="'Vista ampliada de ' + titulo"
+              class="modal-imagen-grande"
+              loading="lazy"
+              decoding="async"
+            />
 
-            <button class="modal-flecha derecha" @click="modalSiguiente">›</button>
+            <button class="modal-flecha derecha" @click="modalSiguiente" aria-label="Imagen siguiente">›</button>
           </div>
         </div>
       </div>
@@ -144,14 +167,18 @@ const esGithubValido = computed(() => {
 })
 
 /* CARRUSEL PEQUEÑO */
+const cardElement = ref(null)
 const indiceActual = ref(0)
 let intervalo = null
+let observer = null
 
 const imagenSiguiente = () => {
+  if (!props.imagenes || props.imagenes.length === 0) return
   indiceActual.value = (indiceActual.value + 1) % props.imagenes.length
 }
 
 const imagenAnterior = () => {
+  if (!props.imagenes || props.imagenes.length === 0) return
   indiceActual.value = (indiceActual.value - 1 + props.imagenes.length) % props.imagenes.length
 }
 
@@ -159,16 +186,43 @@ const irAImagen = (i) => {
   indiceActual.value = i
 }
 
+const iniciarIntervalo = () => {
+  if (intervalo || props.video || !props.imagenes || props.imagenes.length <= 1) return
+  intervalo = setInterval(() => {
+    imagenSiguiente()
+  }, 3000)
+}
+
+const detenerIntervalo = () => {
+  if (intervalo) {
+    clearInterval(intervalo)
+    intervalo = null
+  }
+}
+
 onMounted(() => {
-  if (!props.video) {
-    intervalo = setInterval(() => {
-      imagenSiguiente()
-    }, 3000)
+  if ('IntersectionObserver' in window && cardElement.value) {
+    observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          iniciarIntervalo()
+        } else {
+          detenerIntervalo()
+        }
+      },
+      { threshold: 0.1 }
+    )
+    observer.observe(cardElement.value)
+  } else {
+    iniciarIntervalo()
   }
 })
 
 onBeforeUnmount(() => {
-  clearInterval(intervalo)
+  detenerIntervalo()
+  if (observer) {
+    observer.disconnect()
+  }
 })
 
 /* MODAL */
@@ -185,10 +239,12 @@ const cerrarModal = () => {
 }
 
 const modalSiguiente = () => {
+  if (!props.imagenes || props.imagenes.length === 0) return
   modalIndice.value = (modalIndice.value + 1) % props.imagenes.length
 }
 
 const modalAnterior = () => {
+  if (!props.imagenes || props.imagenes.length === 0) return
   modalIndice.value = (modalIndice.value - 1 + props.imagenes.length) % props.imagenes.length
 }
 </script>
