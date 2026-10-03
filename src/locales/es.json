@@ -20,8 +20,6 @@
       "disponible": "Disponible",
       "ubicacion": "Ubicación",
       "ubicacion_val": "Córdoba, Argentina",
-      "horario": "Horario",
-      "horario_val": "Lunes a Viernes (UTC-3)",
       "modalidad": "Modalidad",
       "modalidad_val": "Remoto / Híbrido",
       "idiomas": "Idiomas",
@@ -30,7 +28,7 @@
   },
   "stack": {
     "titulo": "Mis Habilidades",
-    "subtitulo": "Aquí presento las tecnologías que uso en mis proyectos: frontend, backend, bases de datos, herramientas de desarrollo y testing. <br> Es el stack con el que trabajo día a día y en el que sigo creciendo como profesional.",
+    "subtitulo": "Tecnologías con las que trabajo en proyectos profesionales y personales, abarcando frontend, backend, persistencia, testing y despliegue.",
     "categorias": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -127,6 +125,6 @@
     }
   },
   "footer": {
-    "texto": "© 2025 Noelia Cabral. Todos los derechos reservados."
+    "texto": "© {year} Noelia Cabral. Todos los derechos reservados."
   }
 }

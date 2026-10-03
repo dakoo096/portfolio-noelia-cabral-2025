@@ -1,12 +1,14 @@
 <template>
   <footer class="footer">
     <div class="container-footer">
-      <p>{{ $t('footer.texto') }}</p>
+      <p>{{ $t('footer.texto', { year: currentYear }) }}</p>
     </div>
   </footer>
 </template>
 
-<script setup></script>
+<script setup>
+const currentYear = new Date().getFullYear()
+</script>
 
 <style scoped>
 .footer {

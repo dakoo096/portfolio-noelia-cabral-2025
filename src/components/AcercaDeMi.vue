@@ -36,11 +36,6 @@
             </div>
 
             <div class="status-item">
-              <span class="label">{{ $t('acerca_de_mi.status_card.horario') }}</span>
-              <span class="value">{{ $t('acerca_de_mi.status_card.horario_val') }}</span>
-            </div>
-
-            <div class="status-item">
               <span class="label">{{ $t('acerca_de_mi.status_card.modalidad') }}</span>
               <span class="value">{{ $t('acerca_de_mi.status_card.modalidad_val') }}</span>
             </div>
