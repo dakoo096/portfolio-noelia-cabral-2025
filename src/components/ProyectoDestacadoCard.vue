@@ -97,17 +97,27 @@
         </div>
       </div>
 
-      <!-- Botón CTA principal -->
+      <!-- Botones CTA -->
       <div class="proyecto-buttons destacado-buttons">
         <a
-          v-if="esLinkValido"
+          v-if="esDemoValido"
           class="proyecto-link destacado-cta"
-          :href="link"
+          :href="urlDemo"
           target="_blank"
           rel="noopener noreferrer"
         >
           <i class="bx bx-link-external icon-btn"></i>
-          {{ $t('proyectos.botones.ver') }}
+          {{ $t('proyectos.botones.demo') }}
+        </a>
+        <a
+          v-if="esGithubValido"
+          class="proyecto-link destacado-cta"
+          :href="github"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bx bxl-github icon-btn"></i>
+          {{ $t('proyectos.botones.codigo') }}
         </a>
       </div>
     </div>
@@ -178,6 +188,14 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  demo: {
+    type: String,
+    default: '',
+  },
+  github: {
+    type: String,
+    default: '',
+  },
   tecnologias: {
     type: Array,
     default: () => [],
@@ -192,8 +210,16 @@ const props = defineProps({
   },
 })
 
-const esLinkValido = computed(() => {
-  return props.link && props.link.startsWith('http')
+const esDemoValido = computed(() => {
+  return (props.demo && props.demo.startsWith('http')) || (props.link && props.link.startsWith('http') && !props.github)
+})
+
+const esGithubValido = computed(() => {
+  return props.github && props.github.startsWith('http')
+})
+
+const urlDemo = computed(() => {
+  return props.demo || props.link
 })
 
 /* Control de error de carga para mostrar fallback limpio sin imágenes rotas */
@@ -612,6 +638,8 @@ const modalAnterior = () => {
 .destacado-buttons {
   margin-top: 0.2rem;
   display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 

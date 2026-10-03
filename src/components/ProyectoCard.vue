@@ -47,20 +47,50 @@
       </div>
 
       <div class="proyecto-buttons">
-        <a v-if="esLinkValido" class="proyecto-link" :href="link" target="_blank">
-          <i class="bx bx-link-external icon-btn"></i>
-          {{ $t('proyectos.botones.ver') }}
-        </a>
+        <template v-if="esDemoValido || esGithubValido">
+          <a
+            v-if="esDemoValido"
+            class="proyecto-link"
+            :href="demo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bx-link-external icon-btn"></i>
+            {{ $t('proyectos.botones.demo') }}
+          </a>
+          <a
+            v-if="esGithubValido"
+            class="proyecto-link"
+            :href="github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bxl-github icon-btn"></i>
+            {{ $t('proyectos.botones.codigo') }}
+          </a>
+        </template>
+        <template v-else>
+          <a
+            v-if="esLinkValido"
+            class="proyecto-link"
+            :href="link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bx-link-external icon-btn"></i>
+            {{ $t('proyectos.botones.ver') }}
+          </a>
 
-        <button v-else-if="esLaboral" class="proyecto-link laboral-btn" disabled>
-          <i class="bx bx-building-house icon-btn"></i>
-          {{ $t('proyectos.botones.sistema_privado') }}
-        </button>
+          <button v-else-if="esLaboral" class="proyecto-link laboral-btn" disabled>
+            <i class="bx bx-building-house icon-btn"></i>
+            {{ $t('proyectos.botones.sistema_privado') }}
+          </button>
 
-        <button v-else class="proyecto-link disabled" disabled>
-          <i class="bx bx-lock-alt icon-btn"></i>
-          {{ $t('proyectos.botones.proximamente') }}
-        </button>
+          <button v-else class="proyecto-link disabled" disabled>
+            <i class="bx bx-lock-alt icon-btn"></i>
+            {{ $t('proyectos.botones.proximamente') }}
+          </button>
+        </template>
       </div>
     </div>
 
@@ -90,6 +120,8 @@ const props = defineProps({
   descripcion: String,
   imagenes: Array,
   link: String,
+  demo: String,
+  github: String,
   video: String,
   tecnologias: Array,
   esLaboral: {
@@ -101,6 +133,14 @@ const props = defineProps({
 
 const esLinkValido = computed(() => {
   return props.link && props.link.startsWith('http')
+})
+
+const esDemoValido = computed(() => {
+  return props.demo && props.demo.startsWith('http')
+})
+
+const esGithubValido = computed(() => {
+  return props.github && props.github.startsWith('http')
 })
 
 /* CARRUSEL PEQUEÑO */
@@ -307,6 +347,8 @@ const modalAnterior = () => {
   margin-top: 0.5rem;
   padding-bottom: 0.5rem;
   display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
@@ -317,9 +359,12 @@ const modalAnterior = () => {
 }
 
 .proyecto-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   width: auto;
-  padding: 0.8rem 2rem;
+  padding: 0.7rem 1.4rem;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
   color: #343a40;

@@ -12,9 +12,9 @@
   },
   "acerca_de_mi": {
     "titulo": "Acerca de mí",
-    "p1": "Soy desarrolladora Full Stack de Argentina enfocada en la creación y mantenimiento de aplicaciones web funcionales y escalables. Actualmente trabajo en la Municipalidad de Córdoba, participando en el desarrollo de sistemas internos e integrando soluciones tanto en frontend como backend. Cuento con experiencia práctica trabajando con distintas tecnologías y colaborando en equipos multidisciplinarios para optimizar procesos y mejorar la experiencia de los usuarios.",
-    "p2": "Mi perfil se complementa con una sólida capacidad de organización, resolución de problemas y adaptación a nuevos desafíos, fortalecida tanto por mi formación técnica como por mi experiencia previa en el área administrativa. Además, disfruto aprender nuevas tecnologías y aplicar buenas prácticas de desarrollo para construir soluciones claras, estables y bien estructuradas.",
-    "p3": "Me recibí como Técnica en Desarrollo Web y Aplicaciones Digitales y continúo capacitándome de manera constante para seguir creciendo profesionalmente y ampliar mis conocimientos dentro del desarrollo de software.",
+    "p1": "Soy desarrolladora Full Stack con experiencia en el desarrollo y mantenimiento de aplicaciones web en producción. Actualmente formo parte del equipo de desarrollo de la Municipalidad de Córdoba, trabajando principalmente con Vue 3, TypeScript, Python/FastAPI y PostgreSQL.",
+    "p2": "También desarrollo proyectos propios de punta a punta utilizando Python/FastAPI y Java/Spring Boot, implementando APIs REST, autenticación, persistencia de datos, migraciones, Docker y despliegues productivos. Me interesa especialmente el desarrollo backend y la construcción de soluciones Full Stack, combinando mi experiencia con Vue en frontend con distintos ecosistemas backend según las necesidades de cada proyecto.",
+    "p3": "Disfruto resolver problemas, aprender nuevas tecnologías y llevar una idea desde el desarrollo hasta su puesta en producción. Busco seguir creciendo profesionalmente en proyectos donde pueda profundizar mis conocimientos de backend y aportar una mirada Full Stack.",
     "status_card": {
       "titulo": "ESTADO",
       "disponible": "Disponible",
@@ -34,7 +34,8 @@
     "categorias": {
       "frontend": "Frontend",
       "backend": "Backend",
-      "herramientas": "Herramientas y Bases de Datos",
+      "bd": "Bases de Datos / Persistencia",
+      "herramientas": "Herramientas / DevOps",
       "testing": "Testing / QA",
       "otros": "Desarrollo de videojuegos / Diseño 3D"
     }
@@ -58,15 +59,15 @@
       "titulo": "NOMIDA Automations",
       "subtitulo": "Plataforma de Automatización para WhatsApp Business",
       "badge_destacado": "PROYECTO DESTACADO · FULL STACK",
-      "badge_desarrollo": "EN DESARROLLO ACTIVO",
-      "desc": "NOMIDA Automations es una plataforma multi-tenant de automatización para WhatsApp Business orientada a negocios. Permite configurar respuestas automáticas, gestionar consultas de clientes, administrar reglas de conversación y analizar interacciones comerciales desde un dashboard centralizado.",
+      "badge_desarrollo": "EN PRODUCCIÓN",
+      "desc": "Plataforma Full Stack multi-tenant para automatizar la atención de negocios mediante WhatsApp Business. Permite configurar respuestas automáticas, gestionar consultas, administrar reglas de conversación y analizar interacciones comerciales. Integra WhatsApp Cloud API y autenticación por roles.",
       "features": {
         "multitenant": "Arquitectura multi-tenant",
         "whatsapp": "WhatsApp Cloud API",
         "reglas": "Reglas configurables",
         "consultas": "Gestión de consultas",
         "analytics": "Analytics",
-        "deploy": "Deploy productivo"
+        "deploy": "En producción"
       }
     },
     "ecommerce": {
@@ -89,13 +90,16 @@
       "titulo": "Login con Sistema de Roles",
       "desc": "Aplicación de escritorio creada con Java y Swing, utilizando arquitectura por capas. Incluye validación de usuario, roles dinámicos y vistas específicas. Permite CRUD de usuarios con refresco automático."
     },
-    "devdaily": {
-      "titulo": "DevDaily – App Móvil Multiplataforma & API",
-      "desc": "Aplicación móvil multiplataforma orientada al aprendizaje continuo de desarrolladores. Permite acceder a contenido técnico diario, desafíos y preguntas de entrevista mediante una experiencia personalizada. Cuenta con una API REST desarrollada en Spring Boot, autenticación JWT, gestión de favoritos, preferencias de usuario y sistema de recomendaciones basado en intereses."
+    "devbloom": {
+      "titulo": "DevBloom – Plataforma de Microaprendizaje & API",
+      "subtitulo": "Plataforma Full Stack de microaprendizaje para desarrolladores.",
+      "desc": "Aplicación multiplataforma orientada al aprendizaje continuo para desarrolladores. Ofrece contenido técnico personalizado, quiz diario, gamificación mediante XP, niveles y rachas, favoritos, historial, estadísticas de progreso y autenticación JWT."
     },
     "tecnologias": "Tecnologías:",
     "botones": {
       "ver": "Ver Proyecto",
+      "demo": "Ver demo",
+      "codigo": "Código",
       "proximamente": "Próximamente en GitHub",
       "sistema_privado": "Proyecto Laboral • En Producción"
     }

@@ -16,7 +16,7 @@
         <div class="proyectos-grid">
           <ProyectoCard v-for="(proyecto, index) in proyectosLaborales" :key="'laboral-' + index"
             :titulo="proyecto.titulo" :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes"
-            :link="proyecto.link" :video="proyecto.video" :tecnologias="proyecto.tecnologias"
+            :link="proyecto.link" :demo="proyecto.demo" :github="proyecto.github" :video="proyecto.video" :tecnologias="proyecto.tecnologias"
             :esLaboral="proyecto.esLaboral" :badgeText="proyecto.badgeText" />
         </div>
       </div>
@@ -33,6 +33,7 @@
           :subtitulo="proyectoNomida.subtitulo"
           :descripcion="proyectoNomida.descripcion"
           :badgeText="proyectoNomida.badgeText"
+          :demo="proyectoNomida.demo"
           :link="proyectoNomida.link"
           :imagenes="proyectoNomida.imagenes"
           :nombresVistas="proyectoNomida.nombresVistas"
@@ -43,7 +44,7 @@
         <div class="proyectos-grid">
           <ProyectoCard v-for="(proyecto, index) in proyectosDestacados" :key="'destacado-' + index"
             :titulo="proyecto.titulo" :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes"
-            :link="proyecto.link" :video="proyecto.video" :tecnologias="proyecto.tecnologias" />
+            :link="proyecto.link" :demo="proyecto.demo" :github="proyecto.github" :video="proyecto.video" :tecnologias="proyecto.tecnologias" />
         </div>
       </div>
 
@@ -55,7 +56,7 @@
         <div class="proyectos-grid">
           <ProyectoCard v-for="(proyecto, index) in otrosProyectos" :key="'otro-' + index" :titulo="proyecto.titulo"
             :descripcion="proyecto.descripcion" :imagenes="proyecto.imagenes" :link="proyecto.link"
-            :video="proyecto.video" :tecnologias="proyecto.tecnologias" />
+            :demo="proyecto.demo" :github="proyecto.github" :video="proyecto.video" :tecnologias="proyecto.tecnologias" />
         </div>
       </div>
     </div>
@@ -76,6 +77,7 @@ const proyectoNomida = computed(() => ({
   subtitulo: t('proyectos.nomida.subtitulo'),
   descripcion: t('proyectos.nomida.desc'),
   badgeText: t('proyectos.nomida.badge_destacado'),
+  demo: 'https://nomida.com.ar/',
   link: 'https://nomida.com.ar/',
   imagenes: [
     './img/nomida/dashboard.png',
@@ -105,7 +107,7 @@ const proyectoNomida = computed(() => ({
     { icono: './img/logos/logofastapi.svg', nombre: 'FastAPI' },
     { icono: './img/logos/postgresql.png', nombre: 'PostgreSQL' },
     { icono: './img/logos/docker.png', nombre: 'Docker' },
-    { icono: './img/logos/whatsapp.svg', nombre: 'WhatsApp Cloud API / Meta' },
+    { icono: './img/logos/whatsapp.svg', nombre: 'WhatsApp Cloud API' },
   ],
 }))
 
@@ -137,6 +139,7 @@ const proyectosLaborales = computed(() => [
       './img/geoportal/geoportal4.png',
     ],
     link: 'https://geoportal.cordoba.gob.ar/',
+    demo: 'https://geoportal.cordoba.gob.ar/',
     esLaboral: true,
     badgeText: 'Municipalidad de Córdoba • GIS',
     tecnologias: [
@@ -152,8 +155,8 @@ const proyectosLaborales = computed(() => [
 
 const proyectosDestacados = computed(() => [
   {
-    titulo: t('proyectos.devdaily.titulo'),
-    descripcion: t('proyectos.devdaily.desc'),
+    titulo: t('proyectos.devbloom.titulo'),
+    descripcion: t('proyectos.devbloom.desc'),
     imagenes: [
       './img/proyecto9/devbloom 0.png',
       './img/proyecto9/devbloom 1.png',
@@ -162,14 +165,19 @@ const proyectosDestacados = computed(() => [
       './img/proyecto9/devbloom 4.png',
       './img/proyecto9/devbloom 5.png',
     ],
+    demo: 'https://devbloom-f2981.web.app/',
+    github: 'https://github.com/dakoo096/devdaily',
     link: 'https://github.com/dakoo096/devdaily',
     tecnologias: [
-      { icono: './img/logos/ionic_logo.png', nombre: 'Ionic' },
-      { icono: './img/logos/vue.png', nombre: 'Vue.js' },
-      { icono: './img/logos/pinia.png', nombre: 'Pinia' },
-      { icono: './img/logos/java.png', nombre: 'Java' },
+      { icono: './img/logos/java.png', nombre: 'Java 21' },
       { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
       { icono: './img/logos/springsecurity.png', nombre: 'Spring Security' },
+      { icono: './img/logos/vue.png', nombre: 'Vue 3' },
+      { icono: './img/logos/ionic_logo.png', nombre: 'Ionic' },
+      { icono: './img/logos/typescript.svg', nombre: 'TypeScript' },
+      { icono: './img/logos/postgresql.png', nombre: 'PostgreSQL' },
+      { icono: './img/logos/docker.png', nombre: 'Docker' },
+      { icono: './img/logos/pinia.png', nombre: 'Pinia' },
     ],
   },
   {

@@ -12,9 +12,9 @@
   },
   "acerca_de_mi": {
     "titulo": "About Me",
-    "p1": "I am a Full Stack Developer from Argentina focused on creating and maintaining functional and scalable web applications. I currently work at the Municipality of Córdoba, participating in the development of internal systems and integrating both frontend and backend solutions. I have practical experience working with different technologies and collaborating in multidisciplinary teams to optimize processes and improve user experience.",
-    "p2": "My profile is complemented by strong organizational skills, problem-solving abilities, and adaptability to new challenges, strengthened by both my technical background and my previous experience in the administrative area. Additionally, I enjoy learning new technologies and applying development best practices to build clear, stable, and well-structured solutions.",
-    "p3": "I graduated as a Web Development and Digital Applications Technician and I continue training constantly to keep growing professionally and expand my knowledge in software development.",
+    "p1": "I am a Full Stack Developer with experience developing and maintaining web applications in production. I currently work as part of the development team at the Municipality of Córdoba, working mainly with Vue 3, TypeScript, Python/FastAPI, and PostgreSQL.",
+    "p2": "I also build end-to-end projects of my own using Python/FastAPI and Java/Spring Boot, implementing REST APIs, authentication, data persistence, migrations, Docker, and live deployments. I am particularly interested in backend development and building full stack solutions, pairing my Vue frontend experience with different backend ecosystems according to project needs.",
+    "p3": "I enjoy problem-solving, learning new technologies, and taking an idea all the way from development to production. I look to continue growing in projects where I can deepen my backend knowledge while contributing a well-rounded Full Stack perspective.",
     "status_card": {
       "titulo": "STATUS",
       "disponible": "Available",
@@ -34,7 +34,8 @@
     "categorias": {
       "frontend": "Frontend",
       "backend": "Backend",
-      "herramientas": "Tools & Databases",
+      "bd": "Databases & Persistence",
+      "herramientas": "Tools & DevOps",
       "testing": "Testing / QA",
       "otros": "Game Development / 3D Design"
     }
@@ -58,15 +59,15 @@
       "titulo": "NOMIDA Automations",
       "subtitulo": "Automation Platform for WhatsApp Business",
       "badge_destacado": "FEATURED PROJECT · FULL STACK",
-      "badge_desarrollo": "IN ACTIVE DEVELOPMENT",
-      "desc": "NOMIDA Automations is a multi-tenant automation platform for WhatsApp Business oriented to businesses. It allows configuring automated responses, managing customer inquiries, administering conversation rules, and analyzing commercial interactions from a centralized dashboard.",
+      "badge_desarrollo": "IN PRODUCTION",
+      "desc": "Multi-tenant Full Stack platform to automate customer service for businesses via WhatsApp Business. Allows configuring automated responses, managing inquiries, administering conversation rules, and analyzing commercial interactions. Integrates WhatsApp Cloud API and role-based authentication.",
       "features": {
         "multitenant": "Multi-tenant architecture",
         "whatsapp": "WhatsApp Cloud API",
         "reglas": "Configurable rules",
         "consultas": "Inquiry management",
         "analytics": "Analytics",
-        "deploy": "Production deploy"
+        "deploy": "In production"
       }
     },
     "ecommerce": {
@@ -89,13 +90,16 @@
       "titulo": "Login with Role System",
       "desc": "Desktop application created with Java and Swing, using layered architecture. Includes user validation, dynamic roles, and specific views. Allows user CRUD with automatic refresh."
     },
-    "devdaily": {
-      "titulo": "DevDaily – Multiplatform Mobile App & API",
-      "desc": "Cross-platform mobile application oriented toward continuous learning for developers. Allows access to daily technical content, challenges, and interview questions through a personalized experience. Features a REST API developed in Spring Boot, JWT authentication, favorites management, user preferences, and an interest-based recommendation system."
+    "devbloom": {
+      "titulo": "DevBloom – Microlearning Platform & API",
+      "subtitulo": "Full Stack microlearning platform for developers.",
+      "desc": "Cross-platform application oriented toward continuous learning for developers. Features personalized technical content, daily quizzes, gamification with XP, levels and streaks, favorites, history, progress statistics, and JWT authentication."
     },
     "tecnologias": "Technologies:",
     "botones": {
       "ver": "View Project",
+      "demo": "Live Demo",
+      "codigo": "GitHub",
       "proximamente": "Coming soon to GitHub",
       "sistema_privado": "Work Project • Live System"
     }
