@@ -15,16 +15,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, nextTick, defineAsyncComponent } from 'vue'
 import HeaderComponent from './components/MiHeader.vue'
 import BackToTop from './components/BackToTop.vue'
 import AcercaDeMi from './components/AcercaDeMi.vue'
-import MiStack from './components/MiStack.vue'
-import MisProyectos from './components/MisProyectos.vue'
 import FooterComponent from './components/MiFooter.vue'
-import Contacto from './components/MiContacto.vue'
 import LoadingScreen from './components/LoadingScreen.vue'
-import PetMascot from './components/PetMascot.vue'
+
+// Lazy loading con defineAsyncComponent para secciones below-the-fold
+const MiStack = defineAsyncComponent(() => import('./components/MiStack.vue'))
+const MisProyectos = defineAsyncComponent(() => import('./components/MisProyectos.vue'))
+const Contacto = defineAsyncComponent(() => import('./components/MiContacto.vue'))
+const PetMascot = defineAsyncComponent(() => import('./components/PetMascot.vue'))
 
 const isLoading = ref(true)
 const progress = ref(0)
@@ -47,10 +49,7 @@ const waitForVideo = (video) =>
 onMounted(async () => {
   await nextTick()
 
-  const isDark = localStorage.getItem('darkMode') === 'true'
-  const heroVideo = document.querySelector(
-    isDark ? '.portada-video-dark' : '.portada-video-light',
-  )
+  const heroVideo = document.querySelector('.portada-video')
   const heroImg = document.querySelector('.floating-img')
 
   const assets = [heroVideo, heroImg].filter(Boolean)

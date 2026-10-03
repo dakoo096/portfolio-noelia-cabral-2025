@@ -79,16 +79,18 @@ section,
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 50%;
   height: 100%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateX(-150%);
   animation: shine-move 2s ease;
+  will-change: transform;
 }
 
 @keyframes shine-move {
   to {
-    left: 120%;
+    transform: translateX(350%);
   }
 }
 

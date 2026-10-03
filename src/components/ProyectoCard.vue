@@ -22,22 +22,23 @@
         class="proyecto-imagen"
         loading="lazy"
         decoding="async"
-        width="600"
-        height="340"
+        width="640"
+        height="360"
       />
 
       <button class="flecha flecha-izq" @click.stop="imagenAnterior" aria-label="Imagen anterior">‹</button>
       <button class="flecha flecha-der" @click.stop="imagenSiguiente" aria-label="Imagen siguiente">›</button>
 
       <div class="indicadores">
-        <span
+        <button
           v-for="(img, i) in imagenes"
           :key="i"
+          type="button"
           class="punto"
           :class="{ activo: i === indiceActual }"
           @click.stop="irAImagen(i)"
-          :aria-label="'Ir a imagen ' + (i + 1)"
-        ></span>
+          :aria-label="'Ir a imagen ' + (i + 1) + ' de ' + titulo"
+        ></button>
       </div>
     </div>
 
@@ -71,6 +72,7 @@
             :href="demo"
             target="_blank"
             rel="noopener noreferrer"
+            :aria-label="$t('proyectos.botones.demo') + ' - ' + titulo"
           >
             <i class="bx bx-link-external icon-btn"></i>
             {{ $t('proyectos.botones.demo') }}
@@ -81,6 +83,7 @@
             :href="github"
             target="_blank"
             rel="noopener noreferrer"
+            :aria-label="$t('proyectos.botones.codigo') + ' - ' + titulo"
           >
             <i class="bx bxl-github icon-btn"></i>
             {{ $t('proyectos.botones.codigo') }}
@@ -93,6 +96,7 @@
             :href="link"
             target="_blank"
             rel="noopener noreferrer"
+            :aria-label="$t('proyectos.botones.ver') + ' - ' + titulo"
           >
             <i class="bx bx-link-external icon-btn"></i>
             {{ $t('proyectos.botones.ver') }}
@@ -356,6 +360,8 @@ const modalAnterior = () => {
   width: 10px;
   height: 10px;
   background: #d1d1d1;
+  border: none;
+  padding: 0;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.2s;

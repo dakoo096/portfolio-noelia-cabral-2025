@@ -2,14 +2,14 @@
   <nav class="navbar navbar-expand-lg" :class="{ scrolled: scrolled }">
     <div class="container-fluid px-3">
       <!-- Logo Brand -->
-      <a class="navbar-brand d-flex align-items-center" href="#" @click.prevent="scrollToSection('body')">
+      <a class="navbar-brand d-flex align-items-center" href="#" @click.prevent="scrollToSection('body')" aria-label="Noelia Cabral - Inicio">
         <span class="logo-initials">NC</span>
         <span class="logo-name">Noelia Cabral</span>
       </a>
 
       <!-- Botón hamburguesa -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        aria-controls="navbarNav" aria-expanded="false" :aria-label="currentLang === 'es' ? 'Abrir menú de navegación' : 'Toggle navigation menu'">
         <span class="navbar-toggler-icon"></span>
       </button>
 

@@ -1,14 +1,19 @@
 <template>
   <NavbarComponent />
   <div class="portada animate__animated animate__fadeIn">
-    <!-- Video de fondo (MP4 en modo claro) -->
-    <video class="portada-video portada-video-light" autoplay loop muted playsinline preload="metadata">
-      <source src="/img/videoPortada.mp4" type="video/mp4" />
-    </video>
-
-    <!-- Video de fondo (MP4 en modo oscuro) -->
-    <video class="portada-video portada-video-dark" autoplay loop muted playsinline preload="metadata">
-      <source src="/img/videoPortadadarkMode.mp4" type="video/mp4" />
+    <!-- Video de fondo (MP4 optimizado: se descarga únicamente el correspondiente al tema activo) -->
+    <video
+      ref="heroVideoRef"
+      class="portada-video"
+      :class="isDark ? 'portada-video-dark' : 'portada-video-light'"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      :key="isDark ? 'video-dark' : 'video-light'"
+    >
+      <source :src="isDark ? '/portfolio-noelia-cabral-2025/img/videoPortadadarkMode.mp4' : '/portfolio-noelia-cabral-2025/img/videoPortada.mp4'" type="video/mp4" />
     </video>
 
     <!-- Texto Portada -->
@@ -40,7 +45,7 @@
           href="https://github.com/dakoo096"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Perfil de GitHub de Noelia Cabral"
+          aria-label="Perfil de GitHub de Noelia Cabral (Cabecera)"
         >
           <img src="/img/githubfooter.webp" alt="GitHub" width="45" height="45" loading="eager" decoding="async" />
         </a>
@@ -50,7 +55,7 @@
           href="https://www.linkedin.com/in/noelia-cabral-381723140"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Perfil de LinkedIn de Noelia Cabral"
+          aria-label="Perfil de LinkedIn de Noelia Cabral (Cabecera)"
         >
           <img src="/img/linkedinfooter.webp" alt="LinkedIn" width="45" height="45" loading="eager" decoding="async" />
         </a>
@@ -59,7 +64,7 @@
         <a
           href="./img/cv/Cv_Cabral_Noelia_2026.pdf"
           download
-          aria-label="Descargar Curriculum Vitae"
+          aria-label="Descargar Curriculum Vitae de Noelia Cabral (Cabecera)"
         >
           <img src="/img/cv.webp" alt="CV" width="45" height="45" loading="eager" decoding="async" />
         </a>
@@ -70,7 +75,29 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import NavbarComponent from './MiNavbar.vue'
+
+const heroVideoRef = ref(null)
+const isDark = ref(false)
+let bodyObserver = null
+
+onMounted(() => {
+  isDark.value =
+    document.body.classList.contains('dark-mode') ||
+    localStorage.getItem('darkMode') === 'true'
+
+  bodyObserver = new MutationObserver(() => {
+    isDark.value = document.body.classList.contains('dark-mode')
+  })
+  bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] })
+})
+
+onBeforeUnmount(() => {
+  if (bodyObserver) {
+    bodyObserver.disconnect()
+  }
+})
 </script>
 
 <style scoped>
@@ -90,14 +117,7 @@ import NavbarComponent from './MiNavbar.vue'
   height: 100%;
   object-fit: cover;
   z-index: 0 !important;
-}
-
-.portada-video-light {
   display: block;
-}
-
-.portada-video-dark {
-  display: none;
 }
 
 .portada::before {
@@ -153,6 +173,9 @@ import NavbarComponent from './MiNavbar.vue'
 
 .container-portada-img img {
   height: 32rem;
+  width: auto;
+  aspect-ratio: 422 / 540;
+  object-fit: contain;
 }
 
 /* Redes sociales */
@@ -221,10 +244,13 @@ import NavbarComponent from './MiNavbar.vue'
   }
 }
 
-/* Animaciones de texto */
+/* Animaciones de texto (GPU composited con clip-path) */
 @keyframes typing {
   from {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
   }
 }
 
@@ -246,6 +272,9 @@ import NavbarComponent from './MiNavbar.vue'
 
   .container-portada-img img {
     height: 45vw;
+    width: auto;
+    aspect-ratio: 422 / 540;
+    object-fit: contain;
   }
 
   .redes img {
@@ -265,6 +294,9 @@ import NavbarComponent from './MiNavbar.vue'
 
   .container-portada-img img {
     height: 18rem;
+    width: auto;
+    aspect-ratio: 422 / 540;
+    object-fit: contain;
   }
 
   .container-portada h1 {
@@ -304,6 +336,9 @@ import NavbarComponent from './MiNavbar.vue'
 
   .container-portada-img img {
     height: 40vw;
+    width: auto;
+    aspect-ratio: 422 / 540;
+    object-fit: contain;
   }
 
   .redes {
@@ -340,14 +375,6 @@ import NavbarComponent from './MiNavbar.vue'
 }
 
 /* ===== DARK MODE: PORTADA ===== */
-:global(body.dark-mode) .portada-video-light {
-  display: none !important;
-}
-
-:global(body.dark-mode) .portada-video-dark {
-  display: block !important;
-}
-
 :global(body.dark-mode) .portada::before {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(9, 9, 11, 0.95) 100%) !important;
   opacity: 1 !important;

@@ -140,7 +140,6 @@ onMounted(() => {
   }
 
   ctx = particleCanvas.value.getContext('2d')
-  handleResize()
   window.addEventListener('resize', handleResize, { passive: true })
 
   parent = particleCanvas.value.parentElement
@@ -154,8 +153,13 @@ onMounted(() => {
       (entries) => {
         const entry = entries[0]
         isVisible = entry.isIntersecting
-        if (isVisible && !animationId) {
-          animate()
+        if (isVisible) {
+          if (particles.length === 0) {
+            handleResize()
+          }
+          if (!animationId) {
+            animate()
+          }
         } else if (!isVisible && animationId) {
           cancelAnimationFrame(animationId)
           animationId = null
@@ -166,6 +170,7 @@ onMounted(() => {
     observer.observe(particleCanvas.value)
   } else {
     isVisible = true
+    handleResize()
     animate()
   }
 })

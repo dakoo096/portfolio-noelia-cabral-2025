@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'animate.css'
-import 'boxicons/css/boxicons.min.css'
+import './assets/animations.css'
+import './assets/boxicons.min.css'
 
 import './assets/main.css'
 import router from './router'
@@ -18,11 +18,21 @@ app.use(router)
 
 app.mount('#app')
 
-// Inicialización AOS optimizada para móviles
-AOS.init({
-  duration: 500, // Animación más rápida = más fluida
-  easing: 'ease-out-cubic', // Transición suave y liviana
-  once: true, // Evita que se repita en cada scroll (clave en mobile)
-  offset: 80, // Empieza antes = se siente más responsivo
-  mirror: false, // Evita animaciones al subir (pesado en mobile)
-})
+// Inicialización diferida de AOS para no competir con el First Contentful Paint ni generar forced reflow
+const initAOS = () => {
+  AOS.init({
+    duration: 500, // Animación más rápida = más fluida
+    easing: 'ease-out-cubic', // Transición suave y liviana
+    once: true, // Evita que se repita en cada scroll (clave en mobile)
+    offset: 80, // Empieza antes = se siente más responsivo
+    mirror: false, // Evita animaciones al subir (pesado en mobile)
+  })
+}
+
+if (typeof window !== 'undefined') {
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(initAOS, { timeout: 1500 })
+  } else {
+    setTimeout(initAOS, 500)
+  }
+}

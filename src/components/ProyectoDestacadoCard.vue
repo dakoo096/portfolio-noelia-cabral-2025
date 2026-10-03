@@ -3,17 +3,9 @@
     <!-- Carrusel / Preview a la izquierda en Desktop, arriba en Mobile -->
     <div class="carousel-container destacado-carousel" @click="abrirModal">
       <!-- Imagen real si cargó con éxito -->
-      <img
-        v-if="!imagenError[indiceActual]"
-        :src="imagenes[indiceActual]"
-        :alt="titulo + ' - Vista ' + (indiceActual + 1)"
-        class="proyecto-imagen destacado-imagen"
-        loading="lazy"
-        decoding="async"
-        width="600"
-        height="380"
-        @error="onImageError(indiceActual)"
-      />
+      <img v-if="!imagenError[indiceActual]" :src="imagenes[indiceActual]"
+        :alt="titulo + ' - Vista ' + (indiceActual + 1)" class="proyecto-imagen destacado-imagen" loading="lazy"
+        decoding="async" width="600" height="380" @error="onImageError(indiceActual)" />
 
       <!-- Fallback elegante y limpio si el archivo aún no existe en assets -->
       <div v-else class="destacado-fallback">
@@ -32,31 +24,19 @@
       </div>
 
       <!-- Flechas del carrusel -->
-      <button
-        class="flecha flecha-izq"
-        @click.stop="imagenAnterior"
-        :aria-label="'Imagen anterior'"
-      >
+      <button class="flecha flecha-izq" @click.stop="imagenAnterior" :aria-label="'Imagen anterior'">
         ‹
       </button>
-      <button
-        class="flecha flecha-der"
-        @click.stop="imagenSiguiente"
-        :aria-label="'Imagen siguiente'"
-      >
+      <button class="flecha flecha-der" @click.stop="imagenSiguiente" :aria-label="'Imagen siguiente'">
         ›
       </button>
 
       <!-- Indicadores de puntos -->
       <div class="indicadores">
-        <span
-          v-for="(img, i) in imagenes"
-          :key="i"
-          class="punto"
-          :class="{ activo: i === indiceActual }"
-          @click.stop="irAImagen(i)"
-          :title="nombresVistas[i] || ('Vista ' + (i + 1))"
-        ></span>
+        <button v-for="(img, i) in imagenes" :key="i" type="button" class="punto"
+          :class="{ activo: i === indiceActual }" @click.stop="irAImagen(i)"
+          :aria-label="'Ir a imagen ' + (i + 1) + ' de ' + titulo"
+          :title="nombresVistas[i] || ('Vista ' + (i + 1))"></button>
       </div>
     </div>
 
@@ -93,15 +73,8 @@
         <span class="tecnologias-leyenda">{{ $t('proyectos.tecnologias') }}</span>
         <div class="tecnologias-iconos">
           <div v-for="(tech, idx) in tecnologias" :key="idx" class="tech-icono-wrapper">
-            <img
-              :src="tech.icono"
-              :alt="tech.nombre"
-              class="tech-icono"
-              loading="lazy"
-              decoding="async"
-              width="24"
-              height="24"
-            />
+            <img :src="tech.icono" :alt="tech.nombre" class="tech-icono" loading="lazy" decoding="async" width="24"
+              height="24" />
             <span class="tech-tooltip">{{ tech.nombre }}</span>
           </div>
         </div>
@@ -109,23 +82,13 @@
 
       <!-- Botones CTA -->
       <div class="proyecto-buttons destacado-buttons">
-        <a
-          v-if="esDemoValido"
-          class="proyecto-link destacado-cta"
-          :href="urlDemo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a v-if="esDemoValido" class="proyecto-link destacado-cta" :href="urlDemo" target="_blank"
+          rel="noopener noreferrer" :aria-label="$t('proyectos.botones.demo') + ' - ' + titulo">
           <i class="bx bx-link-external icon-btn"></i>
           {{ $t('proyectos.botones.demo') }}
         </a>
-        <a
-          v-if="esGithubValido"
-          class="proyecto-link destacado-cta"
-          :href="github"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a v-if="esGithubValido" class="proyecto-link destacado-cta" :href="github" target="_blank"
+          rel="noopener noreferrer" :aria-label="$t('proyectos.botones.codigo') + ' - ' + titulo">
           <i class="bx bxl-github icon-btn"></i>
           {{ $t('proyectos.botones.codigo') }}
         </a>
@@ -141,12 +104,8 @@
           <div class="modal-carrusel">
             <button class="modal-flecha izquierda" @click="modalAnterior" aria-label="Anterior">‹</button>
 
-            <img
-              v-if="!imagenError[modalIndice]"
-              :src="imagenes[modalIndice]"
-              :alt="titulo + ' ampliado'"
-              class="modal-imagen-grande"
-            />
+            <img v-if="!imagenError[modalIndice]" :src="imagenes[modalIndice]" :alt="titulo + ' ampliado'"
+              class="modal-imagen-grande" />
             <div v-else class="destacado-fallback modal-fallback">
               <div class="fallback-content">
                 <i class="bx bx-layout fallback-icon"></i>
@@ -506,23 +465,37 @@ const modalAnterior = () => {
 }
 
 .pulse-dot {
+  position: relative;
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: #10b981;
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
-  animation: pulse-green 2s infinite;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.6);
+  animation: pulse-green 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes pulse-green {
   0% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    transform: scale(1);
+    opacity: 0.8;
   }
+
   70% {
-    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    transform: scale(2.4);
+    opacity: 0;
   }
+
   100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    transform: scale(2.4);
+    opacity: 0;
   }
 }
 
@@ -793,6 +766,7 @@ const modalAnterior = () => {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -816,6 +790,7 @@ const modalAnterior = () => {
     transform: scale(0.95);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;

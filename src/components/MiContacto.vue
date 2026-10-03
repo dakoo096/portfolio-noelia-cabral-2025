@@ -19,7 +19,7 @@
           alt="caricatura señalando a la derecha del formulario"
           class="floating-img"
           width="422"
-          height="570"
+          height="571"
           loading="lazy"
           decoding="async"
         />
@@ -97,16 +97,29 @@
               <a
                 href="https://www.linkedin.com/in/noelia-cabral-381723140"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="social-btn"
+                aria-label="Perfil de LinkedIn de Noelia Cabral (Contacto)"
               >
                 <i class="bx bxl-linkedin"></i>
                 <span>LinkedIn</span>
               </a>
-              <a href="https://github.com/dakoo096" target="_blank" class="social-btn">
+              <a
+                href="https://github.com/dakoo096"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-btn"
+                aria-label="Perfil de GitHub de Noelia Cabral (Contacto)"
+              >
                 <i class="bx bxl-github"></i>
                 <span>GitHub</span>
               </a>
-              <a href="./img/cv/Cv_Cabral_Noelia_2026.pdf" download class="social-btn cv-btn">
+              <a
+                href="./img/cv/Cv_Cabral_Noelia_2026.pdf"
+                download
+                class="social-btn cv-btn"
+                aria-label="Descargar Curriculum Vitae de Noelia Cabral (Contacto)"
+              >
                 <i class="bx bx-download"></i>
                 <span>{{ $t('contacto.descargar_cv') }}</span>
               </a>
@@ -349,6 +362,8 @@ onMounted(() => {
   bottom: 0;
   left: 0;
   height: 35rem;
+  width: auto;
+  aspect-ratio: 1024 / 1385;
   max-width: 100%;
   object-fit: contain;
   z-index: 1;

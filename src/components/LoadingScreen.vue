@@ -122,6 +122,19 @@ watch(
 
 .pixel-bar-fill {
   height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.3s ease-out;
+  box-shadow: 0 0 10px rgba(243, 140, 190, 0.6);
+}
+
+.pixel-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -32px;
+  width: calc(100% + 64px);
+  height: 100%;
   background: repeating-linear-gradient(
     90deg,
     #f38cbe 0px,
@@ -129,18 +142,16 @@ watch(
     #e8b7cf 8px,
     #e8b7cf 16px
   );
-  background-size: 32px 100%;
   animation: loading-stripe-move 0.6s linear infinite;
-  transition: width 0.3s ease-out;
-  box-shadow: 0 0 10px rgba(243, 140, 190, 0.6);
+  will-change: transform;
 }
 
 @keyframes loading-stripe-move {
   0% {
-    background-position: 0 0;
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    background-position: 32px 0;
+    transform: translate3d(32px, 0, 0);
   }
 }
 
