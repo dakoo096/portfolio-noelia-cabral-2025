@@ -2,40 +2,47 @@
   <nav class="navbar navbar-expand-lg" :class="{ scrolled: scrolled }">
     <div class="container-fluid px-3">
       <!-- Logo Brand -->
-      <a class="navbar-brand d-flex align-items-center" href="#" @click.prevent="scrollToSection('body')" aria-label="Noelia Cabral - Inicio">
+      <a class="navbar-brand d-flex align-items-center" href="#" @click.prevent="handleNavClick('body')" aria-label="Noelia Cabral - Inicio">
         <span class="logo-initials">NC</span>
         <span class="logo-name">Noelia Cabral</span>
       </a>
 
       <!-- Botón hamburguesa -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" :aria-label="currentLang === 'es' ? 'Abrir menú de navegación' : 'Toggle navigation menu'">
+      <button
+        class="navbar-toggler"
+        :class="{ collapsed: !isMenuOpen }"
+        type="button"
+        @click="toggleMenu"
+        aria-controls="navbarNav"
+        :aria-expanded="isMenuOpen"
+        :aria-label="isMenuOpen ? (currentLang === 'es' ? 'Cerrar menú de navegación' : 'Close navigation menu') : (currentLang === 'es' ? 'Abrir menú de navegación' : 'Open navigation menu')"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- Links -->
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="collapse navbar-collapse justify-content-end" :class="{ show: isMenuOpen }" id="navbarNav">
         <ul class="navbar-nav align-items-center">
           <li class="nav-item">
-            <a class="nav-link" href="#" @click.prevent="scrollToSection('body')">{{
+            <a class="nav-link" href="#" @click.prevent="handleNavClick('body')">{{
               $t('navbar.inicio')
             }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#acerca-de-mi" @click.prevent="scrollToSection('#acerca-de-mi')">{{
+            <a class="nav-link" href="#acerca-de-mi" @click.prevent="handleNavClick('#acerca-de-mi')">{{
               $t('navbar.acerca_de_mi') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#mi-stack" @click.prevent="scrollToSection('#mi-stack')">{{
+            <a class="nav-link" href="#mi-stack" @click.prevent="handleNavClick('#mi-stack')">{{
               $t('navbar.mis_habilidades')
             }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#mis-proyectos" @click.prevent="scrollToSection('#mis-proyectos')">{{
+            <a class="nav-link" href="#mis-proyectos" @click.prevent="handleNavClick('#mis-proyectos')">{{
               $t('navbar.mis_proyectos') }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contacto" @click.prevent="scrollToSection('#contacto')">{{
+            <a class="nav-link" href="#contacto" @click.prevent="handleNavClick('#contacto')">{{
               $t('navbar.contacto')
             }}</a>
           </li>
@@ -55,7 +62,7 @@
           <li class="nav-item d-flex align-items-center">
             <button
               class="dark-mode-btn"
-              @click="toggleDarkMode($event)"
+              @click="toggleDarkMode"
               :aria-label="isDark ? 'Activar modo claro' : 'Activar modo oscuro'"
             >
               <i :class="['bx', isDark ? 'bx-sun' : 'bx-moon']"></i>
@@ -74,80 +81,45 @@ import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
 const isDark = ref(false)
 const scrolled = ref(false)
+const isMenuOpen = ref(false)
 
 const currentLang = computed(() => locale.value)
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
+
+const closeMenu = () => {
+  isMenuOpen.value = false
+}
+
+const handleNavClick = (targetSelector) => {
+  closeMenu()
+  scrollToSection(targetSelector)
+}
+
+const handleClickOutside = (event) => {
+  const navbar = document.querySelector('.navbar')
+  if (isMenuOpen.value && navbar && !navbar.contains(event.target)) {
+    closeMenu()
+  }
+}
+
+const handleResize = () => {
+  if (window.innerWidth >= 992 && isMenuOpen.value) {
+    closeMenu()
+  }
+}
 
 const toggleLanguage = () => {
   locale.value = locale.value === 'es' ? 'en' : 'es'
   localStorage.setItem('language', locale.value)
 }
 
-const toggleDarkMode = (event) => {
-  const rect = event?.currentTarget?.getBoundingClientRect()
-  const x = rect ? rect.left + rect.width / 2 : event?.clientX ?? window.innerWidth / 2
-  const y = rect ? rect.top + rect.height / 2 : event?.clientY ?? window.innerHeight / 2
-
-  const endRadius = Math.hypot(
-    Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y)
-  )
-
-  const applyTheme = () => {
-    isDark.value = !isDark.value
-    document.body.classList.toggle('dark-mode', isDark.value)
-    localStorage.setItem('darkMode', isDark.value)
-  }
-
-  // 1. Lanzar la animación visual (Aparece -> Implosiona -> Explosión)
-  triggerThemeExplosion(x, y, !isDark.value)
-
-  // 2. Coordinar el cambio de tema justo en la implosión (450ms)
-  setTimeout(() => {
-    if (document.startViewTransition) {
-      const transition = document.startViewTransition(() => {
-        applyTheme()
-      })
-
-      transition.ready.then(() => {
-        document.documentElement.animate(
-          {
-            clipPath: [
-              `circle(0px at ${x}px ${y}px)`,
-              `circle(${endRadius}px at ${x}px ${y}px)`,
-            ],
-          },
-          {
-            duration: 850,
-            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            pseudoElement: '::view-transition-new(root)',
-          }
-        )
-      })
-    } else {
-      applyTheme()
-    }
-  }, 450)
-}
-
-const triggerThemeExplosion = (x, y, goingDark) => {
-  const overlay = document.createElement('div')
-  overlay.className = 'theme-explosion-overlay'
-  overlay.style.left = `${x}px`
-  overlay.style.top = `${y}px`
-
-  overlay.style.background = goingDark
-    ? 'radial-gradient(circle, #ffffff 0%, #f38cbe 25%, #a855f7 50%, #6366f1 75%, #09090b 100%)'
-    : 'radial-gradient(circle, #ffffff 0%, #f38cbe 30%, #e3c3e8 60%, #f8f9fa 100%)'
-
-  document.body.appendChild(overlay)
-
-  requestAnimationFrame(() => {
-    overlay.classList.add('active')
-  })
-
-  setTimeout(() => {
-    overlay.remove()
-  }, 1350)
+const toggleDarkMode = () => {
+  isDark.value = !isDark.value
+  document.body.classList.toggle('dark-mode', isDark.value)
+  localStorage.setItem('darkMode', isDark.value)
 }
 
 let ticking = false
@@ -199,11 +171,15 @@ onMounted(() => {
   document.body.classList.toggle('dark-mode', saved)
 
   window.addEventListener('scroll', handleScroll, { passive: true })
+  document.addEventListener('click', handleClickOutside)
+  window.addEventListener('resize', handleResize)
   handleScroll() // Trigger initially to catch load state
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
+  document.removeEventListener('click', handleClickOutside)
+  window.removeEventListener('resize', handleResize)
 })
 </script>
 
@@ -426,6 +402,28 @@ body.dark-mode .dark-mode-btn:hover {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
+/* Botón hamburguesa */
+.navbar-toggler {
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  transition: all 0.25s ease;
+  background: transparent;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(243, 140, 190, 0.35);
+  outline: none;
+}
+
+body.dark-mode .navbar-toggler {
+  border-color: #475569;
+}
+
+body.dark-mode .navbar-toggler-icon {
+  filter: invert(1) brightness(1.8);
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .navbar.scrolled {
@@ -435,12 +433,21 @@ body.dark-mode .dark-mode-btn:hover {
   }
 
   .navbar-collapse {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     text-align: center;
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 1rem;
-    margin-top: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  body.dark-mode .navbar-collapse {
+    background-color: rgba(24, 24, 27, 0.98);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
 
   .navbar-nav {

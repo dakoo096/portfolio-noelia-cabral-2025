@@ -166,8 +166,7 @@ const proyectosDestacados = computed(() => [
       './img/proyecto9/devbloom 5.webp',
     ],
     demo: 'https://devbloom-f2981.web.app/',
-    github: 'https://github.com/dakoo096/devdaily',
-    link: 'https://github.com/dakoo096/devdaily',
+    link: 'https://devbloom-f2981.web.app/',
     tecnologias: [
       { icono: './img/logos/java.png', nombre: 'Java 21' },
       { icono: './img/logos/springboot.png', nombre: 'Spring Boot' },
